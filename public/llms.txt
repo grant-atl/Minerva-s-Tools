@@ -1,0 +1,251 @@
+# Minerva Tools — Free Design Utilities
+
+> A growing collection of free, focused design utilities for designers and developers. No sign-up required.
+
+## Available Tools
+
+### Color Palette Generator
+- URL: /tools/palette
+- Generate harmonious 5-color palettes using multiple harmony modes (random, analogous, complementary, triadic, split-complementary, monochromatic)
+- Lock/unlock individual colors during regeneration
+- Copy colors as HEX, RGB, or HSL
+- Built-in WCAG contrast checker with pair-wise analysis
+- Custom color input via HEX or color picker
+
+### QR Code Generator
+- URL: /tools/qr-code
+- Create customizable QR codes for URLs, WiFi, and more
+- Download as PNG or SVG
+
+### Gradient Generator
+- URL: /tools/gradient
+- Build linear, radial, and conic CSS gradients with a visual editor
+- Copy generated CSS code
+
+### Contrast Checker
+- URL: /tools/contrast
+- Test WCAG AA & AAA color contrast compliance
+- Real-time foreground/background preview
+
+### Box Shadow Generator
+- URL: /tools/box-shadow
+- Design CSS box shadows with a visual multi-layer editor
+- Add up to 8 shadow layers with full control over offset, blur, spread, color, opacity, and inset
+- 8 built-in presets (Subtle, Elevated, Sharp, Dreamy, Neumorphic, Layered, Colorful, Deep)
+- Copy generated CSS code
+
+### Typography Scale
+- URL: /tools/typography-scale
+- Generate harmonious type scales with modular ratios (Minor Second through Golden Ratio)
+- Live preview with 30+ Google Fonts (Sans Serif, Serif, Monospace, Display)
+- Export as CSS custom properties or Tailwind config
+- 4 presets: UI, Editorial, Marketing, Compact
+
+### Favicon Generator
+- URL: /tools/favicon
+- Create favicons from images, text/letter, or emoji
+- Three input modes: Image upload (PNG/SVG/JPG), Text/Letter (custom font + colors), Emoji picker
+- Generates all required sizes: favicon.ico (16+32+48), favicon-16x16.png, favicon-32x32.png, apple-touch-icon (180×180), android-chrome (192×192, 512×512)
+- Outputs ready-to-use site.webmanifest and HTML <head> snippet
+- Controls for background color, border radius (0–50%), and padding (0–30%)
+- Live preview grid showing all sizes
+- Download individual files or complete ZIP package
+
+### Font Pairing
+- URL: /tools/font-pairing
+- Discover beautiful font combinations with 30+ Google Fonts and custom uploads
+- Preview in realistic layouts (hero, article, UI cards)
+- 8 curated presets (Classic Editorial, Modern SaaS, etc.)
+- Export as CSS custom properties or Tailwind config
+
+### SVG to CSS Converter
+- URL: /tools/svg-to-css
+- Convert SVG markup to CSS background-image data URIs
+- Paste SVG code or upload/drag-and-drop .svg files
+- Minimal encoding (short) or full URI encoding (max compatibility)
+- Live preview and one-click CSS copy
+
+### Meta Tag Preview
+- URL: /tools/meta-preview
+- Preview how your page appears on Google search, Twitter/X cards, and Slack unfurls
+- Enter title, description, URL, site name, and OG image
+- Live previews for all three platforms in tabbed view
+- Generates complete Open Graph and Twitter Card meta tags
+- One-click copy of generated HTML meta tags
+- Tips for optimal title length, description length, and image dimensions
+
+### Spacing Calculator
+- URL: /tools/spacing
+- Generate consistent spacing scales for design systems
+- Base unit input with linear (base × n) or geometric (base × ratio^n) progression
+- Presets: Material Design (4px grid), Tailwind Default, Bootstrap, 8pt Grid, Golden Ratio, Major Third
+- Visual bar and box previews for evaluating proportions
+- Export as CSS custom properties or Tailwind config
+- Toggle between px and rem output
+
+### Color Blindness Simulator
+- URL: /tools/color-blindness
+- Simulate how designs appear to people with color vision deficiency
+- Three modes: color swatches, image upload, and live website preview (iframe)
+- 8 CVD types: Protanopia, Deuteranopia, Tritanopia, Achromatopsia, Protanomaly, Deuteranomaly, Tritanomaly
+- Side-by-side comparison of normal vs. simulated vision
+- Uses Brettel/Viénot color matrices and SVG filters
+- Overview grid showing all CVD types at a glance
+
+### Tailwind Color Finder
+- URL: /tools/tailwind-color
+- Find the nearest Tailwind CSS color class for any HEX or RGB color
+- Top 5 matches with similarity percentage using perceptual color distance
+- Copy class names as bg-, text-, or border- prefixes
+- Batch mode: paste up to 20 colors and get all matches at once
+- Full palette browser with all 22 hues × 11 shades (242 colors)
+- Tailwind CSS v3 default palette
+
+### Glassmorphism Generator
+- URL: /tools/glassmorphism
+- Create frosted-glass UI effects with CSS backdrop-filter
+- Visual editor with sliders for blur, opacity, saturation, border, radius, and shadow
+- 6 presets: Subtle, Frosted, Bold, Dark Glass, Colorful, Minimal
+- Live preview against a vibrant gradient background with decorative shapes
+- One-click CSS copy with backdrop-filter, -webkit-backdrop-filter, border, and box-shadow
+
+### Neumorphism Generator
+- URL: /tools/neumorphism
+- Build soft raised and pressed neumorphic UI surfaces with live preview
+- Controls for light direction, distance, blur, spread, intensity, radius, width, and height
+- Separate color controls for background, surface, light shadow, and dark shadow
+- Presets for quick starting points (Soft Card, Subtle, Pressed, Slate, Candy)
+- One-click copy of clean, production-ready CSS
+
+### Aspect Ratio Calculator
+- URL: /tools/aspect-ratio
+- Simplify width/height dimensions into reduced ratio form (e.g., 1920×1080 → 16:9)
+- Calculate missing dimensions from known width or height while preserving ratio
+- Presets for common formats (1:1, 4:3, 16:9, 21:9, 9:16, 4:5, 2:1)
+- Decimal and inverse decimal ratio output
+- One-click copy for ratio strings and CSS `aspect-ratio` snippet
+
+### px ↔ rem Converter
+- URL: /tools/px-rem
+- Instantly convert between px and rem CSS units
+- Configurable base font size (default 16px)
+- Quick-reference table with 20 common px values and their rem equivalents
+- Batch mode: convert up to 50 values at once (px→rem or rem→px)
+- One-click copy for individual values or all results
+
+### Lorem Ipsum Generator
+- URL: /tools/lorem-ipsum
+- Generate placeholder text with 6 fun styles: Classic, Hipster, Pirate, Corporate, Space, Foodie
+- Output as paragraphs (1–10), sentences (1–30), or words (1–200)
+- Real-time word and character count
+- Regenerate for fresh variations
+- One-click copy to clipboard
+
+### Flexbox Generator
+- URL: /tools/flexbox
+- Visual Flexbox layout controls (direction, justify-content, align-items, wrapping, gap)
+- Live preview canvas with adjustable item count
+- One-click copy of generated CSS container rules
+
+### Grid Generator
+- URL: /tools/grid
+- Build CSS Grid templates with column/row/gap controls
+- Align-items and justify-items toggles with live preview
+- Copy-ready CSS output for grid container setup
+
+### Border Radius Generator
+- URL: /tools/border-radius
+- Independent corner controls for TL/TR/BR/BL radius values
+- Presets for common and stylized corner shapes
+- Live shape preview + one-click CSS copy
+
+### Clamp Calculator
+- URL: /tools/clamp-calculator
+- Generate fluid CSS `clamp()` expressions from min/max values and viewport bounds
+- Supports px or rem output modes
+- Displays slope/intercept values used in the computed expression
+
+### Image Color Picker
+- URL: /tools/image-color-picker
+- Upload images and click to sample exact pixel colors
+- Automatic dominant palette extraction
+- One-click HEX copy for sampled and extracted colors
+
+### Color Converter
+- URL: /tools/color-converter
+- Real-time conversion between HEX, RGB, and HSL
+- Synchronized editable fields with validation
+- Color swatch preview + per-format copy actions
+
+### SVG to PNG Converter
+- URL: /tools/svg-to-png
+- Convert pasted SVG markup or uploaded SVG files to PNG
+- Custom output width and height controls
+- Client-side conversion and direct PNG download
+
+### SVG Blob & Pattern Generator
+- URL: /tools/svg-blob-pattern
+- Generate organic blob SVGs and repeating pattern SVGs
+- Controls for points, variance, colors, tile size, gap, and shape
+- Copy raw SVG or download generated asset file
+
+### JSON Formatter & Validator
+- URL: /tools/json-formatter
+- Pretty-print JSON with 2-space or 4-space indentation
+- Minify JSON output for compact transport
+- Inline validation with parse error feedback
+
+### Base64 Encoder/Decoder
+- URL: /tools/base64
+- Encode UTF-8 text to Base64
+- Decode Base64 back to UTF-8 text
+- Instant mode switch with copyable output
+
+### URL Encoder/Decoder
+- URL: /tools/url-encode
+- Encode URL components for safe query/string transport
+- Decode encoded URL content back to readable text
+- Supports quick copy of transformed output
+
+### UUID Generator
+- URL: /tools/uuid
+- Generate UUID v4 identifiers in bulk (up to 100 at once)
+- Copy individual UUIDs or all generated UUIDs
+- Instant regeneration for fresh ID sets
+
+### Regex Tester & Replacer
+- URL: /tools/regex-tester
+- Test JavaScript regex patterns and flags with live validation
+- Inspect match positions and captured groups
+- Preview replacement output with support for $&, $1, and related replacement tokens
+
+### JWT Decoder & Inspector
+- URL: /tools/jwt-decoder
+- Decode JWT header and payload sections client-side
+- Inspect standard claims including exp, iat, and nbf with readable timestamps
+- Copy decoded JSON for debugging auth integrations
+- Note: decoding only; signature verification is not performed
+
+### Hash Generator
+- URL: /tools/hash-generator
+- Generate MD5, SHA-1, SHA-256, and SHA-512 hashes from text input
+- Output in both HEX and Base64 formats
+- One-click copy for either output format
+
+### Unix Timestamp Converter
+- URL: /tools/unix-timestamp
+- Convert epoch timestamps (seconds or milliseconds) to local, UTC, and ISO date-time
+- Convert date-time input back to epoch seconds and milliseconds
+- Quick copy for converted epoch values
+
+### Cron Expression Builder
+- URL: /tools/cron-builder
+- Build and validate 5-field cron expressions
+- Supports wildcard, ranges, lists, and step syntax
+- Includes plain-language schedule summary
+- Shows next upcoming run times in local and ISO format
+
+## Technical Details
+- All tools run client-side — no data is sent to servers
+- Built with React, TypeScript, and Tailwind CSS
+- Responsive design for desktop and mobile

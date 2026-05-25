@@ -1,0 +1,5 @@
+# Minerva Tools — LLM Index
+
+Primary machine-readable inventory: /llms.txt
+
+This file exists as a compatibility alias for crawlers or agents that request `llm.txt`.
