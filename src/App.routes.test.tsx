@@ -73,5 +73,10 @@ describe("App routes", () => {
     expect(
       screen.getByRole("link", { name: /format and validate json/i }),
     ).toHaveAttribute("href", "/tools/json-formatter");
+    expect(document.head.querySelector('meta[name="robots"]')).toHaveAttribute(
+      "content",
+      "noindex, follow",
+    );
+    expect(screen.queryByText(/ads keep us free/i)).not.toBeInTheDocument();
   });
 });

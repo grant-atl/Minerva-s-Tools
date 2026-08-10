@@ -65,6 +65,7 @@ export default function NotFound() {
         title="404 — Page Not Found | Minerva"
         description="The page you're looking for doesn't exist. Head back to Minerva's free design tools."
         canonical="/404"
+        noIndex
       />
       <HomeNav variant="dark" />
 

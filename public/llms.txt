@@ -307,6 +307,7 @@
 
 ## Technical Details
 - Core tool inputs and transformations are processed locally in the browser
-- The site separately uses Google Tag Manager, Analytics, AdSense, and Google Fonts as disclosed in /privacy
+- The site does not load analytics or advertising scripts
+- Font Pairing and Typography Scale can request optional previews from Google Fonts as disclosed in /privacy
 - Built with React, TypeScript, and Tailwind CSS
 - Responsive design for desktop and mobile

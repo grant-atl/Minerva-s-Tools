@@ -51,7 +51,6 @@ export default function Win98Desktop() {
   const [windows, setWindows] = useState<WindowState[]>([]);
   const [activeWindowId, setActiveWindowId] = useState<string | null>(null);
   const [startMenuOpen, setStartMenuOpen] = useState(false);
-  const [adDismissed, setAdDismissed] = useState(false);
   const dragRef = useRef<{
     id: string;
     offsetX: number;
@@ -61,45 +60,6 @@ export default function Win98Desktop() {
 
   const availableTools = tools.filter((t) => t.tier === 1);
   const comingSoonTools = tools.filter((t) => t.tier !== 1);
-
-  // Show ad popup after 3 seconds
-  useEffect(() => {
-    if (adDismissed) return;
-    const timer = setTimeout(() => {
-      openAdWindow();
-    }, 3000);
-    return () => clearTimeout(timer);
-  }, [adDismissed]);
-
-  const openAdWindow = () => {
-    const existing = windows.find((w) => w.id === "ad-popup");
-    if (existing) {
-      setWindows((prev) =>
-        prev.map((w) =>
-          w.id === "ad-popup"
-            ? { ...w, visible: true, minimized: false, zIndex: ++zCounter }
-            : w
-        )
-      );
-      setActiveWindowId("ad-popup");
-      return;
-    }
-    const newWin: WindowState = {
-      id: "ad-popup",
-      title: "⚠️ Special Offer!!!",
-      route: "",
-      x: Math.random() * 200 + 100,
-      y: Math.random() * 100 + 50,
-      width: 340,
-      height: 220,
-      zIndex: ++zCounter,
-      visible: true,
-      minimized: false,
-      maximized: false,
-    };
-    setWindows((prev) => [...prev, newWin]);
-    setActiveWindowId("ad-popup");
-  };
 
   const openWindow = useCallback(
     (tool: Tool) => {
@@ -137,7 +97,6 @@ export default function Win98Desktop() {
   );
 
   const closeWindow = (id: string) => {
-    if (id === "ad-popup") setAdDismissed(true);
     setWindows((prev) => prev.filter((w) => w.id !== id));
     if (activeWindowId === id) setActiveWindowId(null);
   };
@@ -323,15 +282,11 @@ export default function Win98Desktop() {
                 </div>
               </div>
               <div className="win98-content">
-                {win.id === "ad-popup" ? (
-                  <AdWindowContent onClose={() => closeWindow("ad-popup")} />
-                ) : (
-                  <iframe
-                    src={win.route}
-                    title={win.title}
-                    className="win98-iframe"
-                  />
-                )}
+                <iframe
+                  src={win.route}
+                  title={win.title}
+                  className="win98-iframe"
+                />
               </div>
             </div>
           );
@@ -399,37 +354,6 @@ export default function Win98Desktop() {
           </div>
         </div>
       )}
-    </div>
-  );
-}
-
-function AdWindowContent({ onClose }: { onClose: () => void }) {
-  return (
-    <div style={{ padding: 12, fontFamily: "'MS Sans Serif', sans-serif", fontSize: 11, textAlign: "center" }}>
-      <h3 style={{ fontSize: 14, marginBottom: 8, color: "#ff0000" }}>
-        🎉 CONGRATULATIONS!!! 🎉
-      </h3>
-      <p style={{ marginBottom: 6 }}>
-        You are the 1,000,000th visitor!
-      </p>
-      <p style={{ marginBottom: 12, fontSize: 10 }}>
-        Just kidding. But Minerva's tools are actually free. No catch.
-      </p>
-      <div className="win98-marquee" style={{ fontSize: 10, color: "#0000ff", marginBottom: 12, overflow: "hidden", whiteSpace: "nowrap" }}>
-        <span className="win98-marquee-text">★ Free design tools ★ No account ★ Tool inputs stay local ★</span>
-      </div>
-      <button
-        style={{
-          background: "#c0c0c0",
-          border: "1px outset #c0c0c0",
-          padding: "4px 16px",
-          cursor: "pointer",
-          fontSize: 11,
-        }}
-        onClick={onClose}
-      >
-        OK, I get it
-      </button>
     </div>
   );
 }

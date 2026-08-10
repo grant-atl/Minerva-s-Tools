@@ -7,6 +7,7 @@ interface SEOProps {
   canonical?: string;
   ogImage?: string;
   type?: string;
+  noIndex?: boolean;
 }
 
 export default function SEO({
@@ -15,6 +16,7 @@ export default function SEO({
   canonical,
   ogImage = "https://minervas.tools/og-image.png",
   type = "website",
+  noIndex = false,
 }: SEOProps) {
   const url = resolveCanonicalUrl(canonical);
 
@@ -22,6 +24,7 @@ export default function SEO({
     <Helmet>
       <title>{title}</title>
       <meta name="description" content={description} />
+      {noIndex && <meta name="robots" content="noindex, follow" />}
       <link rel="canonical" href={url} />
 
       <meta property="og:title" content={title} />

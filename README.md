@@ -68,7 +68,7 @@ Tool pages use shared SEO and structured-data components while keeping task-spec
 
 ## Privacy
 
-Tool inputs—including uploaded images, text, code, colors, and generated output—are processed locally and are not intentionally sent to Minerva Tools servers. The site separately loads Google Tag Manager, Google Analytics, Google AdSense, and Google Fonts; those services can receive site-usage, cookie or identifier, and standard network information. See the live [Privacy Policy](https://minervas.tools/privacy) for details and available controls.
+Tool inputs—including selected images, text, code, colors, and generated output—are processed locally and are not intentionally sent to Minerva Tools servers. The site does not load analytics or advertising scripts. The font-pairing and typography tools can request optional previews from Google Fonts; see the live [Privacy Policy](https://minervas.tools/privacy) for details.
 
 ## Contributing and source status
 

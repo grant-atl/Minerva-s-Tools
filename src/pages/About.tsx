@@ -36,7 +36,7 @@ export default function About() {
         <h2 className={sectionTitle}>What We Believe</h2>
         <ul className="grid gap-2">
           <li className={valueCard}>
-            <span className="text-sm text-white/80"><strong className="text-white">Privacy-conscious by design.</strong> Tool inputs stay in your browser; site analytics, advertising, and remote fonts are disclosed in the Privacy Policy.</span>
+            <span className="text-sm text-white/80"><strong className="text-white">Privacy-conscious by design.</strong> Tool inputs stay in your browser, with no analytics or advertising scripts. Optional font-preview requests are disclosed in the Privacy Policy.</span>
           </li>
           <li className={valueCard}>
             <span className="text-sm text-white/80"><strong className="text-white">No gatekeeping.</strong> Core tools are free, forever. No sign-up walls.</span>
@@ -51,11 +51,10 @@ export default function About() {
       </section>
 
       <section className="space-y-4">
-        <h2 className={sectionTitle}>Sustainability</h2>
+        <h2 className={sectionTitle}>Independent and Free</h2>
         <p className={bodyText}>
-          Minerva Tools is sustained by unobtrusive advertising. We keep ads minimal and
-          clearly separated from the tools themselves. If you find the tools useful, simply using
-          them with ads visible is enough to support continued development.
+          Minerva Tools is an independent project. The current utilities are free to use, do not
+          require accounts, and are not supported by advertising or behavioral tracking.
         </p>
       </section>
 

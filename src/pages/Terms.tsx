@@ -30,8 +30,8 @@ export default function Terms() {
         <p className={bodyText}>
           Minerva Tools provides free, browser-based design utilities including color
           palette generators, gradient builders, contrast checkers, QR code generators, and other
-          tools. Core tool inputs and transformations are handled in your browser. The site also
-          uses the third-party services disclosed in the Privacy Policy.
+          tools. Core tool inputs and transformations are handled in your browser. Limited hosting
+          and optional font-preview requests are described in the Privacy Policy.
         </p>
       </section>
 

@@ -389,16 +389,3 @@
     bottom: 36px;
   }
 }
-
-/* ===== MARQUEE ===== */
-.win98-marquee {
-  overflow: hidden;
-}
-.win98-marquee-text {
-  display: inline-block;
-  animation: win98-scroll 8s linear infinite;
-}
-@keyframes win98-scroll {
-  0% { transform: translateX(100%); }
-  100% { transform: translateX(-100%); }
-}
