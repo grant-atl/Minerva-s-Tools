@@ -8,12 +8,12 @@ export default function Terms() {
   return (
     <InfoPageLayout
       title="Terms of Use"
-      description="Terms governing your use of Minerva Tools — free, client-side design utilities provided as-is."
-      updatedAt="April 1, 2026"
+      description="Terms governing your use of Minerva Tools — free, browser-based design utilities provided as-is."
+      updatedAt="August 10, 2026"
     >
       <SEO
         title="Terms of Use — Minerva Tools"
-        description="Terms of use for Minerva Tools. Free, client-side design utilities provided as-is."
+        description="Terms of use for Minerva Tools. Free, browser-based design utilities provided as-is."
         canonical="/terms"
       />
 
@@ -30,15 +30,17 @@ export default function Terms() {
         <p className={bodyText}>
           Minerva Tools provides free, browser-based design utilities including color
           palette generators, gradient builders, contrast checkers, QR code generators, and other
-          tools. All processing occurs client-side in your browser.
+          tools. Core tool inputs and transformations are handled in your browser. The site also
+          uses the third-party services disclosed in the Privacy Policy.
         </p>
       </section>
 
       <section className="space-y-4">
-        <h2 className={sectionTitle}>3. Use License</h2>
+        <h2 className={sectionTitle}>3. Use of Tools and Output</h2>
         <p className={bodyText}>
-          You are granted a non-exclusive, royalty-free license to use the tools and download any
-          outputs (images, code, files) they generate for personal and commercial purposes.
+          You may use the tools and download their generated outputs (images, code, and files) for
+          personal or commercial projects. This permission does not grant rights to the Minerva
+          Tools source code, branding, or third-party materials.
         </p>
       </section>
 

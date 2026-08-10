@@ -416,7 +416,7 @@ function AdWindowContent({ onClose }: { onClose: () => void }) {
         Just kidding. But Minerva's tools are actually free. No catch.
       </p>
       <div className="win98-marquee" style={{ fontSize: 10, color: "#0000ff", marginBottom: 12, overflow: "hidden", whiteSpace: "nowrap" }}>
-        <span className="win98-marquee-text">★ Free design tools ★ No sign-up ★ 100% client-side ★ Privacy first ★</span>
+        <span className="win98-marquee-text">★ Free design tools ★ No account ★ Tool inputs stay local ★</span>
       </div>
       <button
         style={{

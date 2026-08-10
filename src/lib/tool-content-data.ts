@@ -49,7 +49,7 @@ export const contrastContent: ToolContentData = {
 
 export const qrCodeContent: ToolContentData = {
   about: `
-<p>Minerva's QR Code Generator creates high-quality, customizable QR codes for URLs, plain text, WiFi credentials, email addresses, and phone numbers. Every code is generated entirely in your browser — no data ever leaves your device.</p>
+<p>Minerva's QR Code Generator creates high-quality, customizable QR codes for URLs, plain text, WiFi credentials, email addresses, and phone numbers. QR content and uploaded logos are processed in your browser rather than uploaded by the tool.</p>
 <p>Customize the appearance with foreground and background colors, adjust error correction levels, and add your own logo or image to the center. Choose from multiple pattern styles to match your brand, and preview the result in real time before downloading.</p>
 <p>Download your finished QR code as a high-resolution PNG or scalable SVG. Whether you're creating codes for business cards, product packaging, or marketing materials, this tool gives you full control over the output with zero cost and zero sign-up.</p>
   `,
@@ -57,7 +57,7 @@ export const qrCodeContent: ToolContentData = {
     { q: "What content types can I encode?", a: "The generator supports URLs, plain text, WiFi network credentials (SSID, password, encryption type), email addresses (with optional subject/body), and phone numbers." },
     { q: "Can I add a logo to the QR code?", a: "Yes. Upload any image (PNG, JPG, or SVG) to place it in the center of your QR code. The error correction level adjusts automatically to ensure the code remains scannable." },
     { q: "What's the difference between PNG and SVG download?", a: "PNG is a raster format best for digital use at a specific size. SVG is a vector format that scales to any size without quality loss — ideal for print materials." },
-    { q: "Is my data sent to a server?", a: "No. All QR code generation happens client-side in your browser. Your data never leaves your device." },
+    { q: "Is my QR code content sent to a server?", a: "No. The tool generates the code in your browser and does not upload the content or logo you provide." },
   ],
 };
 
@@ -107,10 +107,10 @@ export const fontPairingContent: ToolContentData = {
   about: `
 <p>The Font Pairing Tool helps designers and developers find beautiful heading and body font combinations that work together. Choose from 30+ popular Google Fonts across Sans Serif, Serif, Monospace, and Display categories, or upload your own custom font files.</p>
 <p>Preview your chosen pair in realistic layouts — hero sections, article pages, and UI cards — so you can evaluate readability and visual rhythm before committing. Eight curated presets like "Classic Editorial" and "Modern SaaS" provide professional starting points for common design contexts.</p>
-<p>Upload custom fonts in .woff2, .ttf, or .otf format and they load instantly in your browser using the FontFace API — no data ever leaves your device. When you've found the right pair, export the configuration as CSS custom properties or Tailwind CSS config with one click.</p>
+<p>Upload custom fonts in .woff2, .ttf, or .otf format and they load locally through the browser's FontFace API. Uploaded font files are not sent by the tool; selecting a Google Font makes a separate request to Google Fonts. When you've found the right pair, export the configuration as CSS custom properties or Tailwind CSS config with one click.</p>
   `,
   faqs: [
-    { q: "Can I upload my own fonts?", a: "Yes. Click 'Upload custom font' in either the heading or body font picker. The tool accepts .woff2, .ttf, and .otf files. Fonts are loaded entirely in your browser using the FontFace API — nothing is uploaded to a server." },
+    { q: "Can I upload my own fonts?", a: "Yes. Click 'Upload custom font' in either the heading or body font picker. The tool accepts .woff2, .ttf, and .otf files and loads them locally through the browser's FontFace API." },
     { q: "How many Google Fonts are available?", a: "Over 30 popular Google Fonts are included across four categories: Sans Serif, Serif, Monospace, and Display. Fonts load on demand for fast preview." },
     { q: "What export formats are supported?", a: "You can export your font pairing as CSS custom properties (with font-family variables and selectors) or as a Tailwind CSS config object ready to paste into your project." },
     { q: "What makes a good font pairing?", a: "Contrast is key — pair a distinctive heading font (like a serif or display face) with a clean, readable body font (like a sans-serif). The presets demonstrate proven combinations that balance personality with readability." },
@@ -121,13 +121,13 @@ export const svgToCssContent: ToolContentData = {
   about: `
 <p>The SVG to CSS Converter turns SVG markup into a CSS background-image data URI you can paste directly into your stylesheet. Instead of hosting a separate image file, embed the SVG inline as a data URI — reducing HTTP requests and simplifying deployment.</p>
 <p>Paste SVG code or upload an .svg file, and the tool instantly encodes it into a compact data URI with a live preview. Choose between mini-encoding (shorter output optimized for modern CSS) or full URI encoding (maximum compatibility). The generated CSS includes background-repeat, background-size, and background-position properties for a ready-to-use snippet.</p>
-<p>Everything runs client-side — your SVG never leaves your browser. Drag-and-drop upload, one-click copy, and instant feedback make it the fastest way to inline SVGs in CSS.</p>
+<p>SVG input and encoding stay in your browser rather than being uploaded by the tool. Drag-and-drop upload, one-click copy, and immediate feedback make it a focused way to inline SVGs in CSS.</p>
   `,
   faqs: [
     { q: "What's the difference between mini and full encoding?", a: "Mini encoding uses a specialized SVG data URI encoder to produce compact, modern-browser-safe output. Full URI encoding (encodeURIComponent) escapes more characters for maximum compatibility with older tools and email clients." },
     { q: "Why use a data URI instead of an external SVG file?", a: "Data URIs eliminate an extra HTTP request, which can improve performance for small icons and decorative elements. They're also useful when you can't host files separately, like in some CMS environments or email templates." },
     { q: "Is there a size limit for SVG data URIs?", a: "Browsers support data URIs up to at least 2 MB. However, for SVGs larger than a few KB, consider using an external file or an inline <svg> element instead for better performance." },
-    { q: "Is my SVG sent to a server?", a: "No. All encoding and preview rendering happens entirely in your browser. Your SVG data never leaves your device." },
+    { q: "Is my SVG sent to a server?", a: "No. The tool encodes and previews your SVG locally in the browser instead of uploading it." },
   ],
 };
 
@@ -135,13 +135,13 @@ export const metaPreviewContent: ToolContentData = {
   about: `
 <p>The Meta Tag Preview tool shows you exactly how your page will appear when shared on Google, Twitter/X, and Slack — before you publish. Enter your title, description, URL, and OG image, and see live previews that match each platform's actual rendering.</p>
 <p>Getting Open Graph and Twitter Card meta tags right is critical for click-through rates. A compelling title, concise description, and properly sized image can dramatically increase engagement when your content is shared on social media or appears in search results.</p>
-<p>The tool also generates the complete set of meta tags you need — just copy and paste the HTML into your page's &lt;head&gt;. Everything runs client-side with no data sent to any server.</p>
+<p>The tool also generates the complete set of meta tags you need — just copy and paste the HTML into your page's &lt;head&gt;. Preview inputs are handled locally rather than submitted by the tool.</p>
   `,
   faqs: [
     { q: "What are Open Graph meta tags?", a: "Open Graph (OG) tags are HTML meta tags that control how your page appears when shared on social media platforms like Facebook, LinkedIn, and Slack. They define the title, description, image, and URL shown in link previews." },
     { q: "What size should my OG image be?", a: "The recommended size is 1200×630 pixels (1.91:1 aspect ratio). This works well across all major platforms. Use PNG or JPG format for best compatibility." },
     { q: "Do I need separate Twitter Card tags?", a: "Not always. Twitter/X will fall back to Open Graph tags if no twitter: specific tags are present. However, adding twitter:card, twitter:title, and twitter:image gives you more control over the Twitter preview." },
-    { q: "Is my data sent to a server?", a: "No. All previews are rendered entirely in your browser. Your titles, descriptions, and images never leave your device." },
+    { q: "Are my preview inputs sent to a server?", a: "No. The tool renders the title, description, URL, and image preview locally in your browser." },
   ],
 };
 
@@ -149,7 +149,7 @@ export const aspectRatioContent: ToolContentData = {
   about: `
 <p>The Aspect Ratio Calculator helps you simplify, convert, and scale width-to-height proportions for responsive layouts, media assets, and design specs. Enter any dimensions to reduce them to the cleanest ratio form instantly.</p>
 <p>Use common presets like 16:9, 4:3, 1:1, and 9:16, then calculate missing dimensions from either width or height while preserving the selected ratio. This makes it easy to size videos, images, cards, embeds, and ad units consistently.</p>
-<p>The tool also generates copy-ready CSS <code>aspect-ratio</code> values and decimal equivalents, so you can move directly from design to implementation. Everything runs client-side with zero data sent to any server.</p>
+<p>The tool also generates copy-ready CSS <code>aspect-ratio</code> values and decimal equivalents, so you can move directly from design to implementation. Dimension calculations happen locally in your browser.</p>
   `,
   faqs: [
     { q: "What is an aspect ratio?", a: "An aspect ratio is the proportional relationship between width and height, written like 16:9 or 4:3. It describes shape, not absolute size." },
@@ -169,7 +169,7 @@ export const spacingCalcContent: ToolContentData = {
     { q: "What's the difference between linear and geometric scales?", a: "Linear scales grow by a fixed amount (e.g. 4, 8, 12, 16). Geometric scales grow by a ratio (e.g. 4, 6.5, 10.5, 17), creating more contrast between small and large values — useful for expressive designs." },
     { q: "Which preset should I use?", a: "Material Design (4px grid) is the most popular for web and mobile apps. Tailwind Default matches the framework's built-in spacing. Bootstrap matches its spacing utilities. Golden Ratio creates a more dramatic, organic progression." },
     { q: "What export formats are available?", a: "You can export as CSS custom properties (--space-1, --space-2, etc.) or as a Tailwind CSS spacing config object ready to paste into tailwind.config.js." },
-    { q: "Is my data sent to a server?", a: "No. All calculations happen entirely in your browser. Nothing leaves your device." },
+    { q: "Are my scale settings uploaded?", a: "No. The tool calculates spacing values locally in your browser." },
   ],
 };
 
@@ -177,13 +177,13 @@ export const colorBlindnessContent: ToolContentData = {
   about: `
 <p>The Color Blindness Simulator helps designers and developers understand how their work appears to people with color vision deficiency (CVD). Approximately 8% of males and 0.5% of females have some form of color blindness — making accessible color choices essential for inclusive design.</p>
 <p>Test individual colors side-by-side, upload images to see them filtered through different CVD types, or load a live website to preview it in real time. The tool supports all major CVD types: protanopia, deuteranopia, tritanopia, achromatopsia, and their partial variants (anomalies).</p>
-<p>All simulations use established color matrix algorithms (Brettel/Viénot) and run entirely in your browser via SVG filters — no data is sent to any server. Use this alongside the Contrast Checker to ensure your designs are truly accessible.</p>
+<p>Color and uploaded-image simulations use established color matrix algorithms (Brettel/Viénot) and run in your browser through SVG filters. Website mode separately requests the URL you enter in an iframe when that site permits embedding. Use this alongside the Contrast Checker to evaluate accessible color choices.</p>
   `,
   faqs: [
     { q: "What types of color blindness does this simulate?", a: "Eight types: Protanopia (no red), Deuteranopia (no green), Tritanopia (no blue), Achromatopsia (total color blindness), plus the partial variants Protanomaly, Deuteranomaly, and Tritanomaly." },
     { q: "How accurate are the simulations?", a: "The tool uses Brettel/Viénot color transformation matrices, which are the industry standard for CVD simulation. They provide a close approximation of how colors appear to people with each condition." },
     { q: "Why won't some websites load in the Website tab?", a: "Many websites set X-Frame-Options or Content-Security-Policy headers that prevent them from being loaded in iframes. If a site doesn't load, take a screenshot and use the Image tab instead." },
-    { q: "Is my data sent to a server?", a: "No. All simulations happen entirely in your browser using SVG filters and JavaScript color math. Images and URLs are processed locally." },
+    { q: "Is my data sent to a server?", a: "Uploaded images and color values are processed locally by the tool. Website mode loads the URL directly from that site's origin, so the destination receives a normal browser request." },
   ],
 };
 
@@ -191,7 +191,7 @@ export const tailwindColorFinderContent: ToolContentData = {
   about: `
 <p>The Tailwind Color Finder matches any HEX or RGB color to the nearest Tailwind CSS utility class. Paste a brand color and instantly see the closest Tailwind match with a similarity percentage — no more guessing which shade of blue-500 or indigo-600 is the best fit.</p>
 <p>The tool ranks the top 5 nearest matches using a perceptually weighted color distance algorithm, so results feel accurate to the human eye. Copy class names in bg-, text-, or border- format with one click. Use batch mode to convert an entire color palette at once — perfect for migrating designs into Tailwind projects.</p>
-<p>Browse the complete Tailwind v3 palette (22 hues × 11 shades = 242 colors) in the full palette view. Everything runs client-side with zero data sent to any server.</p>
+<p>Browse the complete Tailwind v3 palette (22 hues × 11 shades = 242 colors) in the full palette view. Color matching and batch input are processed locally in your browser.</p>
   `,
   faqs: [
     { q: "What color formats are supported?", a: "HEX (#3B82F6 or 3B82F6), shorthand HEX (#38f), and RGB (rgb(59, 130, 246)) are all supported." },
@@ -247,7 +247,7 @@ export const loremIpsumContent: ToolContentData = {
   about: `
 <p>The Lorem Ipsum Generator creates placeholder text for your designs and mockups. Choose from six fun styles — Classic Latin, Hipster, Pirate, Corporate Jargon, Space, and Foodie — to match the tone of your project or just have a laugh while prototyping.</p>
 <p>Select paragraphs, sentences, or words as your output unit and dial in the exact amount with a slider. Hit Regenerate for fresh variations with the same settings. The word and character count updates in real time so you can hit exact content targets.</p>
-<p>Copy the generated text with one click. Everything runs client-side — no data is sent to any server.</p>
+<p>Copy the generated text with one click. Text generation and settings are processed locally in your browser.</p>
   `,
   faqs: [
     { q: "What text styles are available?", a: "Six styles: Classic (traditional Lorem Ipsum vocabulary), Hipster (artisan coffee culture), Pirate (nautical adventure), Corporate (business jargon), Space (cosmic exploration), and Foodie (culinary terms)." },

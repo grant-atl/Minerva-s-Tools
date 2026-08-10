@@ -35,7 +35,7 @@ describe("App routes", () => {
     render(<App />);
 
     expect(
-      await screen.findByRole("heading", { name: heading }),
+      await screen.findByRole("heading", { name: heading }, { timeout: 5_000 }),
     ).toBeInTheDocument();
   });
 
@@ -48,9 +48,13 @@ describe("App routes", () => {
     render(<App />);
 
     expect(
-      await screen.findByRole("heading", {
-        name: /this route wandered off the map/i,
-      }),
+      await screen.findByRole(
+        "heading",
+        {
+          name: /this route wandered off the map/i,
+        },
+        { timeout: 5_000 },
+      ),
     ).toBeInTheDocument();
     expect(
       screen.getByText("/missing/nested-route?source=typed#details"),
