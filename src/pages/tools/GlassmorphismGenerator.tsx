@@ -92,7 +92,7 @@ export default function GlassmorphismGenerator() {
             "@context": "https://schema.org",
             "@type": "WebApplication",
             name: "Glassmorphism Generator",
-            url: "https://www.minerva.tools/tools/glassmorphism",
+            url: "https://minervas.tools/tools/glassmorphism",
             applicationCategory: "DesignApplication",
             operatingSystem: "Any",
             offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },

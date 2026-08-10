@@ -86,7 +86,7 @@ const inputModeIcons: Record<InputMode, React.ElementType> = {
 export default function QRCodeGenerator() {
   /* Input state */
   const [mode, setMode] = useState<InputMode>("url");
-  const [urlValue, setUrlValue] = useState("https://www.minerva.tools");
+  const [urlValue, setUrlValue] = useState("https://minervas.tools");
   const [textValue, setTextValue] = useState("");
   const [wifiData, setWifiData] = useState<WifiData>({
     ssid: "",
@@ -118,7 +118,7 @@ export default function QRCodeGenerator() {
   const encodedValue = useMemo(() => {
     switch (mode) {
       case "url":
-        return urlValue || "https://www.minerva.tools";
+        return urlValue || "https://minervas.tools";
       case "text":
         return textValue || "Hello World";
       case "wifi":

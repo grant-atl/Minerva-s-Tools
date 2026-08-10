@@ -16,18 +16,18 @@ const spotlightStats = [
     Icon: SquaresFour,
   },
   {
-    label: "Avg. Launch Time",
-    value: "< 1s",
+    label: "Access",
+    value: "No Account",
     Icon: Lightning,
   },
   {
-    label: "All Client Side",
-    value: "No Sign-up",
+    label: "Tool Processing",
+    value: "In Browser",
     Icon: Sparkle,
   },
   {
-    label: "Updated Weekly",
-    value: "Fresh Drops",
+    label: "Focus Areas",
+    value: `${categories.length} Categories`,
     Icon: TrendUp,
   },
 ];
@@ -52,7 +52,7 @@ export default function Index() {
     <div className="min-h-screen bg-[#090806] text-[#f7efe8]">
       <SEO
         title="Minerva Tools — Free Utilities for Designers & Developers"
-        description="A growing collection of free, focused design utilities. Color palettes, QR codes, gradients, contrast checkers, and more. No sign-up required."
+        description="45 free, focused browser utilities for designers and developers. No account required."
         canonical="/"
       />
 

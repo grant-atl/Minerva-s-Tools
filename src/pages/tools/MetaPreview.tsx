@@ -165,7 +165,7 @@ export default function MetaPreview() {
     setData({
       title: "Minerva Tools — Free Utilities for Designers",
       description: "A growing collection of free, focused design utilities. Color palettes, gradients, typography scales, and more — no sign-up required.",
-      url: "https://www.minerva.tools",
+      url: "https://minervas.tools",
       image: "",
       siteName: "Minerva",
     });

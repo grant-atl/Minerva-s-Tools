@@ -10,30 +10,32 @@ export default function Privacy() {
   return (
     <InfoPageLayout
       title="Privacy Policy"
-      description="Minerva Tools is committed to your privacy. All tools run client-side — your data never leaves your browser."
-      updatedAt="April 1, 2026"
+      description="How Minerva Tools handles tool inputs and uses analytics, advertising, cookies, and remote fonts."
+      updatedAt="August 10, 2026"
     >
       <SEO
         title="Privacy Policy — Minerva Tools"
-        description="All tools run client-side. No personal data is collected, stored, or transmitted."
+        description="Learn how Minerva Tools processes tool inputs locally and uses Google analytics, advertising, and font services."
         canonical="/privacy"
       />
 
       <section className="space-y-4">
         <h2 className={sectionTitle}>1. Overview</h2>
         <p className={bodyText}>
-          Minerva Tools ("we", "us") operates entirely within your web browser. No files,
-          colors, images, text, or other inputs you provide are ever sent to our servers.
+          Minerva Tools ("we", "us") does not offer accounts. Its utilities process files,
+          colors, text, and other tool inputs in your browser rather than uploading those inputs to
+          Minerva Tools. The website also uses the third-party services described below, which
+          receive site-usage and connection data separately from your tool inputs.
         </p>
       </section>
 
       <section className="space-y-4">
-        <h2 className={sectionTitle}>2. Data We Do NOT Collect</h2>
+        <h2 className={sectionTitle}>2. Tool Data We Do Not Receive</h2>
         <ul className={listText}>
-          <li>Personal information (name, email, address)</li>
-          <li>Tool inputs (colors, images, text, QR code content)</li>
-          <li>Account or login data (we have no accounts)</li>
-          <li>Usage analytics beyond what is described below</li>
+          <li>Files and images opened in a tool</li>
+          <li>Text, code, colors, URLs, or QR code content entered into a tool</li>
+          <li>Generated files or copied output</li>
+          <li>Account or login data, because Minerva Tools has no accounts</li>
         </ul>
       </section>
 
@@ -41,32 +43,79 @@ export default function Privacy() {
         <h2 className={sectionTitle}>3. Third-Party Services</h2>
         <div className="grid gap-2">
           <p className={card}>
-            <strong className="text-white">Google AdSense:</strong> We display ads provided by Google AdSense to sustain
-            the project. Google may use cookies to serve ads based on your prior visits. You can opt out at{" "}
-            <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 hover:text-white">
-              Google Ads Settings
+            <strong className="text-white">Google Tag Manager:</strong> We use Tag Manager to
+            load and manage measurement tags. Depending on the tags configured, page views and
+            interaction events may be sent to Google or another configured service. Read Google's{" "}
+            <a href="https://developers.google.com/tag-platform/tag-manager/datalayer" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 hover:text-white">
+              Tag Manager documentation
             </a>.
           </p>
           <p className={card}>
-            <strong className="text-white">Google Fonts:</strong> Some tools load fonts from Google Fonts, which may log
-            your IP address per{" "}
-            <a href="https://developers.google.com/fonts/faq/privacy" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 hover:text-white">
-              Google's font privacy policy
+            <strong className="text-white">Google Analytics:</strong> We use Google Analytics 4
+            to understand site usage. Its default collection can include page and session activity,
+            approximate location, traffic source, and browser or device information. Analytics may
+            use a first-party identifier cookie. Read Google's{" "}
+            <a href="https://support.google.com/analytics/answer/11593727" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 hover:text-white">
+              Analytics data-collection documentation
+            </a>.
+          </p>
+          <p className={card}>
+            <strong className="text-white">Google AdSense:</strong> We load Google AdSense to
+            support the project with advertising. AdSense can use first- and third-party cookies or
+            similar identifiers for ad delivery, frequency control, reporting, and—where allowed by
+            settings and applicable requirements—personalization. Read how{" "}
+            <a href="https://support.google.com/adsense/answer/7549925" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 hover:text-white">
+              AdSense uses cookies
+            </a>.
+          </p>
+          <p className={card}>
+            <strong className="text-white">Google Fonts:</strong> The site and selected typography
+            tools request font files from Google Fonts. Those network requests expose standard
+            connection information, including your IP address and browser information, to Google.
+            Read the{" "}
+            <a href="https://fonts.google.com/faq#privacy" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 hover:text-white">
+              Google Fonts privacy FAQ
             </a>.
           </p>
         </div>
       </section>
 
       <section className="space-y-4">
-        <h2 className={sectionTitle}>4. Cookies</h2>
+        <h2 className={sectionTitle}>4. Cookies and Browser Storage</h2>
         <p className={bodyText}>
-          Minerva Tools does not set its own cookies. Third-party services (Google
-          AdSense) may set cookies as described above.
+          Google Analytics and AdSense may set first- or third-party cookies and use comparable
+          browser storage for measurement and advertising. Minerva Tools does not use cookies for
+          account sessions because it has no accounts.
         </p>
       </section>
 
       <section className="space-y-4">
-        <h2 className={sectionTitle}>5. Changes to This Policy</h2>
+        <h2 className={sectionTitle}>5. Your Choices</h2>
+        <p className={bodyText}>
+          You can limit or clear cookies through your browser, manage personalization in{" "}
+          <a href="https://adssettings.google.com/" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 hover:text-white">
+            Google Ads Settings
+          </a>
+          , or install Google's{" "}
+          <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 hover:text-white">
+            Analytics opt-out browser add-on
+          </a>
+          . Blocking third-party services may prevent ads, analytics, or remote fonts from loading,
+          but core tool inputs will still be processed locally.
+        </p>
+      </section>
+
+      <section className="space-y-4">
+        <h2 className={sectionTitle}>6. Reports and Retention</h2>
+        <p className={bodyText}>
+          We can access aggregated Analytics and AdSense reports. The application does not
+          intentionally include your tool inputs in those reports. Google handles retention for its
+          services according to its policies and the settings applied to those services.
+        </p>
+      </section>
+
+      <section className="space-y-4">
+        <h2 className={sectionTitle}>7. Changes to This Policy</h2>
         <p className={bodyText}>
           We may update this policy from time to time. Changes will be reflected on this page with
           an updated "Last updated" date.
@@ -74,7 +123,7 @@ export default function Privacy() {
       </section>
 
       <section className="space-y-4">
-        <h2 className={sectionTitle}>6. Contact</h2>
+        <h2 className={sectionTitle}>8. Contact</h2>
         <p className={card}>
           <strong className="text-white">Email:</strong>{" "}
           <a href="mailto:grantpedersen@outlook.com" className="underline underline-offset-4 hover:text-white">

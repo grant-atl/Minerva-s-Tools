@@ -14,7 +14,7 @@ import { Textarea } from "@/components/ui/textarea";
 
 export default function UrlEncoderDecoder() {
   const [mode, setMode] = useState<"encode" | "decode">("encode");
-  const [input, setInput] = useState("https://www.minerva.tools/tools?query=design tools&lang=en");
+  const [input, setInput] = useState("https://minervas.tools/tools?query=design tools&lang=en");
   const [copied, setCopied] = useState(false);
 
   const result = useMemo(() => {

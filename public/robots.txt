@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://www.minerva.tools/sitemap.xml
+Sitemap: https://minervas.tools/sitemap.xml

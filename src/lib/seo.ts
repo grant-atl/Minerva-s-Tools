@@ -1,4 +1,4 @@
-export const BASE_URL = "https://www.minerva.tools";
+export const BASE_URL = "https://minervas.tools";
 
 export function resolveCanonicalUrl(canonical?: string) {
   if (!canonical) return BASE_URL;

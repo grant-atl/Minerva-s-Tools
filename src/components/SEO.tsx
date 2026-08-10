@@ -13,7 +13,7 @@ export default function SEO({
   title,
   description,
   canonical,
-  ogImage = "https://www.minerva.tools/og-image.png",
+  ogImage = "https://minervas.tools/og-image.png",
   type = "website",
 }: SEOProps) {
   const url = resolveCanonicalUrl(canonical);

@@ -8,7 +8,7 @@ interface ToolSchemaProps {
   faqs?: FAQ[];
 }
 
-const BASE_URL = "https://www.minerva.tools";
+const BASE_URL = "https://minervas.tools";
 
 export default function ToolSchema({ name, description, url, faqs = [] }: ToolSchemaProps) {
   const fullUrl = `${BASE_URL}${url}`;
@@ -29,8 +29,7 @@ export default function ToolSchema({ name, description, url, faqs = [] }: ToolSc
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: BASE_URL },
-      { "@type": "ListItem", position: 2, name: "Tools", item: `${BASE_URL}/tools` },
-      { "@type": "ListItem", position: 3, name, item: fullUrl },
+      { "@type": "ListItem", position: 2, name, item: fullUrl },
     ],
   };
 

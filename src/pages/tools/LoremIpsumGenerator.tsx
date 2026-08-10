@@ -159,7 +159,7 @@ export default function LoremIpsumGenerator() {
             "@context": "https://schema.org",
             "@type": "WebApplication",
             name: "Lorem Ipsum Generator",
-            url: "https://www.minerva.tools/tools/lorem-ipsum",
+            url: "https://minervas.tools/tools/lorem-ipsum",
             applicationCategory: "DesignApplication",
             operatingSystem: "Any",
             offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },

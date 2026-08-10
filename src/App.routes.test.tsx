@@ -18,7 +18,10 @@ const routeCases: Array<{ path: string; heading: RegExp }> = [
   { path: "/tools/cron-builder", heading: /cron expression builder/i },
   { path: "/tools/image-compressor", heading: /image compressor/i },
   { path: "/tools/svg-optimizer", heading: /svg optimizer/i },
-  { path: "/tools/code-formatter-minifier", heading: /code formatter & minifier/i },
+  {
+    path: "/tools/code-formatter-minifier",
+    heading: /code formatter & minifier/i,
+  },
   { path: "/tools/text-utilities", heading: /text utilities/i },
 ];
 
@@ -31,6 +34,40 @@ describe("App routes", () => {
     window.history.pushState({}, "", path);
     render(<App />);
 
-    expect(await screen.findByRole("heading", { name: heading })).toBeInTheDocument();
+    expect(
+      await screen.findByRole("heading", { name: heading }),
+    ).toBeInTheDocument();
+  });
+
+  it("renders a useful 404 for an unknown nested URL", async () => {
+    window.history.pushState(
+      {},
+      "",
+      "/missing/nested-route?source=typed#details",
+    );
+    render(<App />);
+
+    expect(
+      await screen.findByRole("heading", {
+        name: /this route wandered off the map/i,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText("/missing/nested-route?source=typed#details"),
+    ).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: /go home/i })).toHaveAttribute(
+      "href",
+      "/",
+    );
+    expect(
+      screen.getByRole("link", { name: /browse all tools/i }),
+    ).toHaveAttribute("href", "/#tools");
+    expect(screen.getByRole("link", { name: "Colors" })).toHaveAttribute(
+      "href",
+      "/#category-colors",
+    );
+    expect(
+      screen.getByRole("link", { name: /format and validate json/i }),
+    ).toHaveAttribute("href", "/tools/json-formatter");
   });
 });

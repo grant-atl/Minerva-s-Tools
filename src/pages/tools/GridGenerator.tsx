@@ -13,13 +13,14 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
 const ALIGN = ["stretch", "start", "center", "end"] as const;
+type AlignValue = (typeof ALIGN)[number];
 
 export default function GridGenerator() {
   const [columns, setColumns] = useState(4);
   const [rows, setRows] = useState(3);
   const [gap, setGap] = useState(16);
-  const [alignItems, setAlignItems] = useState<(typeof ALIGN)[number]>("center");
-  const [justifyItems, setJustifyItems] = useState<(typeof ALIGN)[number]>("center");
+  const [alignItems, setAlignItems] = useState<AlignValue>("center");
+  const [justifyItems, setJustifyItems] = useState<AlignValue>("center");
   const [copied, setCopied] = useState(false);
 
   const cellCount = Math.max(1, Math.min(24, columns * rows));
@@ -57,8 +58,12 @@ export default function GridGenerator() {
       <main className="container mx-auto px-4 sm:px-6 py-10 lg:py-12">
         <div className="mb-8 flex items-start justify-between gap-4">
           <div>
-            <h1 className="text-3xl font-bold tracking-tight">Grid Generator</h1>
-            <p className="mt-1 text-muted-foreground">Create CSS Grid layouts visually and export production CSS.</p>
+            <h1 className="text-3xl font-bold tracking-tight">
+              Grid Generator
+            </h1>
+            <p className="mt-1 text-muted-foreground">
+              Create CSS Grid layouts visually and export production CSS.
+            </p>
           </div>
           <ShareToolButton toolName="Grid Generator" />
         </div>
@@ -67,22 +72,59 @@ export default function GridGenerator() {
           <section className="rounded-lg border border-border bg-card p-4 sm:p-5">
             <h2 className="mb-4 text-sm font-semibold">Grid Controls</h2>
             <div className="grid gap-4 sm:grid-cols-2">
-              <Field label="Columns" value={columns} min={1} max={8} setValue={setColumns} />
-              <Field label="Rows" value={rows} min={1} max={8} setValue={setRows} />
-              <Field label="Gap (px)" value={gap} min={0} max={64} setValue={setGap} />
+              <Field
+                label="Columns"
+                value={columns}
+                min={1}
+                max={8}
+                setValue={setColumns}
+              />
+              <Field
+                label="Rows"
+                value={rows}
+                min={1}
+                max={8}
+                setValue={setRows}
+              />
+              <Field
+                label="Gap (px)"
+                value={gap}
+                min={0}
+                max={64}
+                setValue={setGap}
+              />
             </div>
 
             <div className="mt-4 space-y-4">
-              <OptionRow label="Align Items" value={alignItems} onChange={setAlignItems} options={ALIGN} />
-              <OptionRow label="Justify Items" value={justifyItems} onChange={setJustifyItems} options={ALIGN} />
+              <OptionRow
+                label="Align Items"
+                value={alignItems}
+                onChange={setAlignItems}
+                options={ALIGN}
+              />
+              <OptionRow
+                label="Justify Items"
+                value={justifyItems}
+                onChange={setJustifyItems}
+                options={ALIGN}
+              />
             </div>
           </section>
 
           <section className="rounded-lg border border-border bg-card p-4 sm:p-5">
             <div className="mb-3 flex items-center justify-between">
               <h2 className="text-sm font-semibold">Live Preview</h2>
-              <Button size="sm" variant="outline" className="gap-1" onClick={copyCss}>
-                {copied ? <Check className="size-3.5 text-green-500" /> : <Copy className="size-3.5" />} 
+              <Button
+                size="sm"
+                variant="outline"
+                className="gap-1"
+                onClick={copyCss}
+              >
+                {copied ? (
+                  <Check className="size-3.5 text-green-500" />
+                ) : (
+                  <Copy className="size-3.5" />
+                )}
                 {copied ? "Copied" : "Copy CSS"}
               </Button>
             </div>
@@ -144,22 +186,26 @@ function Field({
         min={min}
         max={max}
         value={value}
-        onChange={(event) => setValue(Math.max(min, Math.min(max, Number(event.target.value) || min)))}
+        onChange={(event) =>
+          setValue(
+            Math.max(min, Math.min(max, Number(event.target.value) || min)),
+          )
+        }
       />
     </div>
   );
 }
 
-function OptionRow<T extends string>({
+function OptionRow({
   label,
   value,
   onChange,
   options,
 }: {
   label: string;
-  value: T;
-  onChange: (value: T) => void;
-  options: readonly T[];
+  value: AlignValue;
+  onChange: (value: AlignValue) => void;
+  options: readonly AlignValue[];
 }) {
   return (
     <div>

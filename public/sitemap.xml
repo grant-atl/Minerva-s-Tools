@@ -1,198 +1,153 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.minerva.tools/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <loc>https://minervas.tools/</loc>
   </url>
   <url>
-    <loc>https://www.minerva.tools/tools/palette</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://minervas.tools/tools/palette</loc>
   </url>
   <url>
-    <loc>https://www.minerva.tools/tools/gradient</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://minervas.tools/tools/qr-code</loc>
   </url>
   <url>
-    <loc>https://www.minerva.tools/tools/contrast</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://minervas.tools/tools/gradient</loc>
   </url>
   <url>
-    <loc>https://www.minerva.tools/tools/qr-code</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://minervas.tools/tools/contrast</loc>
   </url>
   <url>
-    <loc>https://www.minerva.tools/tools/box-shadow</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://minervas.tools/tools/box-shadow</loc>
   </url>
   <url>
-    <loc>https://www.minerva.tools/tools/typography-scale</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://minervas.tools/tools/typography-scale</loc>
   </url>
   <url>
-    <loc>https://www.minerva.tools/tools/favicon</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://minervas.tools/tools/favicon</loc>
   </url>
   <url>
-    <loc>https://www.minerva.tools/tools/font-pairing</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://minervas.tools/tools/svg-to-css</loc>
   </url>
   <url>
-    <loc>https://www.minerva.tools/tools/svg-to-css</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://minervas.tools/tools/color-blindness</loc>
   </url>
   <url>
-    <loc>https://www.minerva.tools/tools/meta-preview</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://minervas.tools/tools/font-pairing</loc>
   </url>
   <url>
-    <loc>https://www.minerva.tools/tools/spacing</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://minervas.tools/tools/spacing</loc>
   </url>
   <url>
-    <loc>https://www.minerva.tools/tools/color-blindness</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://minervas.tools/tools/glassmorphism</loc>
   </url>
   <url>
-    <loc>https://www.minerva.tools/tools/tailwind-color</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://minervas.tools/tools/neumorphism</loc>
   </url>
   <url>
-    <loc>https://www.minerva.tools/tools/px-rem</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://minervas.tools/tools/tailwind-color</loc>
   </url>
   <url>
-    <loc>https://www.minerva.tools/tools/glassmorphism</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://minervas.tools/tools/aspect-ratio</loc>
   </url>
   <url>
-    <loc>https://www.minerva.tools/tools/neumorphism</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://minervas.tools/tools/px-rem</loc>
   </url>
   <url>
-    <loc>https://www.minerva.tools/tools/aspect-ratio</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://minervas.tools/tools/meta-preview</loc>
   </url>
   <url>
-    <loc>https://www.minerva.tools/tools/lorem-ipsum</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://minervas.tools/tools/lorem-ipsum</loc>
   </url>
   <url>
-    <loc>https://www.minerva.tools/tools/flexbox</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://minervas.tools/tools/flexbox</loc>
   </url>
   <url>
-    <loc>https://www.minerva.tools/tools/grid</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://minervas.tools/tools/grid</loc>
   </url>
   <url>
-    <loc>https://www.minerva.tools/tools/border-radius</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://minervas.tools/tools/border-radius</loc>
   </url>
   <url>
-    <loc>https://www.minerva.tools/tools/clamp-calculator</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://minervas.tools/tools/clamp-calculator</loc>
   </url>
   <url>
-    <loc>https://www.minerva.tools/tools/image-color-picker</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://minervas.tools/tools/image-color-picker</loc>
   </url>
   <url>
-    <loc>https://www.minerva.tools/tools/color-converter</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://minervas.tools/tools/image-compressor</loc>
   </url>
   <url>
-    <loc>https://www.minerva.tools/tools/svg-to-png</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://minervas.tools/tools/image-format-converter</loc>
   </url>
   <url>
-    <loc>https://www.minerva.tools/tools/svg-blob-pattern</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://minervas.tools/tools/image-resizer-cropper</loc>
   </url>
   <url>
-    <loc>https://www.minerva.tools/tools/json-formatter</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://minervas.tools/tools/image-base64</loc>
   </url>
   <url>
-    <loc>https://www.minerva.tools/tools/base64</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://minervas.tools/tools/color-converter</loc>
   </url>
   <url>
-    <loc>https://www.minerva.tools/tools/url-encode</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://minervas.tools/tools/svg-to-png</loc>
   </url>
   <url>
-    <loc>https://www.minerva.tools/tools/uuid</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://minervas.tools/tools/svg-blob-pattern</loc>
   </url>
   <url>
-    <loc>https://www.minerva.tools/tools/regex-tester</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://minervas.tools/tools/svg-optimizer</loc>
   </url>
   <url>
-    <loc>https://www.minerva.tools/tools/jwt-decoder</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://minervas.tools/tools/svg-to-react</loc>
   </url>
   <url>
-    <loc>https://www.minerva.tools/tools/hash-generator</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://minervas.tools/tools/json-formatter</loc>
   </url>
   <url>
-    <loc>https://www.minerva.tools/tools/unix-timestamp</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://minervas.tools/tools/code-formatter-minifier</loc>
   </url>
   <url>
-    <loc>https://www.minerva.tools/tools/cron-builder</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://minervas.tools/tools/base64</loc>
   </url>
   <url>
-    <loc>https://www.minerva.tools/about</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <loc>https://minervas.tools/tools/url-encode</loc>
   </url>
   <url>
-    <loc>https://www.minerva.tools/privacy</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
+    <loc>https://minervas.tools/tools/uuid</loc>
   </url>
   <url>
-    <loc>https://www.minerva.tools/terms</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
+    <loc>https://minervas.tools/tools/regex-tester</loc>
+  </url>
+  <url>
+    <loc>https://minervas.tools/tools/jwt-decoder</loc>
+  </url>
+  <url>
+    <loc>https://minervas.tools/tools/hash-generator</loc>
+  </url>
+  <url>
+    <loc>https://minervas.tools/tools/unix-timestamp</loc>
+  </url>
+  <url>
+    <loc>https://minervas.tools/tools/cron-builder</loc>
+  </url>
+  <url>
+    <loc>https://minervas.tools/tools/css-animation-generator</loc>
+  </url>
+  <url>
+    <loc>https://minervas.tools/tools/clip-path-bezier</loc>
+  </url>
+  <url>
+    <loc>https://minervas.tools/tools/text-utilities</loc>
+  </url>
+  <url>
+    <loc>https://minervas.tools/about</loc>
+  </url>
+  <url>
+    <loc>https://minervas.tools/privacy</loc>
+  </url>
+  <url>
+    <loc>https://minervas.tools/terms</loc>
+  </url>
+  <url>
+    <loc>https://minervas.tools/98</loc>
   </url>
 </urlset>

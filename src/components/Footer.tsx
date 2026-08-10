@@ -74,9 +74,17 @@ export default function Footer() {
             <Link to="/about" className="hover:text-foreground transition-colors">About</Link>
             <Link to="/privacy" className="hover:text-foreground transition-colors">Privacy</Link>
             <Link to="/terms" className="hover:text-foreground transition-colors">Terms</Link>
+            <a
+              href="https://github.com/grant-atl/Minerva-s-Tools"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-foreground transition-colors"
+            >
+              GitHub<span className="sr-only"> (opens in a new tab)</span>
+            </a>
           </div>
           <p className="text-center text-sm text-muted-foreground">
-            © {new Date().getFullYear()} Minerva Tools. Free & open design utilities.
+            © {new Date().getFullYear()} Minerva Tools. Free, focused browser utilities.
             <Link
               to="/98"
               className="ml-1 text-muted-foreground/30 hover:text-muted-foreground/60 transition-colors text-[10px] no-underline"

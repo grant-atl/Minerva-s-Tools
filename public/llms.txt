@@ -1,6 +1,8 @@
-# Minerva Tools — Free Design Utilities
+# Minerva Tools — 45 Browser Utilities
 
-> A growing collection of free, focused design utilities for designers and developers. No sign-up required.
+> 45 free, focused browser utilities for designers and developers. No account required.
+
+- Live site: https://minervas.tools
 
 ## Available Tools
 
@@ -245,7 +247,66 @@
 - Includes plain-language schedule summary
 - Shows next upcoming run times in local and ISO format
 
+### Image Compressor
+- URL: /tools/image-compressor
+- Compress JPG, PNG, and WebP images locally
+- Adjust quality and maximum width
+- Export optimized JPG or WebP files
+
+### Image Format Converter
+- URL: /tools/image-format-converter
+- Convert images between PNG, JPEG, and WebP
+- Preview output size and format before downloading
+- Process uploaded files in the browser
+
+### Image Resizer & Cropper
+- URL: /tools/image-resizer-cropper
+- Resize images to custom dimensions
+- Apply center-crop aspect-ratio presets
+- Download processed output without uploading the source image
+
+### Image Base64 Converter
+- URL: /tools/image-base64
+- Convert uploaded images to Base64 data URIs
+- Decode image data URIs back into downloadable files
+
+### SVG Optimizer
+- URL: /tools/svg-optimizer
+- Optimize SVG markup locally with SVGO
+- Configure optimization controls and compare file size
+- Copy or download the optimized SVG
+
+### SVG to React Converter
+- URL: /tools/svg-to-react
+- Transform SVG markup into reusable React component code
+- Convert SVG attributes to JSX-compatible names
+- Copy generated JSX or TSX output
+
+### Code Formatter & Minifier
+- URL: /tools/code-formatter-minifier
+- Format or minify HTML, CSS, and JavaScript snippets
+- Process code locally with copyable output
+
+### CSS Animation Generator
+- URL: /tools/css-animation-generator
+- Build CSS keyframes and animation declarations
+- Adjust timing, duration, delay, direction, and iteration controls
+- Preview the animation and copy generated CSS
+
+### Clip-Path & Bezier Editor
+- URL: /tools/clip-path-bezier
+- Build CSS clip-path shapes with interactive controls
+- Tune cubic-bezier timing curves
+- Preview and copy generated CSS values
+
+### Text Utilities
+- URL: /tools/text-utilities
+- Convert text between common case formats
+- Generate URL-friendly slugs
+- Inspect word and character counts
+
 ## Technical Details
-- All tools run client-side — no data is sent to servers
+- Core tool inputs and transformations are processed locally in the browser
+- The site separately uses Google Tag Manager, Analytics, AdSense, and Google Fonts as disclosed in /privacy
 - Built with React, TypeScript, and Tailwind CSS
 - Responsive design for desktop and mobile

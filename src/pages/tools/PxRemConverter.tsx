@@ -79,7 +79,7 @@ export default function PxRemConverter() {
             "@context": "https://schema.org",
             "@type": "WebApplication",
             name: "px ↔ rem Converter",
-            url: "https://www.minerva.tools/tools/px-rem",
+            url: "https://minervas.tools/tools/px-rem",
             applicationCategory: "DesignApplication",
             operatingSystem: "Any",
             offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },

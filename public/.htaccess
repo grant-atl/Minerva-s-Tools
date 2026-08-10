@@ -1,0 +1,22 @@
+DirectoryIndex index.html
+
+<IfModule mod_negotiation.c>
+  Options -MultiViews
+</IfModule>
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Serve real files and directories without involving the client router.
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # Missing static assets should keep a real HTTP 404 instead of returning HTML.
+  RewriteCond %{REQUEST_URI} ^/(?:assets|images|fonts)/ [NC,OR]
+  RewriteCond %{REQUEST_URI} \.(?:css|js|mjs|map|json|xml|txt|webmanifest|ico|png|jpe?g|gif|webp|avif|svg|woff2?|ttf|otf|eot|wasm|pdf|zip)$ [NC]
+  RewriteRule ^ - [L]
+
+  # Extensionless application paths are handled by React Router.
+  RewriteRule ^ index.html [L]
+</IfModule>

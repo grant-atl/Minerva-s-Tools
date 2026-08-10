@@ -13,7 +13,7 @@ export default function About() {
     >
       <SEO
         title="About — Minerva Tools"
-        description="Minerva Tools is a free, open collection of client-side design utilities for designers and developers."
+        description="Minerva Tools is a free collection of browser-based design and development utilities."
         canonical="/about"
       />
 
@@ -21,8 +21,8 @@ export default function About() {
         <h2 className={sectionTitle}>What We Build</h2>
         <p className={bodyText}>
           Minerva Tools is a growing collection of free, focused design utilities built
-          for designers and developers who value speed and simplicity. Every tool runs entirely in
-          your browser — no data is ever sent to a server.
+          for designers and developers who value speed and simplicity. Tool inputs are processed in
+          your browser rather than uploaded to Minerva Tools.
         </p>
         <p className={bodyText}>
           The project started with a simple idea: the small utilities designers reach for daily —
@@ -36,7 +36,7 @@ export default function About() {
         <h2 className={sectionTitle}>What We Believe</h2>
         <ul className="grid gap-2">
           <li className={valueCard}>
-            <span className="text-sm text-white/80"><strong className="text-white">Privacy first.</strong> All tools are 100% client-side. No analytics beyond basic page views.</span>
+            <span className="text-sm text-white/80"><strong className="text-white">Privacy-conscious by design.</strong> Tool inputs stay in your browser; site analytics, advertising, and remote fonts are disclosed in the Privacy Policy.</span>
           </li>
           <li className={valueCard}>
             <span className="text-sm text-white/80"><strong className="text-white">No gatekeeping.</strong> Core tools are free, forever. No sign-up walls.</span>
@@ -62,8 +62,16 @@ export default function About() {
       <section className="space-y-4">
         <h2 className={sectionTitle}>Get in Touch</h2>
         <p className={bodyText}>
-          Have feedback, a bug report, or a tool request? Reach out via the project's GitHub
-          repository or social channels. We read everything.
+          Have feedback, a bug report, or a tool request? Visit the project's{" "}
+          <a
+            href="https://github.com/grant-atl/Minerva-s-Tools"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline underline-offset-4 hover:text-white"
+          >
+            GitHub repository<span className="sr-only"> (opens in a new tab)</span>
+          </a>
+          .
         </p>
       </section>
     </InfoPageLayout>
