@@ -65,7 +65,7 @@ export default function CssAnimationGenerator() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <SEO
-        title="CSS Animation Generator — Keyframes Builder | Minerva"
+        title="CSS Animation Generator — Keyframes Builder | Minerva's Tools"
         description="Build animation keyframes and CSS animation declarations with live preview."
         canonical="/tools/css-animation-generator"
       />

@@ -41,7 +41,7 @@ export default function ContrastChecker() {
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <SEO
-        title="Color Contrast Checker — Minerva"
+        title="Color Contrast Checker — Minerva's Tools"
         description="Test WCAG AA & AAA color contrast compliance. Enter foreground and background colors to check accessibility for normal and large text."
         canonical="/tools/contrast"
       />

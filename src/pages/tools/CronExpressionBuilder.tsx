@@ -98,7 +98,7 @@ export default function CronExpressionBuilder() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <SEO
-        title="Cron Expression Builder — Validate and Explain Schedules | Minerva"
+        title="Cron Expression Builder — Validate and Explain Schedules | Minerva's Tools"
         description="Build 5-field cron expressions, validate syntax, and preview upcoming run times."
         canonical="/tools/cron-builder"
       />

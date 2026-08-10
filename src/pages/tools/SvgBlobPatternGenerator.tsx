@@ -96,7 +96,7 @@ export default function SvgBlobPatternGenerator() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <SEO
-        title="SVG Blob & Pattern Generator — Create SVG Background Assets | Minerva"
+        title="SVG Blob & Pattern Generator — Create SVG Background Assets | Minerva's Tools"
         description="Generate abstract blob SVGs and repeating SVG patterns, then copy code or download the asset instantly."
         canonical="/tools/svg-blob-pattern"
       />

@@ -42,7 +42,7 @@ export default function GridGenerator() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <SEO
-        title="Grid Generator — CSS Grid Layout Builder | Minerva"
+        title="Grid Generator — CSS Grid Layout Builder | Minerva's Tools"
         description="Build responsive CSS Grid layouts with live preview and copy-ready CSS. Control columns, rows, gaps, and alignment instantly."
         canonical="/tools/grid"
       />

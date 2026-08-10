@@ -42,7 +42,7 @@ export default function UrlEncoderDecoder() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <SEO
-        title="URL Encoder/Decoder — Encode and Decode URL Components | Minerva"
+        title="URL Encoder/Decoder — Encode and Decode URL Components | Minerva's Tools"
         description="Safely encode URL components for query strings or decode encoded URLs back to readable text."
         canonical="/tools/url-encode"
       />

@@ -58,7 +58,7 @@ export default function ClipPathBezierEditor() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <SEO
-        title="Clip-Path & Bezier Editor — CSS Shape + Easing | Minerva"
+        title="Clip-Path & Bezier Editor — CSS Shape + Easing | Minerva's Tools"
         description="Pick a clip-path shape and tune cubic-bezier easing with interactive controls."
         canonical="/tools/clip-path-bezier"
       />

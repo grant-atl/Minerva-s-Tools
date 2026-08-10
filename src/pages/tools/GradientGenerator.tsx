@@ -134,7 +134,7 @@ export default function GradientGenerator() {
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <SEO
-        title="CSS Gradient Generator — Minerva"
+        title="CSS Gradient Generator — Minerva's Tools"
         description="Build beautiful CSS gradients with a visual editor. Supports linear, radial, and conic gradients with up to 8 color stops. Copy CSS instantly."
         canonical="/tools/gradient"
       />

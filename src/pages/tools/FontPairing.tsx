@@ -278,7 +278,7 @@ theme: {
   return (
     <>
       <SEO
-        title="Font Pairing Tool — Find Perfect Font Combinations | Minerva"
+        title="Font Pairing Tool — Find Perfect Font Combinations | Minerva's Tools"
         description="Discover beautiful heading + body font pairings from 30+ Google Fonts. Upload custom fonts, preview in real layouts, and export CSS or Tailwind config."
         canonical="/tools/font-pairing"
       />

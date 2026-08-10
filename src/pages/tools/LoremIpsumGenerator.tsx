@@ -149,7 +149,7 @@ export default function LoremIpsumGenerator() {
   return (
     <>
       <SEO
-        title="Lorem Ipsum Generator — Placeholder Text with Fun Styles | Minerva"
+        title="Lorem Ipsum Generator — Placeholder Text with Fun Styles | Minerva's Tools"
         description="Generate placeholder text in Classic, Hipster, Pirate, Corporate, Space, and Foodie styles. Choose paragraphs, sentences, or words. Free, no sign-up."
         canonical="/tools/lorem-ipsum"
       />

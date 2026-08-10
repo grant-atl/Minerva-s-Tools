@@ -1,4 +1,4 @@
-# Minerva Tools — LLM Index
+# Minerva's Tools — LLM Index
 
 Primary machine-readable inventory: /llms.txt
 

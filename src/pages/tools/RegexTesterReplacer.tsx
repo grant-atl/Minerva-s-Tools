@@ -27,7 +27,7 @@ function sanitizeFlags(rawFlags: string): string {
 export default function RegexTesterReplacer() {
   const [pattern, setPattern] = useState("\\b[A-Z][a-z]+\\b");
   const [flagsInput, setFlagsInput] = useState("g");
-  const [testText, setTestText] = useState("Minerva helps Designers and Developers ship faster.");
+  const [testText, setTestText] = useState("Minerva's Tools helps designers and developers ship faster.");
   const [replaceWith, setReplaceWith] = useState("[$&]");
   const [copiedReplacement, setCopiedReplacement] = useState(false);
 
@@ -73,7 +73,7 @@ export default function RegexTesterReplacer() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <SEO
-        title="Regex Tester & Replacer — Test Patterns and Substitutions | Minerva"
+        title="Regex Tester & Replacer — Test Patterns and Substitutions | Minerva's Tools"
         description="Test JavaScript regular expressions, inspect match groups, and preview replacement output instantly."
         canonical="/tools/regex-tester"
       />

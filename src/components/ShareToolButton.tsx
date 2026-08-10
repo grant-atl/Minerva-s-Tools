@@ -19,7 +19,7 @@ export default function ShareToolButton({ toolName, size = "sm", variant = "outl
   const { toast } = useToast();
   const [copied, setCopied] = useState(false);
   const url = window.location.href;
-  const text = `Check out ${toolName} on Minerva Tools`;
+  const text = `Check out ${toolName} on Minerva's Tools`;
 
   const copyLink = async () => {
     await navigator.clipboard.writeText(url);

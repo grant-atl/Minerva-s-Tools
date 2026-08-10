@@ -10,22 +10,22 @@ export default function Privacy() {
   return (
     <InfoPageLayout
       title="Privacy Policy"
-      description="How Minerva Tools keeps tool inputs local and handles limited hosting and font-preview requests."
+      description="How Minerva's Tools keeps tool inputs local and handles limited hosting and font-preview requests."
       updatedAt="August 10, 2026"
     >
       <SEO
-        title="Privacy Policy — Minerva Tools"
-        description="Learn how Minerva Tools processes tool inputs locally without analytics or advertising scripts."
+        title="Privacy Policy — Minerva's Tools"
+        description="Learn how Minerva's Tools processes tool inputs locally without analytics or advertising scripts."
         canonical="/privacy"
       />
 
       <section className="space-y-4">
         <h2 className={sectionTitle}>1. Overview</h2>
         <p className={bodyText}>
-          Minerva Tools ("we", "us") does not offer accounts and does not load analytics,
+          Minerva's Tools ("we", "us") does not offer accounts and does not load analytics,
           advertising, or behavioral-tracking scripts. Its utilities process files, colors, text,
-          code, and other tool inputs in your browser rather than uploading those inputs to Minerva
-          Tools.
+          code, and other tool inputs in your browser rather than uploading those inputs to
+          Minerva's Tools.
         </p>
       </section>
 
@@ -35,7 +35,7 @@ export default function Privacy() {
           <li>Files and images opened in a tool</li>
           <li>Text, code, colors, URLs, or QR code content entered into a tool</li>
           <li>Generated files or copied output</li>
-          <li>Account or login data, because Minerva Tools has no accounts</li>
+          <li>Account or login data, because Minerva's Tools has no accounts</li>
         </ul>
       </section>
 
@@ -52,7 +52,7 @@ export default function Privacy() {
             <strong className="text-white">Optional Google Font previews:</strong> The Font Pairing
             and Typography Scale tools request font previews from Google Fonts when those tools are
             used. Those requests expose standard connection information, including your IP address
-            and browser details, to Google. Other Minerva Tools pages do not request Google Fonts.
+            and browser details, to Google. Other Minerva's Tools pages do not request Google Fonts.
             Read the{" "}
             <a href="https://fonts.google.com/faq#privacy" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 hover:text-white">
               Google Fonts privacy FAQ
@@ -64,7 +64,7 @@ export default function Privacy() {
       <section className="space-y-4">
         <h2 className={sectionTitle}>4. Browser Storage and Cookies</h2>
         <p className={bodyText}>
-          Minerva Tools can store accessibility preferences in your browser so those settings persist
+          Minerva's Tools can store accessibility preferences in your browser so those settings persist
           between visits. The application does not use account, analytics, advertising, or tracking
           cookies.
         </p>

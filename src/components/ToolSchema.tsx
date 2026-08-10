@@ -16,7 +16,7 @@ export default function ToolSchema({ name, description, url, faqs = [] }: ToolSc
   const softwareApp = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
-    name: `${name} — Minerva Tools`,
+    name: `${name} — Minerva's Tools`,
     description,
     url: fullUrl,
     applicationCategory: "DesignApplication",

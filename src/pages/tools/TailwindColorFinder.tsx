@@ -265,7 +265,7 @@ export default function TailwindColorFinder() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <SEO
-        title="Tailwind Color Finder — Match Any Color to Tailwind CSS Classes"
+        title="Tailwind Color Finder — Match Any Color to Tailwind CSS Classes | Minerva's Tools"
         description="Find the nearest Tailwind CSS color class for any HEX or RGB color. Top 5 matches with similarity %, batch mode, full palette browser. Free, instant, no sign-up."
         canonical="/tools/tailwind-color"
       />

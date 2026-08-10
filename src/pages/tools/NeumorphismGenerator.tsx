@@ -210,7 +210,7 @@ export default function NeumorphismGenerator() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <SEO
-        title="Neumorphism Generator — Soft UI CSS Editor | Minerva"
+        title="Neumorphism Generator — Soft UI CSS Editor | Minerva's Tools"
         description="Create soft neumorphic UI components with visual controls for light direction, distance, blur, intensity, radius, and pressed or raised states."
         canonical="/tools/neumorphism"
       />

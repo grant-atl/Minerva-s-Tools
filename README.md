@@ -1,6 +1,6 @@
-# Minerva Tools
+# Minerva's Tools
 
-Minerva Tools is a collection of 45 focused browser utilities for designers and front-end developers. Each tool is built for a specific task—generate an asset, inspect a value, transform content, or copy production-ready output—without requiring an account.
+Minerva's Tools is a collection of 45 focused browser utilities for designers and front-end developers. Each tool is built for a specific task—generate an asset, inspect a value, transform content, or copy production-ready output—without requiring an account.
 
 **Live site:** [minervas.tools](https://minervas.tools)
 
@@ -68,7 +68,7 @@ Tool pages use shared SEO and structured-data components while keeping task-spec
 
 ## Privacy
 
-Tool inputs—including selected images, text, code, colors, and generated output—are processed locally and are not intentionally sent to Minerva Tools servers. The site does not load analytics or advertising scripts. The font-pairing and typography tools can request optional previews from Google Fonts; see the live [Privacy Policy](https://minervas.tools/privacy) for details.
+Tool inputs—including selected images, text, code, colors, and generated output—are processed locally and are not intentionally sent to an application server. The site does not load analytics or advertising scripts. The font-pairing and typography tools can request optional previews from Google Fonts; see the live [Privacy Policy](https://minervas.tools/privacy) for details.
 
 ## Contributing and source status
 

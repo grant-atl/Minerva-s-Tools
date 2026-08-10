@@ -50,7 +50,7 @@ export default function ClampCalculator() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <SEO
-        title="Clamp Calculator — Responsive CSS clamp() Generator | Minerva"
+        title="Clamp Calculator — Responsive CSS clamp() Generator | Minerva's Tools"
         description="Generate responsive clamp() values for typography and spacing. Configure min/max values and viewport range, then copy CSS instantly."
         canonical="/tools/clamp-calculator"
       />

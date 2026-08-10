@@ -146,7 +146,7 @@ export default function SvgToReactConverter() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <SEO
-        title="SVG to React Converter — JSX/TSX Component Generator | Minerva"
+        title="SVG to React Converter — JSX/TSX Component Generator | Minerva's Tools"
         description="Convert raw SVG markup into reusable React component code instantly."
         canonical="/tools/svg-to-react"
       />

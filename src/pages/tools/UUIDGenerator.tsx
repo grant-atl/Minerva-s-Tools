@@ -52,7 +52,7 @@ export default function UUIDGenerator() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <SEO
-        title="UUID Generator — Generate UUID v4 IDs | Minerva"
+        title="UUID Generator — Generate UUID v4 IDs | Minerva's Tools"
         description="Generate one or many UUID v4 identifiers instantly, then copy individual IDs or the full list."
         canonical="/tools/uuid"
       />

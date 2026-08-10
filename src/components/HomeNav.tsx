@@ -78,8 +78,8 @@ export default function HomeNav({ variant = "light" }: HomeNavProps) {
           to="/"
           className={`flex items-center gap-2.5 text-xl font-bold tracking-tight ${logoText}`}
         >
-          <img src={minervaLogo} alt="Minerva logo" className="h-9 w-9" />
-          Minerva
+          <img src={minervaLogo} alt="" className="h-9 w-9" />
+          Minerva's Tools
         </Link>
 
         {/* Desktop links */}
@@ -123,8 +123,8 @@ export default function HomeNav({ variant = "light" }: HomeNavProps) {
                 onClick={() => setMobileOpen(false)}
                 className="flex items-center gap-2 text-xl font-bold tracking-tight text-foreground"
               >
-                <img src={minervaLogo} alt="Minerva logo" className="h-9 w-9" />
-                Minerva
+                <img src={minervaLogo} alt="" className="h-9 w-9" />
+                Minerva's Tools
               </Link>
               <Button variant="ghost" size="icon" onClick={() => setMobileOpen(false)}>
                 <span className="text-lg font-bold">✕</span>

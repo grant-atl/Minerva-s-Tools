@@ -120,7 +120,7 @@ export default function ImageColorPicker() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <SEO
-        title="Image Color Picker — Extract Palette from Images | Minerva"
+        title="Image Color Picker — Extract Palette from Images | Minerva's Tools"
         description="Upload an image, click to sample exact colors, and extract dominant palette swatches instantly."
         canonical="/tools/image-color-picker"
       />

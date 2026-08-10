@@ -141,7 +141,7 @@ async function getDigest(text: string, algorithm: HashAlgorithm): Promise<string
 }
 
 export default function HashGenerator() {
-  const [input, setInput] = useState("Minerva hash test");
+  const [input, setInput] = useState("Minerva's Tools hash test");
   const [algorithm, setAlgorithm] = useState<HashAlgorithm>("SHA-256");
   const [hashHex, setHashHex] = useState("");
   const [error, setError] = useState<string | null>(null);
@@ -180,7 +180,7 @@ export default function HashGenerator() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <SEO
-        title="Hash Generator — MD5, SHA-1, SHA-256, SHA-512 | Minerva"
+        title="Hash Generator — MD5, SHA-1, SHA-256, SHA-512 | Minerva's Tools"
         description="Generate MD5 and SHA hashes client-side for text payloads with instant HEX and Base64 output."
         canonical="/tools/hash-generator"
       />

@@ -41,7 +41,7 @@ export default function BorderRadiusGenerator() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <SEO
-        title="Border Radius Generator — CSS Corner Builder | Minerva"
+        title="Border Radius Generator — CSS Corner Builder | Minerva's Tools"
         description="Generate advanced CSS border-radius values with live preview and per-corner controls."
         canonical="/tools/border-radius"
       />

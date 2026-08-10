@@ -51,7 +51,7 @@ export default function Index() {
   return (
     <div className="min-h-screen bg-[#090806] text-[#f7efe8]">
       <SEO
-        title="Minerva Tools — Free Utilities for Designers & Developers"
+        title="Minerva's Tools — Free Utilities for Designers & Developers"
         description="45 free, focused browser utilities for designers and developers. No account required."
         canonical="/"
       />

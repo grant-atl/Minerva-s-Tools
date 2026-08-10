@@ -69,7 +69,7 @@ export default function PxRemConverter() {
   return (
     <>
       <SEO
-        title="px ↔ rem Converter — Free Unit Calculator | Minerva"
+        title="px ↔ rem Converter — Free Unit Calculator | Minerva's Tools"
         description="Instantly convert between px and rem CSS units. Configurable base font size, quick-reference table, and batch conversion. Free, no sign-up."
         canonical="/tools/px-rem"
       />

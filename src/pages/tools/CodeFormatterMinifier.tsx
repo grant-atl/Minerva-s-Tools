@@ -16,7 +16,7 @@ import { Textarea } from "@/components/ui/textarea";
 export default function CodeFormatterMinifier() {
   const [language, setLanguage] = useState<CodeLanguage>("html");
   const [mode, setMode] = useState<CodeMode>("format");
-  const [input, setInput] = useState("<div class=\"card\"><h1>Hello</h1><p>Minerva</p></div>");
+  const [input, setInput] = useState("<div class=\"card\"><h1>Hello</h1><p>Minerva's Tools</p></div>");
   const [output, setOutput] = useState("");
   const [transformError, setTransformError] = useState("");
   const [isProcessing, setIsProcessing] = useState(false);
@@ -77,7 +77,7 @@ export default function CodeFormatterMinifier() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <SEO
-        title="Code Formatter & Minifier — HTML, CSS, JS | Minerva"
+        title="Code Formatter & Minifier — HTML, CSS, JS | Minerva's Tools"
         description="Format or minify HTML, CSS, and JavaScript code in your browser."
         canonical="/tools/code-formatter-minifier"
       />

@@ -173,7 +173,7 @@ export default function PaletteGenerator() {
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <SEO
-        title="Color Palette Generator — Minerva"
+        title="Color Palette Generator — Minerva's Tools"
         description="Generate harmonious color palettes with analogous, complementary, triadic, and monochromatic modes. Copy HEX, RGB, HSL. Built-in WCAG contrast checker."
         canonical="/tools/palette"
       />

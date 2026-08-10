@@ -209,10 +209,10 @@ export default function Win98Desktop() {
       <div ref={desktopRef} className="win98-desktop" onClick={() => setStartMenuOpen(false)}>
         {/* Desktop Icons */}
         <div className="win98-icons">
-          {/* Back to Minerva icon */}
+          {/* Back to Minerva's Tools icon */}
           <div className="win98-icon" onDoubleClick={() => navigate("/")}>
             <div className="win98-icon-img">🏠</div>
-            <span className="win98-icon-text">Minerva Home</span>
+            <span className="win98-icon-text">Minerva's Tools Home</span>
           </div>
 
           {availableTools.map((tool) => (
@@ -325,11 +325,11 @@ export default function Win98Desktop() {
       {startMenuOpen && (
         <div className="win98-start-menu" onClick={(e) => e.stopPropagation()}>
           <div className="win98-start-header">
-            <span className="win98-start-header-text">Minerva 98</span>
+            <span className="win98-start-header-text">Minerva's Tools 98</span>
           </div>
           <div className="win98-start-items">
             <div className="win98-start-item" onClick={() => { navigate("/"); setStartMenuOpen(false); }}>
-              🏠 Back to Minerva
+              🏠 Back to Minerva's Tools
             </div>
             <div className="win98-start-separator" />
             {availableTools.map((tool) => (

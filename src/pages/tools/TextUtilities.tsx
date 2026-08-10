@@ -103,7 +103,7 @@ export default function TextUtilities() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <SEO
-        title="Text Utilities — Case Converter, Slugger, Counters | Minerva"
+        title="Text Utilities — Case Converter, Slugger, Counters | Minerva's Tools"
         description="Convert text case formats, generate URL slugs, and view word/character counters instantly."
         canonical="/tools/text-utilities"
       />

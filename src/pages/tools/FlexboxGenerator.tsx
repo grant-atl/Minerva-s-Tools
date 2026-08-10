@@ -44,7 +44,7 @@ export default function FlexboxGenerator() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <SEO
-        title="Flexbox Generator — Visual CSS Flex Layout Builder | Minerva"
+        title="Flexbox Generator — Visual CSS Flex Layout Builder | Minerva's Tools"
         description="Build and preview Flexbox layouts visually. Adjust direction, alignment, wrapping, gap, and copy production-ready CSS instantly."
         canonical="/tools/flexbox"
       />

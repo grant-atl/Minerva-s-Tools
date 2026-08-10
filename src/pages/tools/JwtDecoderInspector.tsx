@@ -83,7 +83,7 @@ export default function JwtDecoderInspector() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <SEO
-        title="JWT Decoder & Inspector — Decode Header and Claims | Minerva"
+        title="JWT Decoder & Inspector — Decode Header and Claims | Minerva's Tools"
         description="Decode JWT tokens client-side, inspect header/payload claims, and review exp/iat/nbf timestamps."
         canonical="/tools/jwt-decoder"
       />

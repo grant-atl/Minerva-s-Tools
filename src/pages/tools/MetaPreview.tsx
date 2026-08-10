@@ -163,18 +163,18 @@ export default function MetaPreview() {
 
   const loadSample = () => {
     setData({
-      title: "Minerva Tools — Free Utilities for Designers",
+      title: "Minerva's Tools — Free Utilities for Designers",
       description: "A growing collection of free, focused design utilities. Color palettes, gradients, typography scales, and more — no sign-up required.",
       url: "https://minervas.tools",
       image: "",
-      siteName: "Minerva",
+      siteName: "Minerva's Tools",
     });
   };
 
   return (
     <div className="min-h-screen bg-background text-foreground">
       <SEO
-        title="Meta Tag Preview — See How Your Page Looks on Google, Twitter & Slack"
+        title="Meta Tag Preview — See How Your Page Looks on Google, Twitter & Slack | Minerva's Tools"
         description="Preview your Open Graph and Twitter Card meta tags. See how links appear on Google, Twitter/X, and Slack before publishing. Free, instant, no sign-up."
         canonical="/tools/meta-preview"
       />

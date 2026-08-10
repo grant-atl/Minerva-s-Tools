@@ -8,21 +8,21 @@ const valueCard = "rounded-none border border-white/15 bg-white/[0.03] px-4 py-3
 export default function About() {
   return (
     <InfoPageLayout
-      title="About Minerva"
+      title="About Minerva's Tools"
       description="Free, focused design utilities built for designers and developers who value speed, simplicity, and privacy."
     >
       <SEO
-        title="About — Minerva Tools"
-        description="Minerva Tools is a free collection of browser-based design and development utilities."
+        title="About — Minerva's Tools"
+        description="Minerva's Tools is a free collection of browser-based design and development utilities."
         canonical="/about"
       />
 
       <section className="space-y-4">
         <h2 className={sectionTitle}>What We Build</h2>
         <p className={bodyText}>
-          Minerva Tools is a growing collection of free, focused design utilities built
+          Minerva's Tools is a growing collection of free, focused design utilities built
           for designers and developers who value speed and simplicity. Tool inputs are processed in
-          your browser rather than uploaded to Minerva Tools.
+          your browser rather than uploaded to Minerva's Tools.
         </p>
         <p className={bodyText}>
           The project started with a simple idea: the small utilities designers reach for daily —
@@ -53,7 +53,7 @@ export default function About() {
       <section className="space-y-4">
         <h2 className={sectionTitle}>Independent and Free</h2>
         <p className={bodyText}>
-          Minerva Tools is an independent project. The current utilities are free to use, do not
+          Minerva's Tools is an independent project. The current utilities are free to use, do not
           require accounts, and are not supported by advertising or behavioral tracking.
         </p>
       </section>

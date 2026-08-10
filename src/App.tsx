@@ -173,7 +173,7 @@ function RouteLoading() {
           aria-hidden="true"
           className="size-4 animate-spin rounded-full border-2 border-border border-t-foreground motion-reduce:animate-none"
         />
-        Loading Minerva…
+        Loading Minerva's Tools…
       </div>
     </main>
   );

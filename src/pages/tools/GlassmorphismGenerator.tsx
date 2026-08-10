@@ -82,7 +82,7 @@ export default function GlassmorphismGenerator() {
   return (
     <>
       <SEO
-        title="Glassmorphism Generator — Frosted Glass CSS Editor | Minerva"
+        title="Glassmorphism Generator — Frosted Glass CSS Editor | Minerva's Tools"
         description="Create frosted glass UI effects with a visual editor. Adjust blur, transparency, border, and saturation. Copy clean CSS. Free, no sign-up."
         canonical="/tools/glassmorphism"
       />

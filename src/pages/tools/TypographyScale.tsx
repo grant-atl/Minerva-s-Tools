@@ -187,7 +187,7 @@ export default function TypographyScale() {
   return (
     <>
       <SEO
-        title="Typography Scale Generator | Minerva"
+        title="Typography Scale Generator | Minerva's Tools"
         description="Generate harmonious type scales with modular ratios. Preview live with Google Fonts, export CSS custom properties or Tailwind config."
         canonical="/tools/typography-scale"
       />

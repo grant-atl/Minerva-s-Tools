@@ -62,8 +62,8 @@ export default function NotFound() {
   return (
     <div className="homepage-inverted flex min-h-screen flex-col bg-[#090806] text-[#f7efe8]">
       <SEO
-        title="404 — Page Not Found | Minerva"
-        description="The page you're looking for doesn't exist. Head back to Minerva's free design tools."
+        title="404 — Page Not Found | Minerva's Tools"
+        description="The page you're looking for doesn't exist. Head back to Minerva's Tools and choose another utility."
         canonical="/404"
         noIndex
       />

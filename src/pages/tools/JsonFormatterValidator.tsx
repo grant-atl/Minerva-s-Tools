@@ -13,7 +13,7 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 
 const SAMPLE_JSON = `{
-  "name": "Minerva Toolkit",
+  "name": "Minerva's Tools",
   "version": 1,
   "features": ["format", "minify", "validate"],
   "active": true
@@ -52,7 +52,7 @@ export default function JsonFormatterValidator() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <SEO
-        title="JSON Formatter & Validator — Pretty Print JSON | Minerva"
+        title="JSON Formatter & Validator — Pretty Print JSON | Minerva's Tools"
         description="Format, minify, and validate JSON instantly with useful parse errors and one-click copy."
         canonical="/tools/json-formatter"
       />

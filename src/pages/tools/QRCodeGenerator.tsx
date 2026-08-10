@@ -236,7 +236,7 @@ export default function QRCodeGenerator() {
   return (
     <>
       <SEO
-        title="QR Code Generator — Minerva"
+        title="QR Code Generator — Minerva's Tools"
         description="Create customizable QR codes for URLs, WiFi, email, phone numbers, and text. Customize colors, add logos, and download as PNG or SVG."
         canonical="/tools/qr-code"
       />

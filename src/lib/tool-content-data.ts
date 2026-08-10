@@ -7,7 +7,7 @@ interface ToolContentData {
 
 export const paletteContent: ToolContentData = {
   about: `
-<p>Minerva's Color Palette Generator helps designers and developers create harmonious color schemes in seconds. Whether you're starting a new project or refreshing an existing brand, this tool generates five-color palettes using proven color theory harmony modes.</p>
+<p>The Color Palette Generator in Minerva's Tools helps designers and developers create harmonious color schemes in seconds. Whether you're starting a new project or refreshing an existing brand, this tool generates five-color palettes using proven color theory harmony modes.</p>
 <p>Choose from six harmony algorithms — random, analogous, complementary, triadic, split-complementary, and monochromatic — each producing palettes that work together naturally. Lock any color you like and regenerate the rest until you find the perfect combination.</p>
 <p>Every palette includes WCAG contrast analysis so you can verify accessibility before committing to your design. Copy colors in HEX, RGB, or HSL format, ready to paste directly into your code or design tool. Everything runs client-side with zero data sent to any server.</p>
   `,
@@ -49,7 +49,7 @@ export const contrastContent: ToolContentData = {
 
 export const qrCodeContent: ToolContentData = {
   about: `
-<p>Minerva's QR Code Generator creates high-quality, customizable QR codes for URLs, plain text, WiFi credentials, email addresses, and phone numbers. QR content and uploaded logos are processed in your browser rather than uploaded by the tool.</p>
+<p>The QR Code Generator in Minerva's Tools creates high-quality, customizable QR codes for URLs, plain text, WiFi credentials, email addresses, and phone numbers. QR content and uploaded logos are processed in your browser rather than uploaded by the tool.</p>
 <p>Customize the appearance with foreground and background colors, adjust error correction levels, and add your own logo or image to the center. Choose from multiple pattern styles to match your brand, and preview the result in real time before downloading.</p>
 <p>Download your finished QR code as a high-resolution PNG or scalable SVG. Whether you're creating codes for business cards, product packaging, or marketing materials, this tool gives you full control over the output with zero cost and zero sign-up.</p>
   `,

@@ -169,7 +169,7 @@ export default function FaviconGenerator() {
   return (
     <>
       <SEO
-        title="Favicon Generator – Free Online Favicon Maker | Minerva"
+        title="Favicon Generator – Free Online Favicon Maker | Minerva's Tools"
         description="Generate favicons from images, text, or emoji. Download ICO, PNG, Apple Touch Icon, Android icons, and site.webmanifest in one click."
         canonical="/tools/favicon"
       />

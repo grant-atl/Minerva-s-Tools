@@ -116,7 +116,7 @@ export default function ColorConverter() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <SEO
-        title="Color Converter — HEX, RGB, HSL Converter | Minerva"
+        title="Color Converter — HEX, RGB, HSL Converter | Minerva's Tools"
         description="Convert colors between HEX, RGB, and HSL formats instantly with live preview and one-click copy."
         canonical="/tools/color-converter"
       />

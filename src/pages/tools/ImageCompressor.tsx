@@ -169,7 +169,7 @@ export default function ImageCompressor() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <SEO
-        title="Image Compressor — Reduce JPG/WebP File Size | Minerva"
+        title="Image Compressor — Reduce JPG/WebP File Size | Minerva's Tools"
         description="Compress images in your browser with quality and max-width controls. Export optimized JPG or WebP files instantly."
         canonical="/tools/image-compressor"
       />

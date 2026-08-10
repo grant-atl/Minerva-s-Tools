@@ -106,7 +106,7 @@ export default function SvgOptimizer() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <SEO
-        title="SVG Optimizer — Minify and Clean SVG Markup | Minerva"
+        title="SVG Optimizer — Minify and Clean SVG Markup | Minerva's Tools"
         description="Optimize SVG markup with local SVGO processing to reduce file size while preserving rendering."
         canonical="/tools/svg-optimizer"
       />

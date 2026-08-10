@@ -84,7 +84,7 @@ export default function ImageBase64Converter() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <SEO
-        title="Image Base64 Converter — Image ↔ Data URI | Minerva"
+        title="Image Base64 Converter — Image ↔ Data URI | Minerva's Tools"
         description="Convert uploaded images to Base64 data URIs and decode Base64 back to downloadable image files."
         canonical="/tools/image-base64"
       />

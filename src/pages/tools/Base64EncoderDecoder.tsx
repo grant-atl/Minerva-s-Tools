@@ -29,7 +29,7 @@ function decodeUtf8(value: string): string {
 
 export default function Base64EncoderDecoder() {
   const [mode, setMode] = useState<"encode" | "decode">("encode");
-  const [input, setInput] = useState("Minerva toolkit");
+  const [input, setInput] = useState("Minerva's Tools");
   const [copied, setCopied] = useState(false);
 
   const result = useMemo(() => {
@@ -57,7 +57,7 @@ export default function Base64EncoderDecoder() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <SEO
-        title="Base64 Encoder/Decoder — Convert Text and Base64 | Minerva"
+        title="Base64 Encoder/Decoder — Convert Text and Base64 | Minerva's Tools"
         description="Encode plain text to Base64 or decode Base64 back to UTF-8 text instantly."
         canonical="/tools/base64"
       />

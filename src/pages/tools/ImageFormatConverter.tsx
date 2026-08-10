@@ -137,7 +137,7 @@ export default function ImageFormatConverter() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <SEO
-        title="Image Format Converter — PNG, JPEG, WebP | Minerva"
+        title="Image Format Converter — PNG, JPEG, WebP | Minerva's Tools"
         description="Convert image files between PNG, JPEG, and WebP in your browser."
         canonical="/tools/image-format-converter"
       />

@@ -108,4 +108,21 @@ describe("App routes", () => {
       screen.getByRole("button", { name: /upload screenshot or image/i }),
     ).toBeInTheDocument();
   });
+
+  it("uses the canonical Minerva's Tools brand in shared UI and metadata", async () => {
+    window.history.pushState({}, "", "/tools/color-blindness");
+    render(<App />);
+
+    await screen.findByRole("heading", {
+      name: /color blindness simulator/i,
+    });
+
+    expect(
+      screen.getByRole("link", { name: "Minerva's Tools" }),
+    ).toHaveAttribute("href", "/");
+    expect(document.title).toContain("Minerva's Tools");
+    expect(
+      screen.getByText(/© \d{4} Minerva's Tools\./i),
+    ).toBeInTheDocument();
+  });
 });

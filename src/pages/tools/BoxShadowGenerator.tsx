@@ -134,7 +134,7 @@ export default function BoxShadowGenerator() {
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <SEO
-        title="CSS Box Shadow Generator — Minervas"
+        title="CSS Box Shadow Generator — Minerva's Tools"
         description="Design beautiful CSS box shadows with a visual editor. Add multiple layers, adjust offset, blur, spread, color, and opacity. Copy CSS instantly."
         canonical="/tools/box-shadow"
       />

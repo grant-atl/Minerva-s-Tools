@@ -91,7 +91,7 @@ export default function SvgToPngConverter() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <SEO
-        title="SVG to PNG Converter — Export SVG as PNG | Minerva"
+        title="SVG to PNG Converter — Export SVG as PNG | Minerva's Tools"
         description="Convert raw SVG markup or uploaded SVG files into PNG images at custom output sizes."
         canonical="/tools/svg-to-png"
       />

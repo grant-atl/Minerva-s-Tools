@@ -108,7 +108,7 @@ export default function SpacingCalculator() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <SEO
-        title="Spacing Calculator — Generate Consistent Spacing Scales"
+        title="Spacing Calculator — Generate Consistent Spacing Scales | Minerva's Tools"
         description="Generate consistent spacing scales for your design system. Choose linear or geometric progressions, use Material/Tailwind/Bootstrap presets, and export as CSS or Tailwind config. Free, no sign-up."
         canonical="/tools/spacing"
       />

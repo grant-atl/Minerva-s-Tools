@@ -37,8 +37,8 @@ export default function MegaNav() {
     <nav className="relative border-b border-border z-50">
       <div className="container mx-auto flex items-center justify-between px-4 sm:px-6 py-4">
         <Link to="/" className="flex items-center gap-2 text-xl font-bold tracking-tight text-foreground">
-          <img src={minervaLogo} alt="Minerva logo" className="h-9 w-9" />
-          Minerva
+          <img src={minervaLogo} alt="" className="h-9 w-9" />
+          Minerva's Tools
         </Link>
 
         {/* Desktop nav */}
@@ -78,8 +78,8 @@ export default function MegaNav() {
                 onClick={() => setMobileOpen(false)}
                 className="flex items-center gap-2 text-xl font-bold tracking-tight text-foreground"
               >
-                <img src={minervaLogo} alt="Minerva logo" className="h-9 w-9" />
-                Minerva
+                <img src={minervaLogo} alt="" className="h-9 w-9" />
+                Minerva's Tools
               </Link>
               <Button variant="ghost" size="icon-sm" onClick={() => setMobileOpen(false)}>
                 <span className="text-lg font-bold">✕</span>

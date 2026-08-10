@@ -44,7 +44,7 @@ export default function Footer() {
           </a>
         </div>
         <p className="text-center text-sm text-muted-foreground">
-          © {new Date().getFullYear()} Minerva Tools. Free, focused browser utilities.
+          © {new Date().getFullYear()} Minerva's Tools. Free, focused browser utilities.
           <Link
             to="/98"
             className="ml-1 text-muted-foreground/30 hover:text-muted-foreground/60 transition-colors text-[10px] no-underline"

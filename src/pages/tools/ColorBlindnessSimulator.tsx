@@ -372,7 +372,7 @@ export default function ColorBlindnessSimulator() {
     <div className="min-h-screen bg-background text-foreground">
       
       <SEO
-        title="Color Blindness Simulator — Test Accessibility for All Vision Types"
+        title="Color Blindness Simulator — Test Accessibility for All Vision Types | Minerva's Tools"
         description="Simulate how colors, images, and website screenshots appear to people with color vision deficiency. Test protanopia, deuteranopia, tritanopia, and more."
         canonical="/tools/color-blindness"
       />
