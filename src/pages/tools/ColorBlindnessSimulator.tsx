@@ -1,5 +1,5 @@
 import { useState, useRef, useCallback, useEffect } from "react";
-import { UploadSimple, Globe, Palette, Image as ImageIcon } from "@phosphor-icons/react";
+import { UploadSimple, Palette, Image as ImageIcon } from "@phosphor-icons/react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -88,11 +88,6 @@ function applyMatrix(r: number, g: number, b: number, m: readonly number[]): [nu
 
 function rgbToHex(r: number, g: number, b: number): string {
   return `#${[r, g, b].map((v) => v.toString(16).padStart(2, "0")).join("")}`;
-}
-
-function buildSvgFilterDataUri(matrix: readonly number[]): string {
-  const values = `${matrix[0]} ${matrix[1]} ${matrix[2]} ${matrix[3]} ${matrix[4]} ${matrix[5]} ${matrix[6]} ${matrix[7]} ${matrix[8]} ${matrix[9]} ${matrix[10]} ${matrix[11]} ${matrix[12]} ${matrix[13]} ${matrix[14]} ${matrix[15]} ${matrix[16]} ${matrix[17]} ${matrix[18]} ${matrix[19]}`;
-  return `url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg'><filter id='f'><feColorMatrix type='matrix' values='${values}'/></filter></svg>#f")`;
 }
 
 /* ── Color Swatch Tab ── */
@@ -265,11 +260,19 @@ function ImageView() {
 
   return (
     <div className="space-y-4">
+      <div className="rounded-lg border border-border bg-muted/20 p-3 text-sm text-muted-foreground">
+        <p className="font-medium text-foreground">Testing a website?</p>
+        <p className="mt-1">
+          Capture a screenshot, then upload it here. This works for every site and keeps the image
+          inside your browser instead of relying on third-party iframe permissions.
+        </p>
+      </div>
+
       <div className="flex items-center gap-2">
         <input ref={fileRef} type="file" accept="image/*" className="hidden" onChange={handleFile} />
         <Button size="sm" variant="outline" onClick={() => fileRef.current?.click()} className="gap-1.5">
           <UploadSimple size={14} weight="bold" />
-          Upload Image
+          Upload Screenshot or Image
         </Button>
         {imageSrc && (
           <Button size="sm" variant="ghost" onClick={() => setImageSrc(null)} className="text-muted-foreground">
@@ -317,7 +320,9 @@ function ImageView() {
         >
           <div className="text-center space-y-2">
             <ImageIcon size={32} className="text-muted-foreground/40 mx-auto" />
-            <p className="text-sm text-muted-foreground">Drop an image here or click to upload</p>
+            <p className="text-sm text-muted-foreground">
+              Drop a screenshot or image here, or click to upload
+            </p>
           </div>
         </div>
       )}
@@ -327,93 +332,6 @@ function ImageView() {
       </p>
     </div>
   );
-}
-
-/* ── Website URL Tab ── */
-function WebsiteView() {
-  const [url, setUrl] = useState("");
-  const [loadedUrl, setLoadedUrl] = useState("");
-  const [selected, setSelected] = useState<string>("protanopia");
-
-  const loadUrl = () => {
-    let u = url.trim();
-    if (!u) return;
-    if (!u.startsWith("http")) u = `https://${u}`;
-    setLoadedUrl(u);
-  };
-
-  return (
-    <div className="space-y-4">
-      <div className="flex gap-2">
-        <Input
-          value={url}
-          onChange={(e) => setUrl(e.target.value)}
-          placeholder="https://example.com"
-          onKeyDown={(e) => e.key === "Enter" && loadUrl()}
-          className="font-mono border-2 border-border focus-visible:border-primary"
-        />
-        <Button size="sm" variant="outline" onClick={loadUrl} className="gap-1.5 shrink-0">
-          <Globe size={14} weight="bold" />
-          Load
-        </Button>
-      </div>
-
-      {/* CVD type selector */}
-      <div className="flex flex-wrap gap-1.5">
-        {CVD_TYPES.map((t) => (
-          <button
-            key={t.id}
-            onClick={() => setSelected(t.id)}
-            className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
-              selected === t.id
-                ? "bg-primary text-primary-foreground"
-                : "bg-muted text-muted-foreground hover:bg-muted/80"
-            }`}
-          >
-            {t.short}
-          </button>
-        ))}
-      </div>
-
-      {loadedUrl ? (
-        <div className="space-y-2">
-          <h3 className="text-xs font-semibold text-muted-foreground">
-            {CVD_TYPES.find((t) => t.id === selected)?.label} — {loadedUrl}
-          </h3>
-          <div
-            className="rounded-lg border border-border overflow-hidden"
-            style={selected !== "normal" ? { filter: buildSvgFilterDataUri(CVD_TYPES.find((t) => t.id === selected)!.matrix) } : undefined}
-          >
-            <iframe
-              src={loadedUrl}
-              title="Website preview"
-              className="w-full h-[500px] border-0"
-              sandbox="allow-scripts allow-same-origin"
-            />
-          </div>
-          <p className="text-xs text-muted-foreground">
-            Note: Some websites block iframe embedding (X-Frame-Options). If the page doesn't load, try uploading a screenshot instead.
-          </p>
-        </div>
-      ) : (
-        <div className="rounded-lg border-2 border-dashed border-border bg-muted/20 min-h-[200px] flex items-center justify-center">
-          <div className="text-center space-y-2">
-            <Globe size={32} className="text-muted-foreground/40 mx-auto" />
-            <p className="text-sm text-muted-foreground">Enter a URL above to preview it</p>
-          </div>
-        </div>
-      )}
-
-      <p className="text-xs text-muted-foreground">
-        {CVD_TYPES.find((t) => t.id === selected)?.description}
-      </p>
-    </div>
-  );
-}
-
-/* ── All-at-once Grid ── */
-function OverviewGrid({ children, type }: { children: React.ReactNode; type: "colors" | "image" }) {
-  return null; // not used directly
 }
 
 function ColorOverview() {
@@ -455,12 +373,12 @@ export default function ColorBlindnessSimulator() {
       
       <SEO
         title="Color Blindness Simulator — Test Accessibility for All Vision Types"
-        description="Simulate how your colors, images, and websites appear to people with color vision deficiency. Test protanopia, deuteranopia, tritanopia, and more. Free, instant, no sign-up."
+        description="Simulate how colors, images, and website screenshots appear to people with color vision deficiency. Test protanopia, deuteranopia, tritanopia, and more."
         canonical="/tools/color-blindness"
       />
       <ToolSchema
         name="Color Blindness Simulator"
-        description="Preview designs through different color vision deficiency types"
+        description="Preview colors, images, and screenshots through different color vision deficiency types"
         url="/tools/color-blindness"
         faqs={colorBlindnessContent.faqs}
       />
@@ -472,7 +390,7 @@ export default function ColorBlindnessSimulator() {
           <div>
             <h1 className="text-2xl font-bold mb-1">Color Blindness Simulator</h1>
             <p className="text-sm text-muted-foreground">
-              See how your designs look to people with color vision deficiency
+              Preview colors, images, and website screenshots across common vision types
             </p>
           </div>
           <ShareToolButton toolName="Color Blindness Simulator" />
@@ -486,11 +404,7 @@ export default function ColorBlindnessSimulator() {
             </TabsTrigger>
             <TabsTrigger value="image" className="gap-1.5">
               <ImageIcon size={14} />
-              Image
-            </TabsTrigger>
-            <TabsTrigger value="website" className="gap-1.5">
-              <Globe size={14} />
-              Website
+              Image / Screenshot
             </TabsTrigger>
           </TabsList>
 
@@ -499,9 +413,6 @@ export default function ColorBlindnessSimulator() {
           </TabsContent>
           <TabsContent value="image">
             <ImageView />
-          </TabsContent>
-          <TabsContent value="website">
-            <WebsiteView />
           </TabsContent>
         </Tabs>
 

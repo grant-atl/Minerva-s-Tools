@@ -176,14 +176,14 @@ export const spacingCalcContent: ToolContentData = {
 export const colorBlindnessContent: ToolContentData = {
   about: `
 <p>The Color Blindness Simulator helps designers and developers understand how their work appears to people with color vision deficiency (CVD). Approximately 8% of males and 0.5% of females have some form of color blindness — making accessible color choices essential for inclusive design.</p>
-<p>Test individual colors side-by-side, upload images to see them filtered through different CVD types, or load a live website to preview it in real time. The tool supports all major CVD types: protanopia, deuteranopia, tritanopia, achromatopsia, and their partial variants (anomalies).</p>
-<p>Color and uploaded-image simulations use established color matrix algorithms (Brettel/Viénot) and run in your browser through SVG filters. Website mode separately requests the URL you enter in an iframe when that site permits embedding. Use this alongside the Contrast Checker to evaluate accessible color choices.</p>
+<p>Test individual colors side-by-side or upload images and website screenshots to compare different CVD types. The tool supports protanopia, deuteranopia, tritanopia, achromatopsia, and their partial variants (anomalies).</p>
+<p>Color and image simulations use established color transformation matrices (Brettel/Viénot) and run in your browser. For a reliable website test, capture a screenshot and upload it rather than depending on third-party iframe permissions. Use this alongside the Contrast Checker to evaluate accessible color choices.</p>
   `,
   faqs: [
     { q: "What types of color blindness does this simulate?", a: "Eight types: Protanopia (no red), Deuteranopia (no green), Tritanopia (no blue), Achromatopsia (total color blindness), plus the partial variants Protanomaly, Deuteranomaly, and Tritanomaly." },
     { q: "How accurate are the simulations?", a: "The tool uses Brettel/Viénot color transformation matrices, which are the industry standard for CVD simulation. They provide a close approximation of how colors appear to people with each condition." },
-    { q: "Why won't some websites load in the Website tab?", a: "Many websites set X-Frame-Options or Content-Security-Policy headers that prevent them from being loaded in iframes. If a site doesn't load, take a screenshot and use the Image tab instead." },
-    { q: "Is my data sent to a server?", a: "Uploaded images and color values are processed locally by the tool. Website mode loads the URL directly from that site's origin, so the destination receives a normal browser request." },
+    { q: "How do I test a website?", a: "Capture a screenshot of the page, then upload it in the Image / Screenshot tab. This works even when a site blocks iframe embedding and keeps the screenshot processing local to your browser." },
+    { q: "Is my data sent to a server?", a: "No. Uploaded images, screenshots, and color values are processed locally by the tool in your browser." },
   ],
 };
 

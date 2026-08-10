@@ -37,7 +37,7 @@ export const tools: Tool[] = [
   { name: "Typography Scale", description: "Generate type scales with custom ratios and fonts", icon: TextAa, category: "Generators", tier: 1, route: "/tools/typography-scale" },
   { name: "Favicon Generator", description: "Create favicons from images, text, or emoji", icon: Image, category: "Generators", tier: 1, route: "/tools/favicon" },
   { name: "SVG to CSS Converter", description: "Convert SVG to inline CSS background images", icon: Code, category: "Converters", tier: 1, route: "/tools/svg-to-css" },
-  { name: "Color Blindness Simulator", description: "Preview designs through different color vision types", icon: Eyeglasses, category: "Colors", tier: 1, route: "/tools/color-blindness" },
+  { name: "Color Blindness Simulator", description: "Preview colors, images, and screenshots through different vision types", icon: Eyeglasses, category: "Colors", tier: 1, route: "/tools/color-blindness" },
   { name: "Font Pairing", description: "Discover beautiful font combinations with Google Fonts and custom uploads", icon: TextT, category: "Generators", tier: 1, route: "/tools/font-pairing" },
   { name: "Spacing Calculator", description: "Generate consistent spacing and sizing scales", icon: Columns, category: "Generators", tier: 1, route: "/tools/spacing" },
   { name: "Glassmorphism Generator", description: "Create frosted-glass UI effects with live preview", icon: CubeTransparent, category: "Generators", tier: 1, route: "/tools/glassmorphism" },

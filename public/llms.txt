@@ -88,10 +88,10 @@
 ### Color Blindness Simulator
 - URL: /tools/color-blindness
 - Simulate how designs appear to people with color vision deficiency
-- Three modes: color swatches, image upload, and live website preview (iframe)
+- Two reliable, local modes: color swatches and image or website-screenshot upload
 - 8 CVD types: Protanopia, Deuteranopia, Tritanopia, Achromatopsia, Protanomaly, Deuteranomaly, Tritanomaly
 - Side-by-side comparison of normal vs. simulated vision
-- Uses Brettel/Viénot color matrices and SVG filters
+- Uses Brettel/Viénot color transformation matrices
 - Overview grid showing all CVD types at a glance
 
 ### Tailwind Color Finder

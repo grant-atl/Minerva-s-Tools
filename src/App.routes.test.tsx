@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, it } from "vitest";
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import App from "@/App";
 
 const routeCases: Array<{ path: string; heading: RegExp }> = [
@@ -7,6 +7,10 @@ const routeCases: Array<{ path: string; heading: RegExp }> = [
   { path: "/tools/aspect-ratio", heading: /aspect ratio calculator/i },
   { path: "/tools/flexbox", heading: /flexbox generator/i },
   { path: "/tools/grid", heading: /grid generator/i },
+  {
+    path: "/tools/color-blindness",
+    heading: /color blindness simulator/i,
+  },
   { path: "/tools/image-color-picker", heading: /image color picker/i },
   { path: "/tools/json-formatter", heading: /json formatter/i },
   { path: "/tools/base64", heading: /base64 encoder\/decoder/i },
@@ -78,5 +82,30 @@ describe("App routes", () => {
       "noindex, follow",
     );
     expect(screen.queryByText(/ads keep us free/i)).not.toBeInTheDocument();
+  });
+
+  it("uses a local screenshot workflow instead of an unreliable website iframe", async () => {
+    window.history.pushState({}, "", "/tools/color-blindness");
+    render(<App />);
+
+    await screen.findByRole("heading", {
+      name: /color blindness simulator/i,
+    });
+
+    expect(
+      screen.queryByRole("tab", { name: /^website$/i }),
+    ).not.toBeInTheDocument();
+    expect(
+      document.querySelector('iframe[title="Website preview"]'),
+    ).not.toBeInTheDocument();
+
+    const screenshotTab = screen.getByRole("tab", {
+      name: /image \/ screenshot/i,
+    });
+    fireEvent.mouseDown(screenshotTab, { button: 0, ctrlKey: false });
+    expect(screen.getByText(/testing a website/i)).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", { name: /upload screenshot or image/i }),
+    ).toBeInTheDocument();
   });
 });
