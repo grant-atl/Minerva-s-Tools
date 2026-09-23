@@ -42,7 +42,7 @@ export default function BorderRadiusGenerator() {
     <div className="min-h-screen bg-background text-foreground">
       <SEO
         title="Border Radius Generator — CSS Corner Builder | Minerva's Tools"
-        description="Generate advanced CSS border-radius values with live preview and per-corner controls."
+        description="Set individual corner radii, preview the shape, and copy the CSS."
         canonical="/tools/border-radius"
       />
       <ToolSchema
@@ -58,12 +58,12 @@ export default function BorderRadiusGenerator() {
         <div className="mb-8 flex items-start justify-between gap-4">
           <div>
             <h1 className="text-3xl font-bold tracking-tight">Border Radius Generator</h1>
-            <p className="mt-1 text-muted-foreground">Shape each corner independently and copy clean CSS.</p>
+            <p className="mt-1 text-muted-foreground">Set each corner radius and copy the CSS.</p>
           </div>
           <ShareToolButton toolName="Border Radius Generator" />
         </div>
 
-        <div className="grid gap-6 lg:grid-cols-2">
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
           <section className="rounded-lg border border-border bg-card p-4 sm:p-5">
             <h2 className="mb-4 text-sm font-semibold">Corner Controls</h2>
             <Slider label="Top Left" value={tl} onChange={setTl} />

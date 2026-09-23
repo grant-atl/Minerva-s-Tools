@@ -1,7 +1,8 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
-import { lazy, Suspense, useEffect } from "react";
+import { lazy, Suspense, useEffect, type ReactNode } from "react";
+import { motion } from "motion/react";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -117,7 +118,6 @@ const TextUtilities = lazy(() => import("./pages/tools/TextUtilities.tsx"));
 const About = lazy(() => import("./pages/About.tsx"));
 const Privacy = lazy(() => import("./pages/Privacy.tsx"));
 const Terms = lazy(() => import("./pages/Terms.tsx"));
-const Win98Desktop = lazy(() => import("./pages/Win98Desktop.tsx"));
 
 function ScrollToLocation() {
   const { hash, pathname } = useLocation();
@@ -158,6 +158,14 @@ function ScrollToLocation() {
   return null;
 }
 
+function GlobalSkipLink() {
+  return (
+    <a href="#main-content" className="skip-link">
+      Skip to main content
+    </a>
+  );
+}
+
 function RouteLoading() {
   return (
     <main
@@ -179,6 +187,35 @@ function RouteLoading() {
   );
 }
 
+function RoutePresentation({ children }: { children: ReactNode }) {
+  const { pathname } = useLocation();
+
+  const routeClass = pathname.startsWith("/tools/")
+    ? "lab-site lab-tool-route"
+    : "lab-site";
+
+  return (
+    <div id="main-content" tabIndex={-1} className={routeClass}>
+      {children}
+    </div>
+  );
+}
+
+function RouteTransition({ children }: { children: ReactNode }) {
+  const { pathname } = useLocation();
+
+  return (
+    <motion.div
+      key={pathname}
+      initial={{ opacity: 0, y: 8 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -188,161 +225,192 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
-          <a href="#main-content" className="skip-link">
-            Skip to main content
-          </a>
+          <GlobalSkipLink />
           <ScrollToLocation />
-          <AccessibilityProvider>
-            <Suspense fallback={<RouteLoading />}>
-              <Routes>
-                <Route path="/" element={<Index />} />
-                <Route path="/tools/palette" element={<PaletteGenerator />} />
-                <Route path="/tools/gradient" element={<GradientGenerator />} />
-                <Route path="/tools/contrast" element={<ContrastChecker />} />
-                <Route path="/tools/qr-code" element={<QRCodeGenerator />} />
-                <Route
-                  path="/tools/box-shadow"
-                  element={<BoxShadowGenerator />}
-                />
-                <Route
-                  path="/tools/typography-scale"
-                  element={<TypographyScale />}
-                />
-                <Route path="/tools/favicon" element={<FaviconGenerator />} />
-                <Route path="/tools/font-pairing" element={<FontPairing />} />
-                <Route path="/tools/svg-to-css" element={<SvgToCss />} />
-                <Route path="/tools/meta-preview" element={<MetaPreview />} />
-                <Route path="/tools/spacing" element={<SpacingCalculator />} />
-                <Route
-                  path="/tools/color-blindness"
-                  element={<ColorBlindnessSimulator />}
-                />
-                <Route
-                  path="/tools/tailwind-color"
-                  element={<TailwindColorFinder />}
-                />
-                <Route path="/tools/px-rem" element={<PxRemConverter />} />
-                <Route
-                  path="/tools/glassmorphism"
-                  element={<GlassmorphismGenerator />}
-                />
-                <Route
-                  path="/tools/neumorphism"
-                  element={<NeumorphismGenerator />}
-                />
-                <Route
-                  path="/tools/aspect-ratio"
-                  element={<AspectRatioCalculator />}
-                />
-                <Route
-                  path="/tools/lorem-ipsum"
-                  element={<LoremIpsumGenerator />}
-                />
-                <Route path="/tools/flexbox" element={<FlexboxGenerator />} />
-                <Route path="/tools/grid" element={<GridGenerator />} />
-                <Route
-                  path="/tools/border-radius"
-                  element={<BorderRadiusGenerator />}
-                />
-                <Route
-                  path="/tools/clamp-calculator"
-                  element={<ClampCalculator />}
-                />
-                <Route
-                  path="/tools/image-color-picker"
-                  element={<ImageColorPicker />}
-                />
-                <Route
-                  path="/tools/color-converter"
-                  element={<ColorConverter />}
-                />
-                <Route
-                  path="/tools/svg-to-png"
-                  element={<SvgToPngConverter />}
-                />
-                <Route
-                  path="/tools/svg-blob-pattern"
-                  element={<SvgBlobPatternGenerator />}
-                />
-                <Route
-                  path="/tools/json-formatter"
-                  element={<JsonFormatterValidator />}
-                />
-                <Route
-                  path="/tools/base64"
-                  element={<Base64EncoderDecoder />}
-                />
-                <Route
-                  path="/tools/url-encode"
-                  element={<UrlEncoderDecoder />}
-                />
-                <Route path="/tools/uuid" element={<UUIDGenerator />} />
-                <Route
-                  path="/tools/regex-tester"
-                  element={<RegexTesterReplacer />}
-                />
-                <Route
-                  path="/tools/jwt-decoder"
-                  element={<JwtDecoderInspector />}
-                />
-                <Route
-                  path="/tools/hash-generator"
-                  element={<HashGenerator />}
-                />
-                <Route
-                  path="/tools/unix-timestamp"
-                  element={<UnixTimestampConverter />}
-                />
-                <Route
-                  path="/tools/cron-builder"
-                  element={<CronExpressionBuilder />}
-                />
-                <Route
-                  path="/tools/image-compressor"
-                  element={<ImageCompressor />}
-                />
-                <Route
-                  path="/tools/image-format-converter"
-                  element={<ImageFormatConverter />}
-                />
-                <Route
-                  path="/tools/image-resizer-cropper"
-                  element={<ImageResizerCropper />}
-                />
-                <Route path="/tools/svg-optimizer" element={<SvgOptimizer />} />
-                <Route
-                  path="/tools/svg-to-react"
-                  element={<SvgToReactConverter />}
-                />
-                <Route
-                  path="/tools/image-base64"
-                  element={<ImageBase64Converter />}
-                />
-                <Route
-                  path="/tools/code-formatter-minifier"
-                  element={<CodeFormatterMinifier />}
-                />
-                <Route
-                  path="/tools/css-animation-generator"
-                  element={<CssAnimationGenerator />}
-                />
-                <Route
-                  path="/tools/clip-path-bezier"
-                  element={<ClipPathBezierEditor />}
-                />
-                <Route
-                  path="/tools/text-utilities"
-                  element={<TextUtilities />}
-                />
-                <Route path="/about" element={<About />} />
-                <Route path="/privacy" element={<Privacy />} />
-                <Route path="/terms" element={<Terms />} />
-                <Route path="/98" element={<Win98Desktop />} />
-                {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-                <Route path="*" element={<NotFound />} />
-              </Routes>
-            </Suspense>
-          </AccessibilityProvider>
+          <RoutePresentation>
+            <AccessibilityProvider>
+              <Suspense fallback={<RouteLoading />}>
+                <RouteTransition>
+                  <Routes>
+                    <Route path="/" element={<Index />} />
+                    <Route
+                      path="/tools/palette"
+                      element={<PaletteGenerator />}
+                    />
+                    <Route
+                      path="/tools/gradient"
+                      element={<GradientGenerator />}
+                    />
+                    <Route
+                      path="/tools/contrast"
+                      element={<ContrastChecker />}
+                    />
+                    <Route
+                      path="/tools/qr-code"
+                      element={<QRCodeGenerator />}
+                    />
+                    <Route
+                      path="/tools/box-shadow"
+                      element={<BoxShadowGenerator />}
+                    />
+                    <Route
+                      path="/tools/typography-scale"
+                      element={<TypographyScale />}
+                    />
+                    <Route
+                      path="/tools/favicon"
+                      element={<FaviconGenerator />}
+                    />
+                    <Route
+                      path="/tools/font-pairing"
+                      element={<FontPairing />}
+                    />
+                    <Route path="/tools/svg-to-css" element={<SvgToCss />} />
+                    <Route
+                      path="/tools/meta-preview"
+                      element={<MetaPreview />}
+                    />
+                    <Route
+                      path="/tools/spacing"
+                      element={<SpacingCalculator />}
+                    />
+                    <Route
+                      path="/tools/color-blindness"
+                      element={<ColorBlindnessSimulator />}
+                    />
+                    <Route
+                      path="/tools/tailwind-color"
+                      element={<TailwindColorFinder />}
+                    />
+                    <Route path="/tools/px-rem" element={<PxRemConverter />} />
+                    <Route
+                      path="/tools/glassmorphism"
+                      element={<GlassmorphismGenerator />}
+                    />
+                    <Route
+                      path="/tools/neumorphism"
+                      element={<NeumorphismGenerator />}
+                    />
+                    <Route
+                      path="/tools/aspect-ratio"
+                      element={<AspectRatioCalculator />}
+                    />
+                    <Route
+                      path="/tools/lorem-ipsum"
+                      element={<LoremIpsumGenerator />}
+                    />
+                    <Route
+                      path="/tools/flexbox"
+                      element={<FlexboxGenerator />}
+                    />
+                    <Route path="/tools/grid" element={<GridGenerator />} />
+                    <Route
+                      path="/tools/border-radius"
+                      element={<BorderRadiusGenerator />}
+                    />
+                    <Route
+                      path="/tools/clamp-calculator"
+                      element={<ClampCalculator />}
+                    />
+                    <Route
+                      path="/tools/image-color-picker"
+                      element={<ImageColorPicker />}
+                    />
+                    <Route
+                      path="/tools/color-converter"
+                      element={<ColorConverter />}
+                    />
+                    <Route
+                      path="/tools/svg-to-png"
+                      element={<SvgToPngConverter />}
+                    />
+                    <Route
+                      path="/tools/svg-blob-pattern"
+                      element={<SvgBlobPatternGenerator />}
+                    />
+                    <Route
+                      path="/tools/json-formatter"
+                      element={<JsonFormatterValidator />}
+                    />
+                    <Route
+                      path="/tools/base64"
+                      element={<Base64EncoderDecoder />}
+                    />
+                    <Route
+                      path="/tools/url-encode"
+                      element={<UrlEncoderDecoder />}
+                    />
+                    <Route path="/tools/uuid" element={<UUIDGenerator />} />
+                    <Route
+                      path="/tools/regex-tester"
+                      element={<RegexTesterReplacer />}
+                    />
+                    <Route
+                      path="/tools/jwt-decoder"
+                      element={<JwtDecoderInspector />}
+                    />
+                    <Route
+                      path="/tools/hash-generator"
+                      element={<HashGenerator />}
+                    />
+                    <Route
+                      path="/tools/unix-timestamp"
+                      element={<UnixTimestampConverter />}
+                    />
+                    <Route
+                      path="/tools/cron-builder"
+                      element={<CronExpressionBuilder />}
+                    />
+                    <Route
+                      path="/tools/image-compressor"
+                      element={<ImageCompressor />}
+                    />
+                    <Route
+                      path="/tools/image-format-converter"
+                      element={<ImageFormatConverter />}
+                    />
+                    <Route
+                      path="/tools/image-resizer-cropper"
+                      element={<ImageResizerCropper />}
+                    />
+                    <Route
+                      path="/tools/svg-optimizer"
+                      element={<SvgOptimizer />}
+                    />
+                    <Route
+                      path="/tools/svg-to-react"
+                      element={<SvgToReactConverter />}
+                    />
+                    <Route
+                      path="/tools/image-base64"
+                      element={<ImageBase64Converter />}
+                    />
+                    <Route
+                      path="/tools/code-formatter-minifier"
+                      element={<CodeFormatterMinifier />}
+                    />
+                    <Route
+                      path="/tools/css-animation-generator"
+                      element={<CssAnimationGenerator />}
+                    />
+                    <Route
+                      path="/tools/clip-path-bezier"
+                      element={<ClipPathBezierEditor />}
+                    />
+                    <Route
+                      path="/tools/text-utilities"
+                      element={<TextUtilities />}
+                    />
+                    <Route path="/about" element={<About />} />
+                    <Route path="/privacy" element={<Privacy />} />
+                    <Route path="/terms" element={<Terms />} />
+                    {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+                    <Route path="*" element={<NotFound />} />
+                  </Routes>
+                </RouteTransition>
+              </Suspense>
+            </AccessibilityProvider>
+          </RoutePresentation>
         </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>

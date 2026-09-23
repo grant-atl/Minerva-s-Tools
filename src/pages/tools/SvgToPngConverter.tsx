@@ -92,7 +92,7 @@ export default function SvgToPngConverter() {
     <div className="min-h-screen bg-background text-foreground">
       <SEO
         title="SVG to PNG Converter — Export SVG as PNG | Minerva's Tools"
-        description="Convert raw SVG markup or uploaded SVG files into PNG images at custom output sizes."
+        description="Convert pasted or uploaded SVG markup to PNG at specified output dimensions."
         canonical="/tools/svg-to-png"
       />
       <ToolSchema
@@ -108,7 +108,7 @@ export default function SvgToPngConverter() {
         <div className="mb-8 flex items-start justify-between gap-4">
           <div>
             <h1 className="text-3xl font-bold tracking-tight">SVG to PNG Converter</h1>
-            <p className="mt-1 text-muted-foreground">Paste SVG or upload a file, then export high-quality PNG output.</p>
+            <p className="mt-1 text-muted-foreground">Paste SVG or upload a file, then export PNG.</p>
           </div>
           <ShareToolButton toolName="SVG to PNG Converter" />
         </div>

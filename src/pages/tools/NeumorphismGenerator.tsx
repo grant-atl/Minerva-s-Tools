@@ -211,7 +211,7 @@ export default function NeumorphismGenerator() {
     <div className="min-h-screen bg-background text-foreground">
       <SEO
         title="Neumorphism Generator — Soft UI CSS Editor | Minerva's Tools"
-        description="Create soft neumorphic UI components with visual controls for light direction, distance, blur, intensity, radius, and pressed or raised states."
+        description="Create raised or inset CSS surfaces with controls for paired shadows, light direction, size, and color."
         canonical="/tools/neumorphism"
       />
       <HomeNav />
@@ -221,7 +221,7 @@ export default function NeumorphismGenerator() {
           <div>
             <h1 className="text-3xl font-bold tracking-tight">Neumorphism Generator</h1>
             <p className="mt-1 text-muted-foreground">
-              Build soft raised or pressed UI surfaces and copy clean production CSS.
+              Adjust raised or inset surfaces and copy the CSS.
             </p>
           </div>
           <ShareToolButton toolName="Neumorphism Generator" />
@@ -384,7 +384,7 @@ export default function NeumorphismGenerator() {
 
       <ToolSchema
         name="Neumorphism Generator"
-        description="Build soft raised and pressed neumorphic UI effects with live preview and copy-ready CSS."
+        description="Preview raised or inset surfaces and generate CSS shadows."
         url="/tools/neumorphism"
         faqs={neumorphismContent.faqs}
       />

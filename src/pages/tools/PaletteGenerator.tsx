@@ -174,12 +174,13 @@ export default function PaletteGenerator() {
     <div className="min-h-screen bg-background flex flex-col">
       <SEO
         title="Color Palette Generator — Minerva's Tools"
-        description="Generate harmonious color palettes with analogous, complementary, triadic, and monochromatic modes. Copy HEX, RGB, HSL. Built-in WCAG contrast checker."
+        description="Generate color palettes, lock swatches, compare WCAG contrast ratios, and copy HEX, RGB, or HSL values."
         canonical="/tools/palette"
       />
 
       <HomeNav />
 
+      <main className="flex-1 flex flex-col">
       {/* Toolbar */}
       <div className="border-b border-border">
         <div className="container mx-auto px-4 sm:px-6 py-3 flex flex-wrap items-center gap-3">
@@ -432,7 +433,8 @@ export default function PaletteGenerator() {
       </div>
 
       <ToolContent about={paletteContent.about} faqs={paletteContent.faqs} />
-      <ToolSchema name="Color Palette Generator" description="Generate harmonious color palettes with WCAG contrast analysis." url="/tools/palette" faqs={paletteContent.faqs} />
+      <ToolSchema name="Color Palette Generator" description="Generate color palettes and compare WCAG contrast ratios." url="/tools/palette" faqs={paletteContent.faqs} />
+      </main>
       <Footer />
     </div>
   );

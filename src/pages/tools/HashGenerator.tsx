@@ -181,12 +181,12 @@ export default function HashGenerator() {
     <div className="min-h-screen bg-background text-foreground">
       <SEO
         title="Hash Generator — MD5, SHA-1, SHA-256, SHA-512 | Minerva's Tools"
-        description="Generate MD5 and SHA hashes client-side for text payloads with instant HEX and Base64 output."
+        description="Hash text with MD5, SHA-1, SHA-256, or SHA-512 and copy hexadecimal or Base64 output."
         canonical="/tools/hash-generator"
       />
       <ToolSchema
         name="Hash Generator"
-        description="Generate MD5 and SHA-family hashes for input text with instant HEX and Base64 output."
+        description="Hash input text with MD5 or SHA and copy HEX or Base64 output."
         url="/tools/hash-generator"
         faqs={hashGeneratorContent.faqs}
       />

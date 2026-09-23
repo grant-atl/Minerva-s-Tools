@@ -100,7 +100,7 @@ export default function AspectRatioCalculator() {
     <div className="min-h-screen bg-background text-foreground">
       <SEO
         title="Aspect Ratio Calculator — Simplify, Convert, and Scale Ratios | Minerva's Tools"
-        description="Calculate, simplify, and convert aspect ratios. Solve missing dimensions, use common presets, and copy CSS aspect-ratio values instantly."
+        description="Simplify aspect ratios, calculate missing dimensions, and copy CSS aspect-ratio values."
         canonical="/tools/aspect-ratio"
       />
       <ToolSchema

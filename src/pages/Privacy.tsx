@@ -1,10 +1,10 @@
 import InfoPageLayout from "@/components/InfoPageLayout";
 import SEO from "@/components/SEO";
 
-const sectionTitle = "text-xl font-semibold text-white sm:text-2xl";
-const bodyText = "text-sm leading-relaxed text-white/80 sm:text-base";
-const listText = "list-disc space-y-2 pl-5 text-sm text-white/80 sm:text-base";
-const card = "rounded-none border border-white/15 bg-white/[0.03] px-4 py-3 text-sm text-white/80 sm:text-base";
+const sectionTitle = "text-xl font-semibold text-foreground sm:text-2xl";
+const bodyText = "text-sm leading-relaxed text-muted-foreground sm:text-base";
+const listText = "list-disc space-y-2 pl-5 text-sm text-muted-foreground sm:text-base";
+const card = "rounded-md border border-border bg-card px-4 py-3 text-sm text-muted-foreground sm:text-base";
 
 export default function Privacy() {
   return (
@@ -43,18 +43,18 @@ export default function Privacy() {
         <h2 className={sectionTitle}>3. Limited Third-Party Requests</h2>
         <div className="grid gap-2">
           <p className={card}>
-            <strong className="text-white">Hosting and delivery:</strong> Requests for site pages
+            <strong className="text-foreground">Hosting and delivery:</strong> Requests for site pages
             and assets are handled by our hosting and content-delivery providers. Like most web
             infrastructure, they may process standard connection and security information such as
             your IP address, browser details, requested URL, and request time in server logs.
           </p>
           <p className={card}>
-            <strong className="text-white">Optional Google Font previews:</strong> The Font Pairing
+            <strong className="text-foreground">Optional Google Font previews:</strong> The Font Pairing
             and Typography Scale tools request font previews from Google Fonts when those tools are
             used. Those requests expose standard connection information, including your IP address
             and browser details, to Google. Other Minerva's Tools pages do not request Google Fonts.
             Read the{" "}
-            <a href="https://fonts.google.com/faq#privacy" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 hover:text-white">
+            <a href="https://fonts.google.com/faq#privacy" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 hover:text-foreground">
               Google Fonts privacy FAQ
             </a>.
           </p>
@@ -90,8 +90,8 @@ export default function Privacy() {
       <section className="space-y-4">
         <h2 className={sectionTitle}>7. Contact</h2>
         <p className={card}>
-          <strong className="text-white">Email:</strong>{" "}
-          <a href="mailto:grantpedersen@outlook.com" className="underline underline-offset-4 hover:text-white">
+          <strong className="text-foreground">Email:</strong>{" "}
+          <a href="mailto:grantpedersen@outlook.com" className="underline underline-offset-4 hover:text-foreground">
             grantpedersen@outlook.com
           </a>
         </p>

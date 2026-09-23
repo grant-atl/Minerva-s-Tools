@@ -170,7 +170,7 @@ export default function FaviconGenerator() {
     <>
       <SEO
         title="Favicon Generator – Free Online Favicon Maker | Minerva's Tools"
-        description="Generate favicons from images, text, or emoji. Download ICO, PNG, Apple Touch Icon, Android icons, and site.webmanifest in one click."
+        description="Create icons from images, text, or emoji. Download ICO, PNG, a web manifest, and HTML tags."
         canonical="/tools/favicon"
       />
       <div className="min-h-screen flex flex-col bg-background text-foreground">

@@ -69,8 +69,8 @@ export default function PxRemConverter() {
   return (
     <>
       <SEO
-        title="px ↔ rem Converter — Free Unit Calculator | Minerva's Tools"
-        description="Instantly convert between px and rem CSS units. Configurable base font size, quick-reference table, and batch conversion. Free, no sign-up."
+        title="px ↔ rem Converter | Minerva's Tools"
+        description="Convert between px and rem with a configurable root font size, reference table, and batch conversion."
         canonical="/tools/px-rem"
       />
       <Helmet>
@@ -83,7 +83,7 @@ export default function PxRemConverter() {
             applicationCategory: "DesignApplication",
             operatingSystem: "Any",
             offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
-            description: "Instantly convert between px and rem CSS units with a configurable base font size.",
+            description: "Convert between px and rem using a configurable root font size.",
           })}
         </script>
       </Helmet>
@@ -95,7 +95,7 @@ export default function PxRemConverter() {
             <div>
               <h1 className="text-3xl font-bold tracking-tight">px ↔ rem Converter</h1>
               <p className="mt-1 text-muted-foreground">
-                Quickly convert between px and rem units with any base font size.
+                Convert between px and rem using a configurable root font size.
               </p>
             </div>
             <ShareToolButton toolName="px ↔ rem Converter" />
@@ -245,7 +245,7 @@ function BatchConverter({ base }: { base: number }) {
         </Button>
       </div>
       <textarea
-        className="w-full rounded-md border border-border bg-input/30 p-3 font-mono text-sm placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/30 outline-none"
+        className="w-full rounded-[2px] border border-border bg-input/30 p-3 font-mono text-sm outline-none placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-2 focus-visible:ring-ring/30"
         rows={4}
         placeholder="Enter values separated by commas or new lines (e.g. 12, 16, 24)"
         value={input}

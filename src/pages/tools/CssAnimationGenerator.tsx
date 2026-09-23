@@ -66,7 +66,7 @@ export default function CssAnimationGenerator() {
     <div className="min-h-screen bg-background text-foreground">
       <SEO
         title="CSS Animation Generator — Keyframes Builder | Minerva's Tools"
-        description="Build animation keyframes and CSS animation declarations with live preview."
+        description="Preview animation presets and generate CSS keyframes with duration, easing, and repeat controls."
         canonical="/tools/css-animation-generator"
       />
       <ToolSchema
@@ -84,13 +84,13 @@ export default function CssAnimationGenerator() {
         <div className="mb-8 flex items-start justify-between gap-4">
           <div>
             <h1 className="text-3xl font-bold tracking-tight">CSS Animation Generator</h1>
-            <p className="mt-1 text-muted-foreground">Tune motion presets and copy production-ready keyframes.</p>
+            <p className="mt-1 text-muted-foreground">Adjust animation presets and copy the CSS keyframes.</p>
           </div>
           <ShareToolButton toolName="CSS Animation Generator" />
         </div>
 
         <section className="rounded-lg border border-border bg-card p-4 sm:p-5 space-y-5">
-          <div className="grid gap-4 lg:grid-cols-[1fr_1.4fr]">
+          <div className="grid grid-cols-1 gap-4 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)]">
             <div className="space-y-3">
               <div className="space-y-2">
                 <label htmlFor="preset" className="text-sm font-medium">Preset</label>

@@ -149,8 +149,8 @@ export default function LoremIpsumGenerator() {
   return (
     <>
       <SEO
-        title="Lorem Ipsum Generator — Placeholder Text with Fun Styles | Minerva's Tools"
-        description="Generate placeholder text in Classic, Hipster, Pirate, Corporate, Space, and Foodie styles. Choose paragraphs, sentences, or words. Free, no sign-up."
+        title="Lorem Ipsum Generator | Minerva's Tools"
+        description="Generate placeholder paragraphs, sentences, or words using Classic, Hipster, Pirate, Corporate, Space, or Foodie vocabulary."
         canonical="/tools/lorem-ipsum"
       />
       <Helmet>
@@ -163,7 +163,7 @@ export default function LoremIpsumGenerator() {
             applicationCategory: "DesignApplication",
             operatingSystem: "Any",
             offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
-            description: "Generate placeholder text with fun alternative styles including Hipster, Pirate, Corporate, Space, and Foodie.",
+            description: "Generate placeholder text using Classic, Hipster, Pirate, Corporate, Space, or Foodie vocabulary.",
           })}
         </script>
       </Helmet>
@@ -175,7 +175,7 @@ export default function LoremIpsumGenerator() {
             <div>
               <h1 className="text-3xl font-bold tracking-tight">Lorem Ipsum Generator</h1>
               <p className="mt-1 text-muted-foreground">
-                Generate placeholder text with fun alternative styles.
+                Choose a text style and generate paragraphs, sentences, or words.
               </p>
             </div>
             <ShareToolButton toolName="Lorem Ipsum Generator" />

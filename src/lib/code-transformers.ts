@@ -64,13 +64,8 @@ async function loadHtmlMinifier() {
       import("@minify-html/wasm/index_bg.js"),
       import("@minify-html/wasm/index_bg.wasm?init"),
     ]).then(async ([minifier, wasmLoaderModule]) => {
-      const wasmLoader = (wasmLoaderModule as { default?: () => Promise<unknown> }).default;
-      if (!wasmLoader) {
-        throw new Error("Unable to initialize minify-html/wasm.");
-      }
-
-      const wasm = await wasmLoader();
-      minifier.__wbg_set_wasm(wasm);
+      const wasm = await wasmLoaderModule.default({ "./index_bg.js": minifier });
+      minifier.__wbg_set_wasm(wasm.exports);
       return { minify: minifier.minify };
     });
   }

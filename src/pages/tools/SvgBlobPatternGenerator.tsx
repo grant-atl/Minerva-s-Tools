@@ -97,7 +97,7 @@ export default function SvgBlobPatternGenerator() {
     <div className="min-h-screen bg-background text-foreground">
       <SEO
         title="SVG Blob & Pattern Generator — Create SVG Background Assets | Minerva's Tools"
-        description="Generate abstract blob SVGs and repeating SVG patterns, then copy code or download the asset instantly."
+        description="Generate SVG blobs and repeating patterns, then copy the markup or download an SVG file."
         canonical="/tools/svg-blob-pattern"
       />
       <ToolSchema
@@ -113,13 +113,13 @@ export default function SvgBlobPatternGenerator() {
         <div className="mb-8 flex items-start justify-between gap-4">
           <div>
             <h1 className="text-3xl font-bold tracking-tight">SVG Blob & Pattern Generator</h1>
-            <p className="mt-1 text-muted-foreground">Create organic blobs or repeating patterns for modern UI backgrounds.</p>
+            <p className="mt-1 text-muted-foreground">Generate SVG blobs or repeating patterns.</p>
           </div>
           <ShareToolButton toolName="SVG Blob & Pattern Generator" />
         </div>
 
         <div className="grid gap-6 lg:grid-cols-2">
-          <section className="rounded-lg border border-border bg-card p-4 sm:p-5">
+          <section className="min-w-0 rounded-lg border border-border bg-card p-4 sm:p-5">
             <div className="mb-4 flex gap-2">
               <Button size="sm" variant={mode === "blob" ? "default" : "outline"} onClick={() => setMode("blob")}>Blob</Button>
               <Button size="sm" variant={mode === "pattern" ? "default" : "outline"} onClick={() => setMode("pattern")}>Pattern</Button>
@@ -168,7 +168,7 @@ export default function SvgBlobPatternGenerator() {
             </div>
           </section>
 
-          <section className="rounded-lg border border-border bg-card p-4 sm:p-5">
+          <section className="min-w-0 rounded-lg border border-border bg-card p-4 sm:p-5">
             <h2 className="mb-3 text-sm font-semibold">Preview</h2>
             <div className="mb-4 flex min-h-[280px] items-center justify-center rounded-md border border-border bg-muted/20 p-4">
               <img src={preview} alt="Generated SVG preview" className="max-h-[260px] max-w-full rounded-md border border-border" />

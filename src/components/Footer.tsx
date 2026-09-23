@@ -1,58 +1,16 @@
-import { useEffect, useRef } from "react";
-import { Link, useNavigate } from "react-router-dom";
-
-const KONAMI = ["ArrowUp","ArrowUp","ArrowDown","ArrowDown","ArrowLeft","ArrowRight","ArrowLeft","ArrowRight","b","a"];
-
-function useKonamiCode() {
-  const navigate = useNavigate();
-  const pos = useRef(0);
-
-  useEffect(() => {
-    const handler = (e: KeyboardEvent) => {
-      if (e.key === KONAMI[pos.current]) {
-        pos.current++;
-        if (pos.current === KONAMI.length) {
-          pos.current = 0;
-          navigate("/98");
-        }
-      } else {
-        pos.current = 0;
-      }
-    };
-    window.addEventListener("keydown", handler);
-    return () => window.removeEventListener("keydown", handler);
-  }, [navigate]);
-}
+import { ArrowUpRight } from "@phosphor-icons/react";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
-  useKonamiCode();
-
   return (
-    <footer className="border-t border-border">
-      <div className="container mx-auto px-4 sm:px-6 py-6">
-        <div className="flex flex-wrap justify-center gap-4 text-xs text-muted-foreground mb-3">
-          <Link to="/about" className="hover:text-foreground transition-colors">About</Link>
-          <Link to="/privacy" className="hover:text-foreground transition-colors">Privacy</Link>
-          <Link to="/terms" className="hover:text-foreground transition-colors">Terms</Link>
-          <a
-            href="https://github.com/grant-atl/Minerva-s-Tools"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-foreground transition-colors"
-          >
-            GitHub<span className="sr-only"> (opens in a new tab)</span>
-          </a>
-        </div>
-        <p className="text-center text-sm text-muted-foreground">
-          © {new Date().getFullYear()} Minerva's Tools. Free, focused browser utilities.
-          <Link
-            to="/98"
-            className="ml-1 text-muted-foreground/30 hover:text-muted-foreground/60 transition-colors text-[10px] no-underline"
-            title=""
-          >
-            98
-          </Link>
-        </p>
+    <footer className="lab-container">
+      <div className="lab-footer">
+        <div><Link to="/" className="lab-footer-brand">Minerva’s Tools<span>.</span></Link><p>Free design and development tools.</p></div>
+        <nav aria-label="Footer navigation">
+          <Link to="/about">About</Link><Link to="/privacy">Privacy</Link><Link to="/terms">Terms</Link>
+          <a href="https://github.com/grant-atl/Minerva-s-Tools" target="_blank" rel="noopener noreferrer">GitHub <ArrowUpRight size={13} aria-hidden="true" /><span className="sr-only"> (opens in a new tab)</span></a>
+        </nav>
+        <p className="lab-copyright">© {new Date().getFullYear()} Minerva&apos;s Tools.</p>
       </div>
     </footer>
   );

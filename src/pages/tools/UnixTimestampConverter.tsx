@@ -58,7 +58,7 @@ export default function UnixTimestampConverter() {
     <div className="min-h-screen bg-background text-foreground">
       <SEO
         title="Unix Timestamp Converter — Epoch to Date and Back | Minerva's Tools"
-        description="Convert Unix epoch timestamps to local/UTC date-time and convert date-time values back to seconds or milliseconds."
+        description="Convert Unix timestamps in seconds or milliseconds to local and UTC dates, or convert dates to timestamps."
         canonical="/tools/unix-timestamp"
       />
       <ToolSchema
@@ -74,7 +74,7 @@ export default function UnixTimestampConverter() {
         <div className="mb-8 flex items-start justify-between gap-4">
           <div>
             <h1 className="text-3xl font-bold tracking-tight">Unix Timestamp Converter</h1>
-            <p className="mt-1 text-muted-foreground">Convert between epoch values and readable local/UTC date-time instantly.</p>
+            <p className="mt-1 text-muted-foreground">Convert between Unix timestamps and local or UTC date-time values.</p>
           </div>
           <ShareToolButton toolName="Unix Timestamp Converter" />
         </div>

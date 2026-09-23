@@ -33,6 +33,7 @@ const PRESETS = [
 interface FontSlot {
   name: string;
   isCustom: boolean;
+  previewFamily?: string;
 }
 
 function FontPicker({
@@ -80,8 +81,8 @@ function FontPicker({
         <button
           type="button"
           onClick={() => setOpen((o) => !o)}
-          className="flex w-full items-center justify-between gap-1.5 rounded-3xl border border-transparent bg-input/50 px-3 py-2 text-sm h-9 transition-[color,box-shadow,background-color] outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/30"
-          style={{ fontFamily: slot.isCustom ? slot.name : `'${slot.name}', sans-serif` }}
+          className="flex h-9 w-full items-center justify-between gap-1.5 rounded-[2px] border border-border bg-input/50 px-3 py-2 text-sm transition-[color,box-shadow,background-color] outline-none focus-visible:border-ring focus-visible:ring-2 focus-visible:ring-ring/30"
+          style={{ fontFamily: `${JSON.stringify(slot.previewFamily ?? slot.name)}, sans-serif` }}
         >
           <span className="truncate">
             {slot.name}
@@ -193,11 +194,11 @@ export default function FontPairing() {
     try {
       const buffer = await file.arrayBuffer();
       const baseName = file.name.replace(/\.(woff2|ttf|otf)$/i, "");
-      const faceName = `Custom-${target}-${baseName}`;
+      const faceName = `Custom-${target}-${crypto.randomUUID()}`;
       const face = new FontFace(faceName, buffer);
       await face.load();
       document.fonts.add(face);
-      const slot: FontSlot = { name: faceName, isCustom: true };
+      const slot: FontSlot = { name: baseName, previewFamily: faceName, isCustom: true };
       if (target === "heading") setHeading(slot);
       else setBody(slot);
       toast({ title: `Loaded "${baseName}" as ${target} font` });
@@ -231,12 +232,12 @@ export default function FontPairing() {
     return () => window.removeEventListener("keydown", handler);
   }, [randomize]);
 
-  const headingFamily = heading.isCustom ? heading.name : `'${heading.name}', sans-serif`;
-  const bodyFamily = body.isCustom ? body.name : `'${body.name}', sans-serif`;
+  const headingFamily = `${JSON.stringify(heading.previewFamily ?? heading.name)}, sans-serif`;
+  const bodyFamily = `${JSON.stringify(body.previewFamily ?? body.name)}, sans-serif`;
 
   const cssCode = useMemo(() => {
-    const hFont = heading.isCustom ? heading.name : `'${heading.name}', sans-serif`;
-    const bFont = body.isCustom ? body.name : `'${body.name}', sans-serif`;
+    const hFont = `${JSON.stringify(heading.name)}, sans-serif`;
+    const bFont = `${JSON.stringify(body.name)}, sans-serif`;
     return `:root {
   --font-heading: ${hFont};
   --font-body: ${bFont};
@@ -254,8 +255,8 @@ body, p, li, td {
   }, [heading, body, baseSize]);
 
   const tailwindCode = useMemo(() => {
-    const hFont = heading.isCustom ? heading.name : `'${heading.name}'`;
-    const bFont = body.isCustom ? body.name : `'${body.name}'`;
+    const hFont = JSON.stringify(heading.name);
+    const bFont = JSON.stringify(body.name);
     return `// tailwind.config.ts
 theme: {
   fontFamily: {
@@ -278,8 +279,8 @@ theme: {
   return (
     <>
       <SEO
-        title="Font Pairing Tool — Find Perfect Font Combinations | Minerva's Tools"
-        description="Discover beautiful heading + body font pairings from 30+ Google Fonts. Upload custom fonts, preview in real layouts, and export CSS or Tailwind config."
+        title="Font Pairing | Minerva's Tools"
+        description="Compare Google Fonts or uploaded fonts for headings and body text, then export CSS or Tailwind configuration."
         canonical="/tools/font-pairing"
       />
       <div className="min-h-screen flex flex-col bg-background text-foreground">
@@ -290,7 +291,7 @@ theme: {
             <div>
               <h1 className="text-3xl sm:text-4xl font-bold tracking-tight mb-2">Font Pairing</h1>
               <p className="text-muted-foreground text-base sm:text-lg max-w-2xl">
-                Find beautiful heading + body font combinations. Pick from 30+ Google Fonts or upload your own, then preview in real layouts.
+                Compare heading and body fonts using Google Fonts or your own font files.
               </p>
             </div>
             <ShareToolButton toolName="Font Pairing Tool" />
@@ -313,7 +314,6 @@ theme: {
             <div className="space-y-6">
               {/* Hero Preview */}
               <div className="rounded-2xl border border-border bg-card p-6 sm:p-8 space-y-4">
-                <p className="text-[11px] text-muted-foreground font-medium uppercase tracking-wider mb-2">Hero</p>
                 <h2
                   className="text-3xl sm:text-4xl font-bold leading-tight"
                   style={{ fontFamily: headingFamily }}
@@ -324,58 +324,56 @@ theme: {
                   className="text-muted-foreground leading-relaxed"
                   style={{ fontFamily: bodyFamily, fontSize: `${baseSize}px` }}
                 >
-                  Typography is the art and technique of arranging type to make written language legible, readable, and appealing when displayed. Good font pairing creates visual hierarchy and guides the reader's eye through your content naturally.
+                  This paragraph uses the selected body font. Compare its size, spacing, and letter shapes with the heading above. The sample includes punctuation, numbers 0123456789, and both uppercase and lowercase letters.
                 </p>
               </div>
 
               {/* Article Preview */}
               <div className="rounded-2xl border border-border bg-card p-6 sm:p-8 space-y-4">
-                <p className="text-[11px] text-muted-foreground font-medium uppercase tracking-wider mb-2">Article</p>
                 <h2
                   className="text-2xl font-bold"
                   style={{ fontFamily: headingFamily }}
                 >
-                  Getting Started with Design Systems
+                  Article heading
                 </h2>
                 <h3
                   className="text-xl font-semibold text-muted-foreground"
                   style={{ fontFamily: headingFamily }}
                 >
-                  Why consistency matters
+                  Section heading
                 </h3>
                 <p
                   className="leading-relaxed"
                   style={{ fontFamily: bodyFamily, fontSize: `${baseSize}px` }}
                 >
-                  A design system is a collection of reusable components, guided by clear standards, that can be assembled to build any number of applications. It bridges the gap between design and development, ensuring consistency across products.
+                  This is a longer paragraph for checking body text. Look at how the lines wrap and how the font reads at the selected size. Compare letters such as a, g, l, and I, along with punctuation and numbers.
                 </p>
                 <blockquote
                   className="border-l-2 border-primary pl-4 italic text-muted-foreground"
                   style={{ fontFamily: bodyFamily, fontSize: `${baseSize}px` }}
                 >
-                  "Design is not just what it looks like and feels like. Design is how it works."
+                  Italic text sample: The quick brown fox jumps over the lazy dog.
                 </blockquote>
                 <h3
                   className="text-lg font-semibold"
                   style={{ fontFamily: headingFamily }}
                 >
-                  Building blocks
+                  Subheading
                 </h3>
                 <p
                   className="leading-relaxed"
                   style={{ fontFamily: bodyFamily, fontSize: `${baseSize}px` }}
                 >
-                  Start with typography, color, and spacing tokens. These foundational elements create the visual language everything else builds on. Pair a distinctive heading font with a readable body font to establish clear hierarchy.
+                  Use this paragraph to compare the body font with a smaller heading. Adjust the font selection or base size to see how the text changes.
                 </p>
               </div>
 
               {/* Card Preview */}
               <div className="rounded-2xl border border-border bg-card p-6 sm:p-8">
-                <p className="text-[11px] text-muted-foreground font-medium uppercase tracking-wider mb-4">Card UI</p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {[
-                    { title: "Analytics Dashboard", desc: "Track your key metrics with real-time charts and custom reports." },
-                    { title: "Team Collaboration", desc: "Share designs, leave comments, and iterate together in one place." },
+                    { title: "Card heading", desc: "A short description rendered in the selected body font." },
+                    { title: "Another heading", desc: "Compare line length and wrapping in this second card." },
                   ].map((card) => (
                     <div key={card.title} className="rounded-xl border border-border bg-background p-4 space-y-2">
                       <h4
@@ -394,7 +392,7 @@ theme: {
                         className="text-sm font-medium text-primary hover:underline"
                         style={{ fontFamily: bodyFamily }}
                       >
-                        Learn more →
+                        Sample link
                       </button>
                     </div>
                   ))}
@@ -463,7 +461,7 @@ theme: {
           </div>
         </main>
         <ToolContent about={fontPairingContent.about} faqs={fontPairingContent.faqs} />
-        <ToolSchema name="Font Pairing Tool" description="Discover beautiful heading and body font combinations from Google Fonts or custom uploads. Preview in real layouts and export CSS or Tailwind config." url="/tools/font-pairing" faqs={fontPairingContent.faqs} />
+        <ToolSchema name="Font Pairing Tool" description="Compare heading and body fonts and export CSS or Tailwind configuration." url="/tools/font-pairing" faqs={fontPairingContent.faqs} />
         <Footer />
       </div>
     </>

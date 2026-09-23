@@ -138,7 +138,7 @@ export default function ImageFormatConverter() {
     <div className="min-h-screen bg-background text-foreground">
       <SEO
         title="Image Format Converter — PNG, JPEG, WebP | Minerva's Tools"
-        description="Convert image files between PNG, JPEG, and WebP in your browser."
+        description="Convert images between PNG, JPEG, and WebP in your browser."
         canonical="/tools/image-format-converter"
       />
       <ToolSchema
@@ -154,7 +154,7 @@ export default function ImageFormatConverter() {
         <div className="mb-8 flex items-start justify-between gap-4">
           <div>
             <h1 className="text-3xl font-bold tracking-tight">Image Format Converter</h1>
-            <p className="mt-1 text-muted-foreground">Switch between PNG, JPEG, and WebP output instantly.</p>
+            <p className="mt-1 text-muted-foreground">Convert images between PNG, JPEG, and WebP.</p>
           </div>
           <ShareToolButton toolName="Image Format Converter" />
         </div>

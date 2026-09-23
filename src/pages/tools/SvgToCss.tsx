@@ -84,7 +84,7 @@ export default function SvgToCss() {
     <div className="min-h-screen bg-background text-foreground">
       <SEO
         title="SVG to CSS Converter — Inline SVG as CSS Background Image | Minerva's Tools"
-        description="Convert SVG code to a CSS background-image data URI. Paste or upload an SVG and get ready-to-use CSS. Free, client-side, no sign-up."
+        description="Convert pasted or uploaded SVG markup to a CSS background-image data URI."
         canonical="/tools/svg-to-css"
       />
       <ToolSchema

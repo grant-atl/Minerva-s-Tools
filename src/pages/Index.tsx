@@ -1,208 +1,128 @@
-import { useCallback } from "react";
-import { Link } from "react-router-dom";
-import { ArrowRight, Lightning, Sparkle, SquaresFour, TrendUp } from "@phosphor-icons/react";
-import { Badge } from "@/components/ui/badge";
+import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { ArrowDown, ArrowRight, ArrowUpRight, Check, Code, MagnifyingGlass, X } from "@phosphor-icons/react";
+import { QRCodeSVG } from "qrcode.react";
 import HomeNav from "@/components/HomeNav";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
-import { tools, categories, categoryDescriptions, type Tool } from "@/lib/tools-data";
+import { tools, categories, type Tool } from "@/lib/tools-data";
 
-const totalToolCount = tools.filter((tool) => tool.tier === 1).length;
-
-const spotlightStats = [
-  {
-    label: "Live Utilities",
-    value: `${totalToolCount}+`,
-    Icon: SquaresFour,
-  },
-  {
-    label: "Access",
-    value: "No Account",
-    Icon: Lightning,
-  },
-  {
-    label: "Tool Processing",
-    value: "In Browser",
-    Icon: Sparkle,
-  },
-  {
-    label: "Focus Areas",
-    value: `${categories.length} Categories`,
-    Icon: TrendUp,
-  },
-];
-
-function toCategoryAnchor(category: string): string {
-  return `category-${category.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`;
-}
-
-const categoryStats = categories.map((category) => ({
-  category,
-  count: tools.filter((tool) => tool.category === category && tool.tier === 1).length,
-  anchor: toCategoryAnchor(category),
-}));
+const availableTools = tools.filter((tool) => tool.tier === 1);
+const swatches = ["#dceacb", "#baff66", "#83ac59", "#4d6838", "#273920"];
+const categoryAnchor = (category: string) => `category-${category.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`;
 
 export default function Index() {
-  const scrollToTools = useCallback((e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-    document.getElementById("tools")?.scrollIntoView({ behavior: "smooth" });
-  }, []);
+  const [query, setQuery] = useState("");
+  const { hash } = useLocation();
+  const category = categories.find((item) => hash === `#${categoryAnchor(item)}`);
+  const shownTools = availableTools.filter((tool) =>
+    (!category || tool.category === category) &&
+    `${tool.name} ${tool.description} ${tool.category}`.toLowerCase().includes(query.trim().toLowerCase()),
+  );
 
   return (
-    <div className="min-h-screen bg-[#090806] text-[#f7efe8]">
+    <div className="min-h-screen bg-background text-foreground">
       <SEO
         title="Minerva's Tools — Free Utilities for Designers & Developers"
-        description="45 free, focused browser utilities for designers and developers. No account required."
+        description={`${availableTools.length} free, focused browser utilities for designers and developers. No account required.`}
         canonical="/"
       />
-
-      <div className="relative overflow-hidden border-b border-white/10 bg-[radial-gradient(circle_at_12%_12%,rgba(234,202,160,0.14)_0%,rgba(9,8,6,0)_38%),radial-gradient(circle_at_82%_18%,rgba(168,106,76,0.2)_0%,rgba(9,8,6,0)_44%),linear-gradient(180deg,#0f0b08_0%,#090806_74%)]">
-        <div className="pointer-events-none absolute inset-0">
-          <div className="absolute left-[-12%] top-[-18%] h-[340px] w-[340px] rounded-full bg-[#d38f66]/18 blur-[86px]" />
-          <div className="absolute right-[-9%] top-[8%] h-[300px] w-[300px] rounded-full bg-[#e7c39a]/14 blur-[86px]" />
-          <div className="absolute bottom-[-22%] left-[24%] h-[280px] w-[280px] rounded-full bg-[#c79a74]/12 blur-[92px]" />
-        </div>
-
-        <HomeNav variant="dark" />
-
-        <section className="relative z-10 container mx-auto px-4 pb-16 pt-10 sm:px-6 sm:pt-14 lg:pb-24 lg:pt-20">
-          <div className="mx-auto flex max-w-4xl justify-center">
-            <div className="max-w-2xl text-center">
-              <h1 className="home-reveal home-reveal-delay-1 mt-5 text-balance text-[2.4rem] font-semibold leading-[1.05] tracking-[-0.03em] text-[#fcf3ec] sm:text-[3.1rem] lg:text-[4rem]">
-                Design tools that feel fast, clear, and quietly premium.
-              </h1>
-
-              <p className="home-reveal home-reveal-delay-2 mt-6 text-[1.03rem] leading-relaxed text-[#ecd7c5]/80">
-                Every utility is focused, browser-native, and tuned for momentum. Jump in, solve the task, and get back to creating.
-              </p>
-
-              <div className="home-reveal home-reveal-delay-3 mt-9 flex flex-wrap items-center justify-center gap-3">
-                <a
-                  href="#tools"
-                  onClick={scrollToTools}
-                  className="home-press inline-flex items-center gap-2 rounded-full border border-[#f9e6d8]/90 bg-[#f9e6d8] px-6 py-3 text-sm font-semibold text-[#1f140c] shadow-[0_18px_44px_-22px_rgba(244,215,187,0.75)]"
-                >
-                  Explore Tools
-                  <ArrowRight size={15} weight="bold" />
-                </a>
-              </div>
-
-              <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-4">
-                {spotlightStats.map(({ label, value, Icon }, index) => (
-                  <div
-                    key={label}
-                    className={`home-reveal rounded-2xl border border-white/10 bg-white/[0.03] px-3 py-3.5 ${index % 2 === 0 ? "home-reveal-delay-2" : "home-reveal-delay-3"}`}
-                  >
-                    <div className="mb-2 inline-flex h-7 w-7 items-center justify-center rounded-full bg-white/10 text-[#f7e4d3]">
-                      <Icon size={14} weight="duotone" />
-                    </div>
-                    <p className="text-[0.64rem] uppercase tracking-[0.15em] text-[#d4beab]/80">{label}</p>
-                    <p className="mt-1 text-sm font-semibold text-[#fff3e8]">{value}</p>
-                  </div>
-                ))}
-              </div>
+      <HomeNav />
+      <main className="lab-container">
+        <section className="lab-hero" aria-labelledby="home-heading">
+          <div className="lab-hero-copy ease-up">
+            <h1 id="home-heading">Tools for designers<br />and developers.</h1>
+            <p>45 free tools for color, CSS, images, and code.</p>
+            <div className="lab-hero-actions">
+              <a href="#tools" className="lab-button lab-button-primary">Browse tools <ArrowDown size={16} aria-hidden="true" /></a>
+              <Link to="/about" className="lab-text-link">About <ArrowUpRight size={15} aria-hidden="true" /></Link>
+            </div>
+            <div className="lab-facts">
+              <span><Check size={12} aria-hidden="true" /> {availableTools.length} free tools</span>
+              <span><Check size={12} aria-hidden="true" /> No sign-up</span>
+              <span><Check size={12} aria-hidden="true" /> Runs in your browser</span>
             </div>
           </div>
+          <div className="lab-hero-art ease-up ease-up-delay-1" aria-label="Try a tool">
+            <div className="lab-dot-field" aria-hidden="true" />
+            <Link to="/tools/typography-scale" className="lab-art-type lab-art-card" aria-label="Open Typography Scale">
+              <span className="lab-art-label">Typography <ArrowUpRight size={13} aria-hidden="true" /></span>
+              <span className="lab-type-sample" aria-hidden="true">Aa<span>Bb</span></span>
+              <span className="lab-art-detail">Typography Scale</span>
+            </Link>
+            <Link to="/tools/palette" className="lab-art-palette lab-art-card" aria-label="Open Color Palette Generator">
+              <span className="lab-art-label">Color palette <ArrowUpRight size={13} aria-hidden="true" /></span>
+              <span className="lab-swatches" aria-hidden="true">{swatches.map((color) => <i key={color} style={{ background: color }} />)}</span>
+              <span className="lab-art-detail"><span className="lab-status-dot" /> Color Palette Generator <span>#BAFF66</span></span>
+            </Link>
+            <Link to="/tools/json-formatter" className="lab-art-code lab-art-card" aria-label="Open JSON Formatter">
+              <span className="lab-art-label"><Code size={15} aria-hidden="true" /> JSON Formatter <ArrowUpRight size={13} aria-hidden="true" /></span>
+              <code aria-hidden="true"><span>{"{"}</span><br />&nbsp;&nbsp;"name": <b>"Minerva"</b>,<br />&nbsp;&nbsp;"tools": <b>45</b><br /><span>{"}"}</span></code>
+            </Link>
+          </div>
         </section>
-      </div>
 
-      <div id="tools" className="bg-background text-foreground">
-        <section className="border-b border-border/70 bg-gradient-to-b from-muted/35 via-background to-background">
-          <div className="container mx-auto px-4 py-10 sm:px-6">
-            <div className="mb-7">
-              <p className="text-xs font-medium uppercase tracking-[0.12em] text-muted-foreground">Browse by category</p>
-              <h2 className="mt-2 text-pretty text-2xl font-semibold tracking-tight text-foreground sm:text-[2rem]">
-                Start where your current task lives
-              </h2>
-            </div>
-            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
-              {categoryStats.map((stat) => (
-                <a
-                  key={stat.category}
-                  href={`#${stat.anchor}`}
-                  className="home-category-chip home-press group rounded-2xl border border-border/80 bg-card px-4 py-4"
-                >
-                  <p className="text-sm font-semibold text-card-foreground">{stat.category}</p>
-                  <p className="mt-1 text-xs text-muted-foreground">{stat.count} ready-to-use tools</p>
-                </a>
+        <section id="tools" className="lab-collection" aria-labelledby="tools-heading">
+          <div className="lab-collection-heading">
+            <div><h2 id="tools-heading">Tools</h2></div>
+            <span className="lab-collection-count" role="status">{shownTools.length} {shownTools.length === 1 ? "tool" : "tools"}{category ? ` in ${category}` : " available"}</span>
+          </div>
+          <div className="lab-toolbar">
+            <nav className="lab-filters" aria-label="Filter tools by category">
+              <Link to="#tools" preventScrollReset aria-current={!category ? "true" : undefined} className={!category ? "active" : ""}>All tools <span>{availableTools.length}</span></Link>
+              {categories.map((item) => (
+                <Link key={item} id={categoryAnchor(item)} to={`#${categoryAnchor(item)}`} preventScrollReset aria-current={category === item ? "true" : undefined} className={category === item ? "active" : ""}>{item === "Data/Dev" ? "Data & code" : item}</Link>
               ))}
+            </nav>
+            <div className="lab-search">
+              <MagnifyingGlass size={16} aria-hidden="true" />
+              <input type="search" aria-label="Search tools" placeholder="Search tools…" value={query} onChange={(event) => setQuery(event.target.value)} />
+              {query && <button type="button" aria-label="Clear search" onClick={() => setQuery("")}><X size={14} aria-hidden="true" /></button>}
             </div>
           </div>
+          {shownTools.length ? (
+            <div className="lab-tool-grid">
+              {shownTools.map((tool) => <ToolCard key={tool.route} tool={tool} index={availableTools.indexOf(tool)} />)}
+            </div>
+          ) : (
+            <div className="lab-empty">
+              <MagnifyingGlass size={28} aria-hidden="true" />
+              <h3>No tools found.</h3>
+              <p>Try another search or explore the full collection.</p>
+              <Link to="#tools" className="lab-button lab-button-secondary" onClick={() => setQuery("")}>Show all tools <ArrowRight size={15} aria-hidden="true" /></Link>
+            </div>
+          )}
         </section>
-
-        <main className="container mx-auto px-4 pb-24 pt-16 sm:px-6 sm:pb-28 sm:pt-20">
-          <div className="mb-14 text-center">
-            <h2 className="text-2xl font-bold tracking-tight text-foreground sm:text-[2rem]">All tools</h2>
-            <p className="mt-2 text-sm text-muted-foreground">Everything organized by focus area.</p>
-          </div>
-          {categories.map((category) => {
-            const categoryTools = tools.filter((t) => t.category === category);
-            const anchor = toCategoryAnchor(category);
-
-            return (
-              <section key={category} id={anchor} className="mb-14 scroll-mt-24">
-                <div className="mb-6 flex flex-wrap items-end justify-between gap-3">
-                  <div>
-                    <h3 className="text-xl font-bold tracking-tight text-foreground">{category}</h3>
-                    <p className="mt-1 text-sm text-muted-foreground">{categoryDescriptions[category]}</p>
-                  </div>
-                  <Badge variant="outline" className="rounded-full px-2.5 py-1 text-[11px] font-medium">
-                    {categoryTools.length} tools
-                  </Badge>
-                </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {categoryTools.map((tool) => (
-                    <ToolCard key={tool.route} tool={tool} />
-                  ))}
-                </div>
-              </section>
-            );
-          })}
-        </main>
-
-        <Footer />
-      </div>
+      </main>
+      <Footer />
     </div>
   );
 }
 
-function ToolCard({ tool }: { tool: Tool }) {
-  const Icon = tool.icon;
-  const isAvailable = tool.tier === 1;
-
-  const content = (
-    <>
-      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md border border-primary/10 bg-primary/10 text-primary">
-        <Icon size={22} weight="duotone" />
-      </div>
-      <div className="flex-1 min-w-0">
-        <div className="flex items-center gap-2 mb-1">
-          <h3 className="font-semibold text-sm text-card-foreground group-hover:text-primary transition-colors">
-            {tool.name}
-          </h3>
-          {!isAvailable && (
-            <Badge variant="secondary" className="text-[10px] px-1.5 py-0">Soon</Badge>
-          )}
-        </div>
-        <p className="text-xs text-muted-foreground leading-relaxed">{tool.description}</p>
-      </div>
-    </>
-  );
-
-  if (!isAvailable) {
-    return (
-      <div className="group flex items-start gap-4 rounded-2xl border border-border bg-card p-5 opacity-60 cursor-not-allowed">
-        {content}
-      </div>
-    );
-  }
-
+function ToolCard({ tool, index }: { tool: Tool; index: number }) {
   return (
-    <Link
-      to={tool.route}
-      className="home-tool-card home-lift home-press group flex items-start gap-4 rounded-2xl border border-border bg-card p-5"
-    >
-      {content}
+    <Link to={tool.route} className="lab-tool-card">
+      <div className="lab-card-stage" aria-hidden="true">
+        <span className="lab-card-number">{String(index + 1).padStart(2, "0")}</span>
+        <span className="lab-card-category"><span className="lab-status-dot" /> {tool.category}</span>
+        <ToolPreview tool={tool} />
+        <span className="lab-card-open">Open tool <ArrowUpRight size={13} /></span>
+      </div>
+      <div className="lab-card-info"><div><h3>{tool.name}</h3><p>{tool.description}</p></div><ArrowUpRight size={16} aria-hidden="true" /></div>
     </Link>
   );
+}
+
+function ToolPreview({ tool }: { tool: Tool }) {
+  if (tool.route === "/tools/qr-code") return <QRCodeSVG value="https://minervas.tools" size={100} bgColor="transparent" fgColor="#baff66" />;
+  if (tool.route === "/tools/gradient") return <div className="lab-preview-gradient" />;
+  if (tool.route === "/tools/contrast") return <div className="lab-preview-contrast"><span>Aa</span><span>Aa</span></div>;
+  if (tool.route === "/tools/box-shadow") return <div className="lab-preview-shadow" />;
+  if (/typography|font-pairing|lorem|text-utilities/.test(tool.route)) return <div className="lab-preview-type">Aa<span>Bb</span><small>Font preview</small></div>;
+  if (tool.category === "Colors") return <div className="lab-preview-swatches">{swatches.map((color) => <i key={color} style={{ background: color }} />)}</div>;
+  if (tool.category === "Layout") return <div className="lab-preview-grid">{Array.from({ length: 6 }, (_, i) => <i key={i} />)}</div>;
+  if (tool.category === "Data/Dev") return <div className="lab-preview-code"><span>{"{ "}</span><br />&nbsp;&nbsp;"name": <b>"Minerva"</b>,<br />&nbsp;&nbsp;"tools": <b>45</b><br /><span>{"}"}</span></div>;
+  if (tool.category === "Image") return <div className="lab-preview-image"><span /><i /></div>;
+  const Icon = tool.icon;
+  return <div className="lab-preview-icon"><Icon size={58} weight="thin" /></div>;
 }

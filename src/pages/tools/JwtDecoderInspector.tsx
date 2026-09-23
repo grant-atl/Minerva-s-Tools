@@ -84,7 +84,7 @@ export default function JwtDecoderInspector() {
     <div className="min-h-screen bg-background text-foreground">
       <SEO
         title="JWT Decoder & Inspector — Decode Header and Claims | Minerva's Tools"
-        description="Decode JWT tokens client-side, inspect header/payload claims, and review exp/iat/nbf timestamps."
+        description="Decode JWT headers and payloads and inspect exp, iat, and nbf timestamps locally."
         canonical="/tools/jwt-decoder"
       />
       <ToolSchema
@@ -100,7 +100,7 @@ export default function JwtDecoderInspector() {
         <div className="mb-8 flex items-start justify-between gap-4">
           <div>
             <h1 className="text-3xl font-bold tracking-tight">JWT Decoder & Inspector</h1>
-            <p className="mt-1 text-muted-foreground">Decode token claims locally and inspect important timestamps instantly.</p>
+            <p className="mt-1 text-muted-foreground">Decode token claims locally and inspect their timestamps.</p>
           </div>
           <ShareToolButton toolName="JWT Decoder & Inspector" />
         </div>

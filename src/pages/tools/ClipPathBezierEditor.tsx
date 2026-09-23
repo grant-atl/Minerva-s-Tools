@@ -59,7 +59,7 @@ export default function ClipPathBezierEditor() {
     <div className="min-h-screen bg-background text-foreground">
       <SEO
         title="Clip-Path & Bezier Editor — CSS Shape + Easing | Minerva's Tools"
-        description="Pick a clip-path shape and tune cubic-bezier easing with interactive controls."
+        description="Preview polygon clip-paths, adjust cubic-bezier easing, and copy the CSS."
         canonical="/tools/clip-path-bezier"
       />
       <ToolSchema
@@ -82,7 +82,7 @@ export default function ClipPathBezierEditor() {
 
         <section className="rounded-lg border border-border bg-card p-4 sm:p-5 space-y-5">
           <div className="grid gap-4 lg:grid-cols-[1fr_1.4fr]">
-            <div className="space-y-3">
+            <div className="min-w-0 space-y-3">
               <div className="space-y-2">
                 <label htmlFor="shape-preset" className="text-sm font-medium">Clip-path preset</label>
                 <select
@@ -124,7 +124,7 @@ export default function ClipPathBezierEditor() {
               </Button>
             </div>
 
-            <div className="space-y-4">
+            <div className="min-w-0 space-y-4">
               <p className="text-sm font-medium">Preview</p>
               <div className="flex min-h-44 items-center justify-center rounded-lg border border-border bg-muted/30">
                 <div

@@ -1,0 +1,46 @@
+tool,route,320px_default_page_width,768px_default_page_width,1440px_default_page_width,320px_130percent_text_page_width,320px_about_left_gutter,320px_about_right_gutter
+Color Palette Generator,/tools/palette,320,768,1440,320,16,16
+QR Code Generator,/tools/qr-code,320,768,1440,320,16,16
+Gradient Generator,/tools/gradient,320,768,1440,320,16,16
+Contrast Checker,/tools/contrast,320,768,1440,343,16,16
+Box Shadow Generator,/tools/box-shadow,320,768,1440,320,16,16
+Typography Scale,/tools/typography-scale,320,768,1440,320,16,16
+Favicon Generator,/tools/favicon,320,768,1440,372,16,16
+SVG to CSS Converter,/tools/svg-to-css,320,768,1440,320,16,16
+Color Blindness Simulator,/tools/color-blindness,320,768,1440,342,16,16
+Font Pairing,/tools/font-pairing,320,768,1440,320,16,16
+Spacing Calculator,/tools/spacing,320,768,1440,320,16,16
+Glassmorphism Generator,/tools/glassmorphism,320,768,1440,397,16,16
+Neumorphism Generator,/tools/neumorphism,320,768,1440,357,16,16
+Tailwind Color Finder,/tools/tailwind-color,320,768,1440,320,16,16
+Aspect Ratio Calculator,/tools/aspect-ratio,320,768,1440,320,16,16
+px ↔ rem Converter,/tools/px-rem,320,768,1440,320,16,16
+Meta Tag Preview,/tools/meta-preview,320,768,1440,376,16,16
+Lorem Ipsum Generator,/tools/lorem-ipsum,320,768,1440,365,16,16
+Flexbox Generator,/tools/flexbox,320,768,1440,406,16,16
+Grid Generator,/tools/grid,320,768,1440,320,16,16
+Border Radius Generator,/tools/border-radius,320,768,1440,320,16,16
+Clamp Calculator,/tools/clamp-calculator,320,768,1440,320,16,16
+Image Color Picker,/tools/image-color-picker,320,768,1440,320,16,16
+Image Compressor,/tools/image-compressor,320,768,1440,321,16,16
+Image Format Converter,/tools/image-format-converter,320,768,1440,320,16,16
+Image Resizer & Cropper,/tools/image-resizer-cropper,320,768,1440,320,16,16
+Image Base64 Converter,/tools/image-base64,320,768,1440,320,16,16
+Color Converter,/tools/color-converter,320,768,1440,320,16,16
+SVG to PNG Converter,/tools/svg-to-png,320,768,1440,320,16,16
+SVG Blob & Pattern Generator,/tools/svg-blob-pattern,320,768,1440,320,16,16
+SVG Optimizer,/tools/svg-optimizer,320,768,1440,372,16,16
+SVG to React Converter,/tools/svg-to-react,320,768,1440,345,16,16
+JSON Formatter & Validator,/tools/json-formatter,320,768,1440,320,16,16
+Code Formatter & Minifier,/tools/code-formatter-minifier,320,768,1440,320,16,16
+Base64 Encoder/Decoder,/tools/base64,320,768,1440,345,16,16
+URL Encoder/Decoder,/tools/url-encode,320,768,1440,345,16,16
+UUID Generator,/tools/uuid,320,768,1440,320,16,16
+Regex Tester & Replacer,/tools/regex-tester,320,768,1440,320,16,16
+JWT Decoder & Inspector,/tools/jwt-decoder,320,768,1440,320,16,16
+Hash Generator,/tools/hash-generator,320,768,1440,320,16,16
+Unix Timestamp Converter,/tools/unix-timestamp,320,768,1440,383,16,16
+Cron Expression Builder,/tools/cron-builder,320,768,1440,320,16,16
+CSS Animation Generator,/tools/css-animation-generator,320,768,1440,320,16,16
+Clip-Path & Bezier Editor,/tools/clip-path-bezier,320,768,1440,320,16,16
+Text Utilities,/tools/text-utilities,320,768,1440,320,16,16

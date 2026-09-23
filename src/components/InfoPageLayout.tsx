@@ -1,4 +1,5 @@
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
+import Footer from "@/components/Footer";
 import HomeNav from "@/components/HomeNav";
 
 type InfoPageLayoutProps = {
@@ -15,29 +16,27 @@ export default function InfoPageLayout({
   children,
 }: InfoPageLayoutProps) {
   return (
-    <div className="min-h-screen bg-black text-white">
-      <HomeNav variant="dark" />
-      <div className="relative z-10 pb-10">
-        <main className="w-full px-[25px] pb-10 pt-6">
-          <section className="ease-up mb-8 rounded-none border border-white/15 bg-white/[0.04] p-6 backdrop-blur-sm sm:p-8">
-            <h1 className="text-[2.2rem] font-bold leading-[0.95] text-white sm:text-[3rem]">
-              {title}
-            </h1>
-            <p className="mt-3 max-w-3xl text-sm leading-relaxed text-white/75 sm:text-base">
-              {description}
+    <div className="min-h-screen bg-background text-foreground">
+      <HomeNav />
+      <main className="mx-auto max-w-4xl px-6 py-16 sm:px-8 sm:py-20">
+        <header className="border-b border-border pb-10">
+          <h1 className="text-balance text-4xl font-medium leading-tight tracking-[-0.04em] sm:text-5xl">
+            {title}
+          </h1>
+          <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground">
+            {description}
+          </p>
+          {updatedAt && (
+            <p className="mt-5 font-mono text-xs text-muted-foreground">
+              Last updated {updatedAt}
             </p>
-            {updatedAt && (
-              <p className="mt-3 text-xs uppercase tracking-[0.08em] text-white/50">
-                Last updated: {updatedAt}
-              </p>
-            )}
-          </section>
-
-          <section className="ease-up ease-up-delay-1 rounded-none border border-white/15 bg-white/[0.03] p-6 shadow-[0_24px_80px_-45px_rgba(0,0,0,0.85)] sm:p-8">
-            <div className="space-y-8">{children}</div>
-          </section>
-        </main>
-      </div>
+          )}
+        </header>
+        <div className="space-y-10 pt-10 [&_a]:text-primary [&_a]:underline-offset-4 [&_h2]:font-medium [&_h2]:tracking-tight [&>section]:text-foreground">
+          {children}
+        </div>
+      </main>
+      <Footer />
     </div>
   );
 }

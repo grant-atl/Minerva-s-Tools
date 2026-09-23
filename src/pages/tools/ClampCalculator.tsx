@@ -51,7 +51,7 @@ export default function ClampCalculator() {
     <div className="min-h-screen bg-background text-foreground">
       <SEO
         title="Clamp Calculator — Responsive CSS clamp() Generator | Minerva's Tools"
-        description="Generate responsive clamp() values for typography and spacing. Configure min/max values and viewport range, then copy CSS instantly."
+        description="Calculate fluid CSS clamp() values from minimum and maximum sizes and a viewport range."
         canonical="/tools/clamp-calculator"
       />
       <ToolSchema
@@ -72,7 +72,7 @@ export default function ClampCalculator() {
           <ShareToolButton toolName="Clamp Calculator" />
         </div>
 
-        <div className="grid gap-6 lg:grid-cols-2">
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
           <section className="rounded-lg border border-border bg-card p-4 sm:p-5">
             <h2 className="mb-4 text-sm font-semibold">Inputs</h2>
             <div className="grid gap-4 sm:grid-cols-2">

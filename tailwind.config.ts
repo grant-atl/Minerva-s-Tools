@@ -18,8 +18,9 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ["'Figtree Variable'", "sans-serif"],
-        heading: ["'Figtree Variable'", "sans-serif"],
+        sans: ["var(--font-sans)"],
+        heading: ["var(--font-sans)"],
+        mono: ["var(--font-mono)"],
       },
       colors: {
         border: "var(--border)",
@@ -68,8 +69,8 @@ export default {
       },
       borderRadius: {
         lg: "var(--radius)",
-        md: "calc(var(--radius) - 4px)",
-        sm: "calc(var(--radius) - 8px)",
+        md: "var(--radius)",
+        sm: "var(--radius)",
       },
       keyframes: {
         "accordion-down": {

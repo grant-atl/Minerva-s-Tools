@@ -58,7 +58,7 @@ export default function Base64EncoderDecoder() {
     <div className="min-h-screen bg-background text-foreground">
       <SEO
         title="Base64 Encoder/Decoder — Convert Text and Base64 | Minerva's Tools"
-        description="Encode plain text to Base64 or decode Base64 back to UTF-8 text instantly."
+        description="Encode UTF-8 text as Base64 or decode Base64 back to text."
         canonical="/tools/base64"
       />
       <ToolSchema
@@ -71,10 +71,10 @@ export default function Base64EncoderDecoder() {
       <HomeNav />
 
       <main className="container mx-auto px-4 sm:px-6 py-10 lg:py-12">
-        <div className="mb-8 flex items-start justify-between gap-4">
+        <div className="mb-8 flex flex-col items-start justify-between gap-4 sm:flex-row">
           <div>
             <h1 className="text-3xl font-bold tracking-tight">Base64 Encoder/Decoder</h1>
-            <p className="mt-1 text-muted-foreground">Switch directions instantly between raw text and Base64.</p>
+            <p className="mt-1 text-muted-foreground">Encode text as Base64 or decode Base64 back to text.</p>
           </div>
           <ShareToolButton toolName="Base64 Encoder/Decoder" />
         </div>

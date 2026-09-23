@@ -59,7 +59,7 @@ function toKebabCase(text: string): string {
 }
 
 export default function TextUtilities() {
-  const [input, setInput] = useState("Design tools that feel fast, clear, and quietly premium.");
+  const [input, setInput] = useState("The quick brown fox jumps over the lazy dog.");
   const [copiedField, setCopiedField] = useState("");
 
   const outputMap = useMemo(() => {
@@ -104,7 +104,7 @@ export default function TextUtilities() {
     <div className="min-h-screen bg-background text-foreground">
       <SEO
         title="Text Utilities — Case Converter, Slugger, Counters | Minerva's Tools"
-        description="Convert text case formats, generate URL slugs, and view word/character counters instantly."
+        description="Convert text case, generate URL slugs, and count words, characters, and lines."
         canonical="/tools/text-utilities"
       />
       <ToolSchema
@@ -120,7 +120,7 @@ export default function TextUtilities() {
         <div className="mb-8 flex items-start justify-between gap-4">
           <div>
             <h1 className="text-3xl font-bold tracking-tight">Text Utilities</h1>
-            <p className="mt-1 text-muted-foreground">Case conversion, slug generation, and quick text stats.</p>
+            <p className="mt-1 text-muted-foreground">Convert text case, generate slugs, and count words and characters.</p>
           </div>
           <ShareToolButton toolName="Text Utilities" />
         </div>
@@ -133,9 +133,9 @@ export default function TextUtilities() {
 
           <div className="grid gap-2">
             {rows.map(([label, value]) => (
-              <div key={label} className="flex flex-col gap-2 rounded-md border border-border bg-muted/20 p-2 sm:flex-row sm:items-center">
+              <div key={label} className="flex min-w-0 flex-col gap-2 rounded-md border border-border bg-muted/20 p-2 sm:flex-row sm:items-center">
                 <div className="min-w-32 text-xs font-medium text-muted-foreground">{label}</div>
-                <div className="flex-1 overflow-x-auto text-xs font-mono">{value || <span className="text-muted-foreground">(empty)</span>}</div>
+                <div className="min-w-0 flex-1 overflow-x-auto text-xs font-mono">{value || <span className="text-muted-foreground">(empty)</span>}</div>
                 <Button size="sm" variant="outline" className="gap-1.5" onClick={() => void copyField(label, value)} disabled={!value}>
                   {copiedField === label ? <Check className="size-3.5 text-green-500" /> : <Copy className="size-3.5" />} Copy
                 </Button>

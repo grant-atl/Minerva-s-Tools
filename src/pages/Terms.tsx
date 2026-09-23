@@ -1,8 +1,8 @@
 import InfoPageLayout from "@/components/InfoPageLayout";
 import SEO from "@/components/SEO";
 
-const sectionTitle = "text-xl font-semibold text-white sm:text-2xl";
-const bodyText = "text-sm leading-relaxed text-white/80 sm:text-base";
+const sectionTitle = "text-xl font-semibold text-foreground sm:text-2xl";
+const bodyText = "text-sm leading-relaxed text-muted-foreground sm:text-base";
 
 export default function Terms() {
   return (
@@ -73,7 +73,7 @@ export default function Terms() {
         <h2 className={sectionTitle}>7. Contact</h2>
         <p className={bodyText}>
           Questions about these terms? Email us at{" "}
-          <a href="mailto:grantpedersen@outlook.com" className="underline underline-offset-4 hover:text-white">
+          <a href="mailto:grantpedersen@outlook.com" className="underline underline-offset-4 hover:text-foreground">
             grantpedersen@outlook.com
           </a>.
         </p>

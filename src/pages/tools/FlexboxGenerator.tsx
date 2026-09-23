@@ -45,7 +45,7 @@ export default function FlexboxGenerator() {
     <div className="min-h-screen bg-background text-foreground">
       <SEO
         title="Flexbox Generator — Visual CSS Flex Layout Builder | Minerva's Tools"
-        description="Build and preview Flexbox layouts visually. Adjust direction, alignment, wrapping, gap, and copy production-ready CSS instantly."
+        description="Preview Flexbox layouts with controls for direction, alignment, wrapping, and gap, then copy the CSS."
         canonical="/tools/flexbox"
       />
       <ToolSchema
@@ -61,7 +61,7 @@ export default function FlexboxGenerator() {
         <div className="mb-8 flex items-start justify-between gap-4">
           <div>
             <h1 className="text-3xl font-bold tracking-tight">Flexbox Generator</h1>
-            <p className="mt-1 text-muted-foreground">Tune layout behavior visually and copy clean CSS.</p>
+            <p className="mt-1 text-muted-foreground">Adjust direction, alignment, wrapping, and gap, then copy the CSS.</p>
           </div>
           <ShareToolButton toolName="Flexbox Generator" />
         </div>

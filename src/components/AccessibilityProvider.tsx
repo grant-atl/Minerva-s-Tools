@@ -9,6 +9,7 @@ import {
   type ReactNode,
 } from "react";
 import { useLocation } from "react-router-dom";
+import { MotionConfig } from "motion/react";
 import { ArrowsClockwise, Eye, X } from "@phosphor-icons/react";
 import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
@@ -140,7 +141,7 @@ function ToggleRow({
   onCheckedChange: (checked: boolean) => void;
 }) {
   return (
-    <div className="flex items-center justify-between gap-3 rounded-2xl border border-border/60 p-2.5">
+    <div className="flex items-center justify-between gap-3 rounded-md border border-border p-3">
       <div className="min-w-0">
         <label htmlFor={id} className="block text-sm font-medium leading-tight">
           {label}
@@ -284,7 +285,7 @@ function AccessibilityMenu({
   };
 
   return (
-    <div ref={menuRef} className="fixed bottom-4 right-4 z-[70]">
+    <div ref={menuRef} className="accessibility-control fixed bottom-4 right-4 z-[70]">
       {open && (
         <div
           id={panelId}
@@ -292,7 +293,7 @@ function AccessibilityMenu({
           aria-modal="false"
           aria-labelledby={titleId}
           aria-describedby={descriptionId}
-          className="absolute bottom-14 right-0 z-[71] flex w-[min(22rem,calc(100vw-2rem))] flex-col gap-4 rounded-3xl bg-popover p-4 text-sm text-popover-foreground shadow-lg ring-1 ring-foreground/5"
+          className="absolute bottom-14 right-0 z-[71] flex w-[min(22rem,calc(100vw-2rem))] flex-col gap-4 rounded-md border border-border bg-card p-4 text-sm text-card-foreground shadow-[0_25px_50px_-12px_rgba(0,0,0,0.8)]"
         >
           <div className="flex items-start justify-between gap-2">
             <div className="flex flex-col gap-0.5 text-sm">
@@ -384,13 +385,13 @@ function AccessibilityMenu({
         type="button"
         variant="secondary"
         size="icon"
-        className="rounded-full shadow-lg ring-1 ring-border/60"
+        className="rounded-md border border-border bg-card text-foreground shadow-sm hover:border-primary hover:bg-secondary"
         aria-label={open ? "Close accessibility menu" : "Open accessibility menu"}
         aria-expanded={open}
         aria-controls={panelId}
         onClick={() => setOpen((prev) => !prev)}
       >
-        <Eye size={18} weight="duotone" />
+        <Eye size={18} weight="regular" />
       </Button>
     </div>
   );
@@ -399,7 +400,6 @@ function AccessibilityMenu({
 export default function AccessibilityProvider({ children }: { children: ReactNode }) {
   const [settings, setSettings] = useState<AccessibilitySettings>(readStoredSettings);
   const { pathname, key } = useLocation();
-  const isWin98Route = pathname === "/98";
 
   const updateSetting = useCallback(
     (
@@ -426,31 +426,31 @@ export default function AccessibilityProvider({ children }: { children: ReactNod
     if (typeof document === "undefined") return;
 
     const root = document.documentElement;
-    const activeSettings = isWin98Route ? DEFAULT_SETTINGS : settings;
-
-    root.dataset.a11yTextScale = String(activeSettings.textScale);
-    root.classList.toggle("a11y-reduced-motion", activeSettings.reducedMotion);
-    root.classList.toggle("a11y-high-contrast", activeSettings.highContrast);
-    root.classList.toggle("a11y-underline-links", activeSettings.underlineLinks);
-    root.classList.toggle("a11y-readable-font", activeSettings.readableFont);
-    root.classList.toggle("a11y-increased-spacing", activeSettings.increasedSpacing);
-  }, [settings, isWin98Route]);
+    root.dataset.a11yTextScale = String(settings.textScale);
+    root.classList.toggle("a11y-reduced-motion", settings.reducedMotion);
+    root.classList.toggle("a11y-high-contrast", settings.highContrast);
+    root.classList.toggle("a11y-underline-links", settings.underlineLinks);
+    root.classList.toggle("a11y-readable-font", settings.readableFont);
+    root.classList.toggle("a11y-increased-spacing", settings.increasedSpacing);
+  }, [settings]);
 
   useEffect(() => {
     if (typeof document === "undefined") return;
 
+    // App routes expose a stable target on the presentation wrapper so the
+    // skip link survives lazy-route replacement. Keep this fallback for
+    // isolated consumers that only render a main landmark.
+    if (document.getElementById(MAIN_CONTENT_ID)) return;
+
     const frame = window.requestAnimationFrame(() => {
       const mains = document.querySelectorAll<HTMLElement>("main");
-
-      const currentTargets = document.querySelectorAll<HTMLElement>(`#${MAIN_CONTENT_ID}`);
-      currentTargets.forEach((target) => target.removeAttribute("id"));
 
       if (mains.length > 0) {
         mains[0].id = MAIN_CONTENT_ID;
         return;
       }
 
-      const fallback = document.querySelector<HTMLElement>("#root > *");
+      const fallback = document.querySelector<HTMLElement>("#root > :not(.skip-link)");
       if (fallback) {
         fallback.id = MAIN_CONTENT_ID;
       }
@@ -470,14 +470,14 @@ export default function AccessibilityProvider({ children }: { children: ReactNod
 
   return (
     <AccessibilityContext.Provider value={value}>
-      {children}
-      {!isWin98Route && (
+      <MotionConfig reducedMotion={settings.reducedMotion ? "always" : "user"}>
+        {children}
         <AccessibilityMenu
           settings={settings}
           updateSetting={updateSetting}
           resetSettings={resetSettings}
         />
-      )}
+      </MotionConfig>
     </AccessibilityContext.Provider>
   );
 }

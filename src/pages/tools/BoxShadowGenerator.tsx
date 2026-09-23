@@ -135,11 +135,12 @@ export default function BoxShadowGenerator() {
     <div className="min-h-screen bg-background flex flex-col">
       <SEO
         title="CSS Box Shadow Generator — Minerva's Tools"
-        description="Design beautiful CSS box shadows with a visual editor. Add multiple layers, adjust offset, blur, spread, color, and opacity. Copy CSS instantly."
+        description="Build CSS box shadows with controls for layers, offset, blur, spread, color, and opacity."
         canonical="/tools/box-shadow"
       />
       <HomeNav />
 
+      <main className="flex-1 flex flex-col">
       {/* Toolbar */}
       <div className="border-b border-border">
         <div className="container mx-auto px-4 sm:px-6 py-3 flex flex-wrap items-center gap-3">
@@ -373,6 +374,7 @@ export default function BoxShadowGenerator() {
 
       <ToolContent about={boxShadowContent.about} faqs={boxShadowContent.faqs} />
       <ToolSchema name="CSS Box Shadow Generator" description="Design multi-layer CSS box shadows with a visual editor." url="/tools/box-shadow" faqs={boxShadowContent.faqs} />
+      </main>
       <Footer />
     </div>
   );

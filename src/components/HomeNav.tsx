@@ -1,12 +1,16 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { List } from "@phosphor-icons/react";
-import minervaLogo from "@/assets/minerva-logo.svg";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import {
+  ArrowUpRight,
+  CaretDown,
+  GithubLogo,
+  List,
+  X,
+} from "@phosphor-icons/react";
 import {
   Sheet,
   SheetContent,
+  SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
 import {
@@ -15,241 +19,293 @@ import {
   AccordionTrigger,
   AccordionContent,
 } from "@/components/ui/accordion";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuPortal,
+  DropdownMenuSeparator,
+  DropdownMenuSub,
+  DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { categories, categoryDescriptions, tools } from "@/lib/tools-data";
 
 interface HomeNavProps {
   variant?: "dark" | "light";
 }
 
-export default function HomeNav({ variant = "light" }: HomeNavProps) {
-  const [openCategory, setOpenCategory] = useState<string | null>(null);
+export default function HomeNav({ variant: _variant = "light" }: HomeNavProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const { pathname } = useLocation();
-  let closeTimeout: ReturnType<typeof setTimeout>;
-
-  const handleEnter = (cat: string) => {
-    clearTimeout(closeTimeout);
-    setOpenCategory(cat);
-  };
-
-  const handleLeave = () => {
-    closeTimeout = setTimeout(() => setOpenCategory(null), 150);
-  };
-
-  const isDark = variant === "dark";
-  const isHomeRoute = pathname === "/";
-
-  // Token classes based on variant
-  const logoText = isDark ? "text-white" : "text-foreground";
-  const linkBase = isDark
-    ? "text-white/60 hover:text-white hover:bg-white/[0.06]"
-    : "text-muted-foreground hover:text-foreground hover:bg-muted/50";
-  const linkActive = isDark
-    ? "text-white bg-white/10"
-    : "text-foreground bg-muted";
-  const dropdownBg = isDark ? "bg-[#141414] border-white/10" : "bg-card border-border";
-  const dropdownDesc = isDark ? "text-white/50" : "text-muted-foreground";
-  const toolName = isDark ? "text-white" : "text-foreground";
-  const toolNameHover = isDark
-    ? isHomeRoute
-      ? "group-hover:text-white"
-      : "group-hover:text-primary"
-    : "group-hover:text-primary";
-  const toolDesc = isDark ? "text-white/40" : "text-muted-foreground";
-  const toolIconBg = isDark
-    ? "bg-white/10 text-white/70 group-hover:bg-white group-hover:text-black"
-    : "bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground";
-  const toolIconBgDisabled = isDark
-    ? "bg-white/10 text-white/60"
-    : "bg-primary/10 text-primary";
-  const toolHover = isDark ? "hover:bg-white/[0.06]" : "hover:bg-muted";
-  const badgeCls = isDark
-    ? "bg-white/10 text-white/50 border-0"
-    : "bg-secondary text-secondary-foreground";
-  const pillCls = isDark
-    ? "text-black bg-white hover:bg-white/90"
-    : "text-primary-foreground bg-primary hover:bg-primary/90";
-  const borderCls = isDark ? "border-white/[0.08]" : "border-border";
+  const closeMobile = () => setMobileOpen(false);
 
   return (
-    <nav className={`relative z-50 border-b ${borderCls}`}>
-      <div className="container mx-auto flex items-center justify-between px-4 sm:px-6 py-4">
-        <Link
-          to="/"
-          className={`flex items-center gap-2.5 text-xl font-bold tracking-tight ${logoText}`}
-        >
-          <img src={minervaLogo} alt="" className="h-9 w-9" />
-          Minerva's Tools
-        </Link>
+    <nav
+      aria-label="Primary navigation"
+      className="relative z-50 bg-background font-sans text-foreground"
+    >
+      <div className="lab-container flex h-[100px] items-center justify-between gap-6 border-b border-border">
+        <Brand />
 
-        {/* Desktop links */}
-        <div className="hidden md:flex items-center gap-1">
-          {categories.map((category) => (
-            <div
-              key={category}
-              className="relative"
-              onMouseEnter={() => handleEnter(category)}
-              onMouseLeave={handleLeave}
-            >
+        <div className="hidden items-center gap-8 text-[13px] text-muted-foreground md:flex">
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
               <button
-                className={`px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
-                  openCategory === category ? linkActive : linkBase
-                }`}
+                type="button"
+                className="flex items-center gap-2 rounded-[5px] py-2 text-foreground transition-colors hover:text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
               >
-                {category}
+                Tools
+                <span className="rounded border border-border px-1.5 py-0.5 font-mono text-[9px] leading-none text-muted-foreground">
+                  {tools.length}
+                </span>
+                <CaretDown aria-hidden="true" size={12} />
               </button>
-            </div>
-          ))}
+            </DropdownMenuTrigger>
+            <DropdownMenuContent
+              align="center"
+              sideOffset={15}
+              className="w-56 rounded-[7px] p-1.5 font-sans"
+            >
+              <DropdownMenuItem
+                asChild
+                className="cursor-pointer rounded-[5px] py-2.5 font-sans text-[13px]"
+              >
+                <Link to="/">
+                  Browse all tools{" "}
+                  <ArrowUpRight aria-hidden="true" className="ml-auto" />
+                </Link>
+              </DropdownMenuItem>
+              <DropdownMenuSeparator />
+              {categories.map((category) => (
+                <DropdownMenuSub key={category}>
+                  <DropdownMenuSubTrigger className="cursor-pointer rounded-[5px] py-2.5 font-sans text-[13px] font-normal">
+                    {category}
+                  </DropdownMenuSubTrigger>
+                  <DropdownMenuPortal>
+                    <DropdownMenuSubContent className="max-h-[70vh] w-80 overflow-y-auto rounded-[7px] border border-border bg-popover p-1.5 font-sans">
+                      {tools
+                        .filter((tool) => tool.category === category)
+                        .map((tool) => (
+                          <DropdownMenuItem
+                            key={tool.route}
+                            asChild
+                            disabled={tool.tier !== 1}
+                            className="cursor-pointer rounded-[5px] p-3 font-sans text-[13px] font-normal"
+                          >
+                            <Link
+                              to={tool.route}
+                              aria-current={
+                                pathname === tool.route ? "page" : undefined
+                              }
+                            >
+                              <tool.icon
+                                aria-hidden="true"
+                                className="size-4 text-primary"
+                              />
+                              {tool.name}
+                              {tool.tier !== 1 && (
+                                <span className="ml-auto text-xs text-muted-foreground">
+                                  Soon
+                                </span>
+                              )}
+                            </Link>
+                          </DropdownMenuItem>
+                        ))}
+                    </DropdownMenuSubContent>
+                  </DropdownMenuPortal>
+                </DropdownMenuSub>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
           <Link
             to="/about"
-            className={`px-3 py-2 text-sm font-medium rounded-lg transition-colors ${linkBase}`}
+            aria-current={pathname === "/about" ? "page" : undefined}
+            className="rounded-[5px] py-2 transition-colors hover:text-primary aria-[current=page]:text-foreground"
           >
             About
           </Link>
         </div>
 
-        {/* Mobile hamburger */}
+        <a
+          href="https://github.com/grant-atl/Minerva-s-Tools"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hidden items-center gap-2.5 rounded-[5px] border border-border px-3.5 py-2.5 text-xs transition-colors hover:bg-muted md:flex"
+        >
+          <GithubLogo aria-hidden="true" size={16} />
+          Source on GitHub
+          <ArrowUpRight
+            aria-hidden="true"
+            size={13}
+            className="ml-1 text-muted-foreground"
+          />
+        </a>
+
         <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
           <SheetTrigger asChild>
-            <Button variant="ghost" size="icon" className={`md:hidden ${isDark ? "text-white hover:bg-white/10" : ""}`}>
-              <List size={20} weight="bold" />
+            <button
+              type="button"
+              className="grid size-10 shrink-0 place-items-center rounded-[5px] border border-border transition-colors hover:bg-muted md:hidden"
+            >
+              <List aria-hidden="true" size={22} />
               <span className="sr-only">Menu</span>
-            </Button>
+            </button>
           </SheetTrigger>
-          <SheetContent side="left" className="!w-full !max-w-full h-full overflow-y-auto" showCloseButton={false}>
-            <div className="flex items-center justify-between px-4 sm:px-6 py-4 border-b border-border">
+          <SheetContent
+            side="left"
+            showCloseButton={false}
+            aria-describedby={undefined}
+            className="h-full !w-full !max-w-full overflow-y-auto border-0 bg-background p-0 font-sans text-foreground"
+          >
+            <SheetTitle className="sr-only">Navigation</SheetTitle>
+            <div className="lab-container flex min-h-[100px] w-full items-center justify-between gap-4 border-b border-border">
+              <Brand onSelect={closeMobile} />
+              <button
+                type="button"
+                aria-label="Close navigation"
+                onClick={closeMobile}
+                className="grid size-10 shrink-0 place-items-center rounded-[5px] border border-border transition-colors hover:bg-muted"
+              >
+                <X aria-hidden="true" size={21} />
+              </button>
+            </div>
+            <div className="lab-container w-full py-6">
               <Link
                 to="/"
-                onClick={() => setMobileOpen(false)}
-                className="flex items-center gap-2 text-xl font-bold tracking-tight text-foreground"
+                onClick={closeMobile}
+                className="mb-5 flex items-center justify-between py-2 text-lg"
               >
-                <img src={minervaLogo} alt="" className="h-9 w-9" />
-                Minerva's Tools
+                Browse all tools{" "}
+                <span className="font-mono text-xs text-muted-foreground">
+                  {tools.length}
+                </span>
               </Link>
-              <Button variant="ghost" size="icon" onClick={() => setMobileOpen(false)}>
-                <span className="text-lg font-bold">✕</span>
-                <span className="sr-only">Close</span>
-              </Button>
-            </div>
-            <div className="px-2 pb-6">
-              <Accordion type="multiple" className="border-none [&_a]:!no-underline">
-                {categories.map((category) => {
-                  const categoryTools = tools.filter((t) => t.category === category);
-                  return (
-                    <AccordionItem key={category} value={category}>
-                      <AccordionTrigger className="text-sm font-semibold hover:no-underline">
-                        {category}
-                      </AccordionTrigger>
-                      <AccordionContent>
-                        <p className="text-xs text-muted-foreground mb-3">
-                          {categoryDescriptions[category]}
-                        </p>
-                        <div className="flex flex-col gap-1">
-                          {categoryTools.map((tool) => {
-                            const Icon = tool.icon;
-                            const isAvailable = tool.tier === 1;
-                            if (!isAvailable) {
-                              return (
-                                <div key={tool.route} className="flex items-center gap-3 rounded-lg p-2.5 opacity-50 cursor-not-allowed">
-                                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-primary/10 text-primary">
-                                    <Icon size={16} weight="duotone" />
-                                  </div>
-                                  <div className="min-w-0 flex-1">
-                                    <div className="flex items-center gap-2">
-                                      <span className="text-sm font-medium text-foreground">{tool.name}</span>
-                                      <Badge variant="secondary" className="text-[10px] px-1.5 py-0">Soon</Badge>
-                                    </div>
-                                    <p className="text-xs text-muted-foreground truncate">{tool.description}</p>
-                                  </div>
-                                </div>
-                              );
-                            }
-                            return (
-                              <Link key={tool.route} to={tool.route} onClick={() => setMobileOpen(false)} className="flex items-center gap-3 rounded-lg p-2.5 transition-colors hover:bg-muted">
-                                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-primary/10 text-primary">
-                                  <Icon size={16} weight="duotone" />
-                                </div>
-                                <div className="min-w-0 flex-1">
-                                  <span className="text-sm font-medium text-foreground">{tool.name}</span>
-                                  <p className="text-xs text-muted-foreground truncate">{tool.description}</p>
-                                </div>
-                              </Link>
-                            );
-                          })}
-                        </div>
-                      </AccordionContent>
-                    </AccordionItem>
-                  );
-                })}
+              <Accordion
+                type="multiple"
+                className="rounded-none border-x-0 border-border [&_a]:!no-underline"
+              >
+                {categories.map((category) => (
+                  <AccordionItem
+                    key={category}
+                    value={category}
+                    className="border-border data-[state=open]:bg-transparent"
+                  >
+                    <AccordionTrigger className="items-center border-0 px-0 py-5 font-sans text-sm font-normal normal-case tracking-normal hover:bg-transparent hover:text-primary">
+                      {category}
+                    </AccordionTrigger>
+                    <AccordionContent className="pb-5 text-foreground">
+                      <p className="mb-3 text-xs leading-relaxed text-muted-foreground">
+                        {categoryDescriptions[category]}
+                      </p>
+                      <div className="grid gap-1 sm:grid-cols-2">
+                        {tools
+                          .filter((tool) => tool.category === category)
+                          .map((tool) => (
+                            <NavToolLink
+                              key={tool.route}
+                              tool={tool}
+                              onSelect={closeMobile}
+                            />
+                          ))}
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
               </Accordion>
-              <div className="mt-4 px-2">
-                <Link to="/about" onClick={() => setMobileOpen(false)} className="block py-2 text-sm font-medium text-foreground hover:text-primary">About</Link>
-                <Link to="/privacy" onClick={() => setMobileOpen(false)} className="block py-2 text-sm font-medium text-muted-foreground hover:text-foreground">Privacy</Link>
-                <Link to="/terms" onClick={() => setMobileOpen(false)} className="block py-2 text-sm font-medium text-muted-foreground hover:text-foreground">Terms</Link>
+              <div className="mt-7 flex flex-wrap gap-x-7 gap-y-5 text-sm text-muted-foreground">
+                {[
+                  ["About", "/about"],
+                  ["Privacy", "/privacy"],
+                  ["Terms", "/terms"],
+                ].map(([label, to]) => (
+                  <Link
+                    key={to}
+                    to={to}
+                    onClick={closeMobile}
+                    className="transition-colors hover:text-primary"
+                  >
+                    {label}
+                  </Link>
+                ))}
+                <a
+                  href="https://github.com/grant-atl/Minerva-s-Tools"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 transition-colors hover:text-primary"
+                >
+                  GitHub <ArrowUpRight aria-hidden="true" size={13} />
+                </a>
               </div>
             </div>
           </SheetContent>
         </Sheet>
       </div>
-
-      {/* Dropdown panel */}
-      {openCategory && (
-        <div
-          className={`absolute left-0 right-0 ${dropdownBg} border-b shadow-2xl animate-in fade-in-0 slide-in-from-top-1 duration-150`}
-          onMouseEnter={() => handleEnter(openCategory)}
-          onMouseLeave={handleLeave}
-        >
-          <div className="container mx-auto px-4 sm:px-6 py-6">
-            <p className={`text-xs ${dropdownDesc} mb-4`}>
-              {categoryDescriptions[openCategory]}
-            </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
-              {tools
-                .filter((t) => t.category === openCategory)
-                .map((tool) => {
-                  const Icon = tool.icon;
-                  const isAvailable = tool.tier === 1;
-
-                  if (!isAvailable) {
-                    return (
-                      <div key={tool.route} className="flex items-center gap-3 rounded-lg p-3 opacity-40 cursor-not-allowed">
-                        <div className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-md ${toolIconBgDisabled}`}>
-                          <Icon size={18} weight="duotone" />
-                        </div>
-                        <div className="min-w-0">
-                          <div className="flex items-center gap-2">
-                            <span className={`text-sm font-medium ${toolName}`}>{tool.name}</span>
-                            <Badge className={`text-[10px] px-1.5 py-0 ${badgeCls}`}>Soon</Badge>
-                          </div>
-                          <p className={`text-xs ${toolDesc} truncate`}>{tool.description}</p>
-                        </div>
-                      </div>
-                    );
-                  }
-
-                  return (
-                    <Link
-                      key={tool.route}
-                      to={tool.route}
-                      onClick={() => setOpenCategory(null)}
-                      className={`group flex items-center gap-3 rounded-lg p-3 transition-colors ${toolHover}`}
-                    >
-                      <div className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-md transition-colors ${toolIconBg}`}>
-                        <Icon size={18} weight="duotone" />
-                      </div>
-                      <div className="min-w-0">
-                        <span className={`text-sm font-medium ${toolName} ${toolNameHover} transition-colors`}>
-                          {tool.name}
-                        </span>
-                        <p className={`text-xs ${toolDesc} truncate`}>{tool.description}</p>
-                      </div>
-                    </Link>
-                  );
-                })}
-            </div>
-          </div>
-        </div>
-      )}
     </nav>
+  );
+}
+
+function Brand({ onSelect }: { onSelect?: () => void }) {
+  return (
+    <Link
+      to="/"
+      aria-label="Minerva's Tools"
+      onClick={onSelect}
+      className="flex min-w-0 items-center gap-3 rounded-[5px] text-[22px] font-semibold tracking-[-1px] sm:text-[26px]"
+    >
+      <span
+        aria-hidden="true"
+        className="grid -rotate-[9deg] grid-cols-3 gap-[3px]"
+      >
+        {Array.from({ length: 9 }, (_, index) => (
+          <span
+            key={index}
+            className="size-1 rounded-full bg-primary [&:nth-child(3n)]:opacity-50"
+          />
+        ))}
+      </span>
+      <span className="truncate">
+        Minerva&apos;s Tools<span className="text-primary">.</span>
+      </span>
+    </Link>
+  );
+}
+
+function NavToolLink({
+  tool,
+  onSelect,
+}: {
+  tool: (typeof tools)[number];
+  onSelect: () => void;
+}) {
+  const content = (
+    <>
+      <tool.icon
+        aria-hidden="true"
+        size={17}
+        className="shrink-0 text-primary"
+      />
+      <span className="min-w-0">
+        <span className="block text-[13px]">{tool.name}</span>
+        {tool.tier !== 1 && (
+          <span className="text-xs text-muted-foreground">Soon</span>
+        )}
+      </span>
+    </>
+  );
+
+  return tool.tier === 1 ? (
+    <Link
+      to={tool.route}
+      onClick={onSelect}
+      className="flex min-h-11 items-center gap-3 rounded-[5px] px-2 py-3 transition-colors hover:bg-muted hover:text-primary"
+    >
+      {content}
+    </Link>
+  ) : (
+    <div className="flex min-h-11 items-center gap-3 px-2 py-3 opacity-50">
+      {content}
+    </div>
   );
 }

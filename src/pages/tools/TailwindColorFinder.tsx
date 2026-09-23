@@ -266,7 +266,7 @@ export default function TailwindColorFinder() {
     <div className="min-h-screen bg-background text-foreground">
       <SEO
         title="Tailwind Color Finder — Match Any Color to Tailwind CSS Classes | Minerva's Tools"
-        description="Find the nearest Tailwind CSS color class for any HEX or RGB color. Top 5 matches with similarity %, batch mode, full palette browser. Free, instant, no sign-up."
+        description="Match HEX or RGB colors to Tailwind CSS v3 classes, compare results, and convert colors in batches."
         canonical="/tools/tailwind-color"
       />
       <ToolSchema
@@ -290,7 +290,7 @@ export default function TailwindColorFinder() {
         </div>
 
         <Tabs defaultValue="single" className="space-y-6">
-          <TabsList>
+          <TabsList className="w-full max-w-full justify-start overflow-x-auto">
             <TabsTrigger value="single" className="gap-1.5">
               <MagnifyingGlass size={14} />
               Find Color

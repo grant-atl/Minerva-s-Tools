@@ -72,7 +72,7 @@ function GooglePreview({ data }: { data: MetaData }) {
         {truncate(data.title || "Page Title", 60)}
       </h3>
       <p className="text-sm text-muted-foreground leading-relaxed">
-        {truncate(data.description || "Page description will appear here. Keep it under 160 characters for best results.", 160)}
+        {truncate(data.description || "Page description will appear here.", 160)}
       </p>
     </div>
   );
@@ -163,8 +163,8 @@ export default function MetaPreview() {
 
   const loadSample = () => {
     setData({
-      title: "Minerva's Tools — Free Utilities for Designers",
-      description: "A growing collection of free, focused design utilities. Color palettes, gradients, typography scales, and more — no sign-up required.",
+      title: "Minerva's Tools",
+      description: "Browser tools for color, layout, images, and text.",
       url: "https://minervas.tools",
       image: "",
       siteName: "Minerva's Tools",
@@ -174,8 +174,8 @@ export default function MetaPreview() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <SEO
-        title="Meta Tag Preview — See How Your Page Looks on Google, Twitter & Slack | Minerva's Tools"
-        description="Preview your Open Graph and Twitter Card meta tags. See how links appear on Google, Twitter/X, and Slack before publishing. Free, instant, no sign-up."
+        title="Meta Tag Preview | Minerva's Tools"
+        description="Preview page metadata in Google, Twitter/X, and Slack layouts and generate Open Graph and Twitter Card tags."
         canonical="/tools/meta-preview"
       />
       <ToolSchema
@@ -216,7 +216,7 @@ export default function MetaPreview() {
                 <Input
                   value={data.title}
                   onChange={update("title")}
-                  placeholder="My Awesome Page"
+                  placeholder="Page title"
                   maxLength={70}
                   className="border-2 border-border focus-visible:border-primary"
                 />
@@ -270,7 +270,7 @@ export default function MetaPreview() {
                     Upload
                   </Button>
                 </div>
-                <p className="text-xs text-muted-foreground mt-1">Recommended: 1200×630px for best results</p>
+                <p className="text-xs text-muted-foreground mt-1">Recommended image size: 1200×630px</p>
               </div>
             </div>
 

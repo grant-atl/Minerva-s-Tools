@@ -237,7 +237,7 @@ export default function QRCodeGenerator() {
     <>
       <SEO
         title="QR Code Generator — Minerva's Tools"
-        description="Create customizable QR codes for URLs, WiFi, email, phone numbers, and text. Customize colors, add logos, and download as PNG or SVG."
+        description="Create QR codes for URLs, text, WiFi, email, and phone numbers. Set colors, add a logo, and export PNG or SVG."
         canonical="/tools/qr-code"
       />
       <div className="min-h-screen flex flex-col bg-background text-foreground">
@@ -253,9 +253,9 @@ export default function QRCodeGenerator() {
             <ShareToolButton toolName="QR Code Generator" />
           </div>
 
-          <div className="grid lg:grid-cols-[1fr_1fr] gap-10">
+          <div className="grid min-w-0 gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
             {/* ── Left: Controls ──────────────────── */}
-            <div className="space-y-8">
+            <div className="min-w-0 space-y-8">
               {/* Input mode tabs */}
               <section>
                 <Label className="mb-3 text-xs uppercase tracking-wider text-muted-foreground">
@@ -264,8 +264,9 @@ export default function QRCodeGenerator() {
                 <Tabs
                   value={mode}
                   onValueChange={(v) => setMode(v as InputMode)}
+                  className="min-w-0 max-w-full"
                 >
-                  <TabsList className="mb-4 w-full overflow-x-auto justify-start sm:w-auto sm:justify-center">
+                  <TabsList className="mb-4 max-w-full w-full overflow-x-auto justify-start sm:w-auto sm:justify-center">
                     {(Object.keys(inputModeIcons) as InputMode[]).map((m) => {
                       const Icon = inputModeIcons[m];
                       return (
@@ -527,7 +528,7 @@ export default function QRCodeGenerator() {
             </div>
 
             {/* ── Right: Preview ──────────────────── */}
-            <div className="flex flex-col items-center gap-6">
+            <div className="min-w-0 flex flex-col items-center gap-6">
               <div
                 className="rounded-2xl border border-border p-4 sm:p-8 flex items-center justify-center max-w-full overflow-hidden"
                 style={{

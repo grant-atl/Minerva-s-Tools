@@ -53,7 +53,7 @@ export default function JsonFormatterValidator() {
     <div className="min-h-screen bg-background text-foreground">
       <SEO
         title="JSON Formatter & Validator — Pretty Print JSON | Minerva's Tools"
-        description="Format, minify, and validate JSON instantly with useful parse errors and one-click copy."
+        description="Format, minify, and validate JSON with two-space or four-space indentation."
         canonical="/tools/json-formatter"
       />
       <ToolSchema
@@ -69,7 +69,7 @@ export default function JsonFormatterValidator() {
         <div className="mb-8 flex items-start justify-between gap-4">
           <div>
             <h1 className="text-3xl font-bold tracking-tight">JSON Formatter & Validator</h1>
-            <p className="mt-1 text-muted-foreground">Pretty-print, minify, and validate JSON with fast feedback.</p>
+            <p className="mt-1 text-muted-foreground">Format, minify, and validate JSON.</p>
           </div>
           <ShareToolButton toolName="JSON Formatter & Validator" />
         </div>

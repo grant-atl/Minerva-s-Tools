@@ -43,7 +43,7 @@ export default function GridGenerator() {
     <div className="min-h-screen bg-background text-foreground">
       <SEO
         title="Grid Generator — CSS Grid Layout Builder | Minerva's Tools"
-        description="Build responsive CSS Grid layouts with live preview and copy-ready CSS. Control columns, rows, gaps, and alignment instantly."
+        description="Preview CSS Grid layouts with controls for columns, rows, gaps, and alignment, then copy the CSS."
         canonical="/tools/grid"
       />
       <ToolSchema
@@ -62,14 +62,14 @@ export default function GridGenerator() {
               Grid Generator
             </h1>
             <p className="mt-1 text-muted-foreground">
-              Create CSS Grid layouts visually and export production CSS.
+              Set columns, rows, gaps, and alignment, then copy the CSS.
             </p>
           </div>
           <ShareToolButton toolName="Grid Generator" />
         </div>
 
         <div className="grid gap-6 lg:grid-cols-2">
-          <section className="rounded-lg border border-border bg-card p-4 sm:p-5">
+          <section className="min-w-0 rounded-lg border border-border bg-card p-4 sm:p-5">
             <h2 className="mb-4 text-sm font-semibold">Grid Controls</h2>
             <div className="grid gap-4 sm:grid-cols-2">
               <Field
@@ -111,7 +111,7 @@ export default function GridGenerator() {
             </div>
           </section>
 
-          <section className="rounded-lg border border-border bg-card p-4 sm:p-5">
+          <section className="min-w-0 rounded-lg border border-border bg-card p-4 sm:p-5">
             <div className="mb-3 flex items-center justify-between">
               <h2 className="text-sm font-semibold">Live Preview</h2>
               <Button

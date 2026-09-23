@@ -1,3 +1,4 @@
+import "@fontsource-variable/figtree";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Copy, Check, MagnifyingGlass } from "@phosphor-icons/react";
 import HomeNav from "@/components/HomeNav";
@@ -188,7 +189,7 @@ export default function TypographyScale() {
     <>
       <SEO
         title="Typography Scale Generator | Minerva's Tools"
-        description="Generate harmonious type scales with modular ratios. Preview live with Google Fonts, export CSS custom properties or Tailwind config."
+        description="Calculate a type scale from a base font size and ratio, preview fonts, and export CSS or Tailwind configuration."
         canonical="/tools/typography-scale"
       />
       <div className="min-h-screen flex flex-col bg-background text-foreground">
@@ -199,7 +200,7 @@ export default function TypographyScale() {
             <div>
               <h1 className="text-2xl sm:text-3xl font-bold tracking-tight mb-2">Typography Scale</h1>
               <p className="text-muted-foreground text-sm sm:text-base max-w-xl">
-                Generate a harmonious type scale from a base size and modular ratio. Preview with 30+ Google Fonts and export CSS or Tailwind config.
+                Calculate font sizes from a base size and ratio, preview fonts, and export CSS or Tailwind configuration.
               </p>
             </div>
             <ShareToolButton toolName="Typography Scale Generator" />
@@ -296,7 +297,7 @@ export default function TypographyScale() {
                     <button
                       type="button"
                       onClick={() => setFontDropdownOpen((o) => !o)}
-                      className="flex w-full items-center justify-between gap-1.5 rounded-3xl border border-transparent bg-input/50 px-3 py-2 text-sm h-9 transition-[color,box-shadow,background-color] outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/30"
+                      className="flex h-9 w-full items-center justify-between gap-1.5 rounded-[2px] border border-border bg-input/50 px-3 py-2 text-sm transition-[color,box-shadow,background-color] outline-none focus-visible:border-ring focus-visible:ring-2 focus-visible:ring-ring/30"
                       style={{ fontFamily: fontFamilyCSS }}
                     >
                       <span className="truncate">{displayFontName}</span>
@@ -422,7 +423,7 @@ export default function TypographyScale() {
           </div>
         </main>
         <ToolContent about={typographyContent.about} faqs={typographyContent.faqs} />
-        <ToolSchema name="Typography Scale Generator" description="Generate harmonious type scales with modular ratios and Google Fonts preview." url="/tools/typography-scale" faqs={typographyContent.faqs} />
+        <ToolSchema name="Typography Scale Generator" description="Calculate type scales with modular ratios and font previews." url="/tools/typography-scale" faqs={typographyContent.faqs} />
         <Footer />
       </div>
     </>

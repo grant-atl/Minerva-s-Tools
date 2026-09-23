@@ -43,7 +43,7 @@ export default function UrlEncoderDecoder() {
     <div className="min-h-screen bg-background text-foreground">
       <SEO
         title="URL Encoder/Decoder — Encode and Decode URL Components | Minerva's Tools"
-        description="Safely encode URL components for query strings or decode encoded URLs back to readable text."
+        description="Encode text for URL components or decode percent-encoded input."
         canonical="/tools/url-encode"
       />
       <ToolSchema
@@ -56,7 +56,7 @@ export default function UrlEncoderDecoder() {
       <HomeNav />
 
       <main className="container mx-auto px-4 sm:px-6 py-10 lg:py-12">
-        <div className="mb-8 flex items-start justify-between gap-4">
+        <div className="mb-8 flex flex-col items-start justify-between gap-4 sm:flex-row">
           <div>
             <h1 className="text-3xl font-bold tracking-tight">URL Encoder/Decoder</h1>
             <p className="mt-1 text-muted-foreground">Convert human-readable text to URL-safe form and back.</p>

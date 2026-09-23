@@ -42,16 +42,17 @@ export default function ContrastChecker() {
     <div className="min-h-screen bg-background flex flex-col">
       <SEO
         title="Color Contrast Checker — Minerva's Tools"
-        description="Test WCAG AA & AAA color contrast compliance. Enter foreground and background colors to check accessibility for normal and large text."
+        description="Check foreground and background colors against WCAG AA and AAA text contrast thresholds."
         canonical="/tools/contrast"
       />
       <HomeNav />
 
+      <main className="flex-1 flex flex-col">
       {/* Toolbar */}
       <div className="border-b border-border">
-        <div className="container mx-auto px-4 sm:px-6 py-3 flex items-center gap-3">
+        <div className="container mx-auto flex flex-col items-start gap-3 px-4 py-3 sm:flex-row sm:items-center sm:px-6">
           <h1 className="text-sm font-semibold text-foreground">Contrast Checker</h1>
-          <div className="ml-auto flex items-center gap-2">
+          <div className="flex w-full flex-wrap items-center gap-2 sm:ml-auto sm:w-auto">
             <Button size="sm" variant="outline" onClick={copyResult} className="gap-1.5">
               <Copy size={14} weight="bold" />
               Copy Result
@@ -194,6 +195,7 @@ export default function ContrastChecker() {
 
       <ToolContent about={contrastContent.about} faqs={contrastContent.faqs} />
       <ToolSchema name="Color Contrast Checker" description="Test WCAG AA & AAA color contrast compliance for any color pair." url="/tools/contrast" faqs={contrastContent.faqs} />
+      </main>
       <Footer />
     </div>
   );

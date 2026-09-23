@@ -1,7 +1,8 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
-import type { ReactNode } from "react";
+import { useContext, type ReactNode } from "react";
+import { MotionConfigContext } from "motion/react";
 import AccessibilityProvider from "@/components/AccessibilityProvider";
 
 const A11Y_CLASSES = [
@@ -25,6 +26,11 @@ function renderWithRoute(route = "/", content?: ReactNode) {
   );
 }
 
+function MotionPreference() {
+  const { reducedMotion } = useContext(MotionConfigContext);
+  return <output aria-label="Motion preference">{reducedMotion}</output>;
+}
+
 describe("AccessibilityProvider", () => {
   beforeEach(() => {
     window.localStorage.clear();
@@ -40,10 +46,10 @@ describe("AccessibilityProvider", () => {
     });
   });
 
-  it("does not render the floating accessibility menu on /98", () => {
-    renderWithRoute("/98", <div>Win98 page</div>);
+  it("renders the floating accessibility menu on every route", () => {
+    renderWithRoute("/98", <main>Page not found</main>);
 
-    expect(screen.queryByRole("button", { name: /accessibility menu/i })).not.toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /accessibility menu/i })).toBeInTheDocument();
   });
 
   it("opens menu, moves focus to first control, and returns focus on close", async () => {
@@ -78,6 +84,15 @@ describe("AccessibilityProvider", () => {
     const stored = window.localStorage.getItem("minerva.a11y.v1");
     expect(stored).toBeTruthy();
     expect(stored).toContain('"reducedMotion":true');
+  });
+
+  it("reduces Motion animations when the in-app preference is enabled", () => {
+    renderWithRoute("/", <main><MotionPreference /></main>);
+
+    expect(screen.getByLabelText("Motion preference")).toHaveTextContent("user");
+    fireEvent.click(screen.getByRole("button", { name: /open accessibility menu/i }));
+    fireEvent.click(screen.getByRole("switch", { name: /reduce motion/i }));
+    expect(screen.getByLabelText("Motion preference")).toHaveTextContent("always");
   });
 
   it("reset restores system-derived defaults when no saved settings exist", async () => {

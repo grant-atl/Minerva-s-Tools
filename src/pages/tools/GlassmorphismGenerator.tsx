@@ -83,7 +83,7 @@ export default function GlassmorphismGenerator() {
     <>
       <SEO
         title="Glassmorphism Generator — Frosted Glass CSS Editor | Minerva's Tools"
-        description="Create frosted glass UI effects with a visual editor. Adjust blur, transparency, border, and saturation. Copy clean CSS. Free, no sign-up."
+        description="Preview a CSS frosted-glass effect with controls for blur, transparency, border, and saturation."
         canonical="/tools/glassmorphism"
       />
       <Helmet>
@@ -108,7 +108,7 @@ export default function GlassmorphismGenerator() {
             <div>
               <h1 className="text-3xl font-bold tracking-tight">Glassmorphism Generator</h1>
               <p className="mt-1 text-muted-foreground">
-                Create frosted-glass UI effects with live preview and one-click CSS export.
+                Adjust a frosted-glass effect and copy the CSS.
               </p>
             </div>
             <ShareToolButton toolName="Glassmorphism Generator" />

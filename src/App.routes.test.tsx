@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, it } from "vitest";
-import { fireEvent, render, screen } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import App from "@/App";
 
 const routeCases: Array<{ path: string; heading: RegExp }> = [
@@ -43,25 +43,21 @@ describe("App routes", () => {
     ).toBeInTheDocument();
   });
 
-  it("renders a useful 404 for an unknown nested URL", async () => {
-    window.history.pushState(
-      {},
-      "",
-      "/missing/nested-route?source=typed#details",
-    );
+  it.each(["/missing/nested-route?source=typed#details", "/98"])("renders a useful 404 for %s", async (path) => {
+    window.history.pushState({}, "", path);
     render(<App />);
 
     expect(
       await screen.findByRole(
         "heading",
         {
-          name: /this route wandered off the map/i,
+          name: /page not found/i,
         },
         { timeout: 5_000 },
       ),
     ).toBeInTheDocument();
     expect(
-      screen.getByText("/missing/nested-route?source=typed#details"),
+      screen.getByText(path),
     ).toBeInTheDocument();
     expect(screen.getByRole("link", { name: /go home/i })).toHaveAttribute(
       "href",
@@ -77,10 +73,12 @@ describe("App routes", () => {
     expect(
       screen.getByRole("link", { name: /format and validate json/i }),
     ).toHaveAttribute("href", "/tools/json-formatter");
-    expect(document.head.querySelector('meta[name="robots"]')).toHaveAttribute(
-      "content",
-      "noindex, follow",
-    );
+    await waitFor(() => {
+      expect(document.head.querySelector('meta[name="robots"]')).toHaveAttribute(
+        "content",
+        "noindex, follow",
+      );
+    });
     expect(screen.queryByText(/ads keep us free/i)).not.toBeInTheDocument();
   });
 

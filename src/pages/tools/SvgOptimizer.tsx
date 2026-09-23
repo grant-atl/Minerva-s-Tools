@@ -107,7 +107,7 @@ export default function SvgOptimizer() {
     <div className="min-h-screen bg-background text-foreground">
       <SEO
         title="SVG Optimizer — Minify and Clean SVG Markup | Minerva's Tools"
-        description="Optimize SVG markup with local SVGO processing to reduce file size while preserving rendering."
+        description="Reduce SVG markup with configurable SVGO cleanup options, then copy or download the result."
         canonical="/tools/svg-optimizer"
       />
       <ToolSchema
@@ -123,7 +123,7 @@ export default function SvgOptimizer() {
         <div className="mb-8 flex items-start justify-between gap-4">
           <div>
             <h1 className="text-3xl font-bold tracking-tight">SVG Optimizer</h1>
-            <p className="mt-1 text-muted-foreground">Minify SVG text with SVGO and trim unnecessary metadata instantly.</p>
+            <p className="mt-1 text-muted-foreground">Reduce SVG markup with configurable cleanup options.</p>
           </div>
           <ShareToolButton toolName="SVG Optimizer" />
         </div>

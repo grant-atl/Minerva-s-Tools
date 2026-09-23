@@ -78,7 +78,7 @@ export default function CodeFormatterMinifier() {
     <div className="min-h-screen bg-background text-foreground">
       <SEO
         title="Code Formatter & Minifier — HTML, CSS, JS | Minerva's Tools"
-        description="Format or minify HTML, CSS, and JavaScript code in your browser."
+        description="Format or minify HTML, CSS, and JavaScript in your browser."
         canonical="/tools/code-formatter-minifier"
       />
       <ToolSchema

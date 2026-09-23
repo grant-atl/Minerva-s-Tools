@@ -216,7 +216,7 @@ export default function ImageResizerCropper() {
     <div className="min-h-screen bg-background text-foreground">
       <SEO
         title="Image Resizer & Cropper — Resize and Center Crop | Minerva's Tools"
-        description="Resize images and apply center-crop aspect presets in your browser."
+        description="Resize images to specified dimensions and apply centered crops using aspect-ratio presets."
         canonical="/tools/image-resizer-cropper"
       />
       <ToolSchema

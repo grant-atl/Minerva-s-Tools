@@ -121,7 +121,7 @@ export default function ImageColorPicker() {
     <div className="min-h-screen bg-background text-foreground">
       <SEO
         title="Image Color Picker — Extract Palette from Images | Minerva's Tools"
-        description="Upload an image, click to sample exact colors, and extract dominant palette swatches instantly."
+        description="Sample pixel colors and extract a palette from an uploaded image."
         canonical="/tools/image-color-picker"
       />
       <ToolSchema
@@ -137,7 +137,7 @@ export default function ImageColorPicker() {
         <div className="mb-8 flex items-start justify-between gap-4">
           <div>
             <h1 className="text-3xl font-bold tracking-tight">Image Color Picker</h1>
-            <p className="mt-1 text-muted-foreground">Upload an image, click any pixel, and extract a palette in seconds.</p>
+            <p className="mt-1 text-muted-foreground">Upload an image to sample colors or extract a palette.</p>
           </div>
           <ShareToolButton toolName="Image Color Picker" />
         </div>
